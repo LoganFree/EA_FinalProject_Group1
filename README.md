@@ -1,16 +1,16 @@
-### Title 
+## Title 
 Budget Buddy
 
 
-### Project Overview 
+## Project Overview 
 
 
 
-### Goals and Objectives 
+## Goals and Objectives 
 
 
 
-### Functional Requirements 
+## Functional Requirements 
 1. Req
    - Given:
    - When:
@@ -27,15 +27,15 @@ Budget Buddy
    - Then:
 
 
-### Story Board (link)
+## Story Board (link)
 
 
 
-### UML (link)
+## UML (link)
 
 
 
-### Architecture and Components (image)
+## Architecture and Components (image)
 
 User Entry Form Service 
 - User inputs their information that will be used to determine their budgeting information
@@ -53,6 +53,6 @@ Database
 - Store user entered information and calculated budget information 
 
 
-### Milestones
+## Milestones
 
 
