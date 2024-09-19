@@ -1,15 +1,15 @@
-*#Title 
+# Title 
 
-#Project Overview 
+# Project Overview 
 
-#Goals and Objectives 
+# Goals and Objectives 
 
-#Functional Requirements 
+# Functional Requirements 
 
-#Story Board (link)
+# Story Board (link)
 
-#UML (link)
+# UML (link)
 
-#Architecture and Components (image)
+# Architecture and Components (image)
 
-#Milestones
+# Milestones
