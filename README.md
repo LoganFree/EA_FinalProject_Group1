@@ -1,9 +1,14 @@
 ### Title 
 Budget Buddy
 
+
 ### Project Overview 
 
+
+
 ### Goals and Objectives 
+
+
 
 ### Functional Requirements 
 1. Req
@@ -21,10 +26,18 @@ Budget Buddy
    - When:
    - Then:
 
+
 ### Story Board (link)
+
+
 
 ### UML (link)
 
+
+
 ### Architecture and Components (image)
 
+
 ### Milestones
+
+
