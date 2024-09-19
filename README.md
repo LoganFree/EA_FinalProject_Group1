@@ -1,15 +1,29 @@
-# Title 
+## Title 
 
-# Project Overview 
+## Project Overview 
 
-# Goals and Objectives 
+## Goals and Objectives 
 
-# Functional Requirements 
+## Functional Requirements 
+1. Req
+   - Given:
+   - When:
+   - Then:
+  
+3. Req
+   - Given:
+   - When:
+   - Then:
 
-# Story Board (link)
+5. Req
+   - Given:
+   - When:
+   - Then:
 
-# UML (link)
+## Story Board (link)
 
-# Architecture and Components (image)
+## UML (link)
 
-# Milestones
+## Architecture and Components (image)
+
+## Milestones
