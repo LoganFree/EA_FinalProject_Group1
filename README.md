@@ -1,32 +1,36 @@
-## Title 
+---
+## Title
+
 Budget Buddy
 
+---
 
 ## Project Overview 
 
+Keeping track of your budget can be difficult task. 
 
-
+---
 ## Goals and Objectives 
 
 
-
+---
 ## Functional Requirements 
-1. Req
+1. A user will expect to be able to view a break down of their budget informaiton. 
    - Given:
    - When:
    - Then:
   
-3. Req
+3. A user 
    - Given:
    - When:
    - Then:
 
-5. Req
+5. A user
    - Given:
    - When:
    - Then:
 
-
+---
 ## Story Board (link)
 
 
