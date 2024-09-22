@@ -61,7 +61,7 @@ I will work on
 ---
 ## Milestones
 
-- Milestone 1: Establish Database and integrate with services 
+- Milestone 1: Establish Database
 - Milestone 2: Complete User Entry Form Service 
 - Milestone 3: Develop Adjust Entries Form Service 
 - Milestone 4: Implement Budget Calculation Service 
