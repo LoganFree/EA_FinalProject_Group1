@@ -51,24 +51,18 @@ I will work on
 
 ## Architecture and Components (image)
 
-User Entry Form Service 
-- User inputs their information that will be used to determine their budgeting information
 
-Adjust Entries Form Service
-- Uer will be able to add information like monthly bills, or adjust their previous entered informations 
-
-Budget Calculation Service 
-- This service will take in the entered information and work to calculate the correct budget information. 
-
-Dashboard Service 
-- This service will take the calculated information, and display it in a user-interface. 
-
-Database
-- Store user entered information and calculated budget information 
 
 ---
 ## Milestones
 
+- Milestone 1: Establish Database and integrate with services 
+- Milestone 2: Complete User Entry Form Service 
+- Milestone 3: Develop Adjust Entries Form Service 
+- Milestone 4: Implement Budget Calculation Service 
+- Milestone 5: Design Dashboard Service 
+- Milestone 6: Conduct testing and quality assurance 
+- Milestone 7: Launch Budget Buddy 
 
 ---
 
