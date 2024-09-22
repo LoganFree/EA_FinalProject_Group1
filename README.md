@@ -24,20 +24,25 @@ Keeping track of your budget can be difficult task. Budget Buddy is designed to 
 
 ---
 ## Functional Requirements 
-1. A user will expect to be able to view a break down of their budget informaiton. 
-   - Given:
-   - When:
-   - Then:
+1. User Entry Form Service
+   - Given: A user has accessed the User Entry Form.
+   - When: The user inputs their personal and financial information.
+   - Then: The system validates the inputs for accuracy and completeness and stores the information in the database.
   
-3. A user 
-   - Given:
-   - When:
-   - Then:
+2. User Entry Form Service
+   - Given: A user has accessed the User Entry Form.
+   - When: The user inputs their personal and financial information.
+   - Then: The system validates the inputs for accuracy and completeness and stores the information in the database.
 
-5. A user
-   - Given:
+3. Budget Calculation Service
+   - Given: A user has entered or adjusted their financial information.
+   - When: The user requests a budget calculation.
+   - Then: The system processes the inputs and calculates the budget information accurately.
+  
+4. As a college student, I want to be able to see my budget for each week.
+   - Given: 
    - When:
-   - Then:
+   - Then: 
 
 ---
 ## Story Board (link)
