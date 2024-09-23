@@ -50,15 +50,22 @@ I will work on
 ---
 ## 5. Class Diagram (link)
 
-
-
-## 6. JSON Schema
+Mickey
 
 ---
+## 6. JSON Schema
 
+Loc
+
+---
 ## 7. Scrum Roles
 
+Scrum Master: Logan Freeman
 
+Scrum Development Team
+   - Testing/Debuging: Alex Brooksbank 
+   - Development: Anthony Johnson, Loc Nguyen
+   - Design: Mickey Ofosu-Frimpong, Logan Freeman
 
 ---
 ## 8. Github.com Project Link
