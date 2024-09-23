@@ -27,10 +27,10 @@ I will work on
 ---
 
 ## 4. Functional Requirements 
-1. User Entry Form Service
-   - Given: A user has accessed the User Entry Form.
-   - When: The user inputs their personal and financial information.
-   - Then: The system validates the inputs for accuracy and completeness and stores the information in the database.
+1. User Entry Form Service - I want to add grocery expense to my budget.
+   - Given: A user has accessed the User Entry Form to add expense to their budget.
+   - When: The user has accessed the Add Expense section and chosen a category of expenses. Then the user inputs the amount spent, the date of the expense, and other optional information.
+   - Then: The system validates the inputs for accuracy and completeness, such as ensuring the date is in a valid format and the amount is greater than 0, and stores the information in the database. If the validation fails, an error message is displayed, prompting the user to correct the input.
   
 2. User Edit Entry Form Service
    - Given: A user needs to update their information. 
