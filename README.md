@@ -70,6 +70,8 @@ Scrum Development Team
 ---
 ## 8. Github.com Project Link
 
+https://github.com/LoganFree/EA_FinalProject_Group1
+
 ---
 ## 9. Scrum Board
 
