@@ -11,7 +11,7 @@ Keeping track of your budget can be difficult task. Budget Buddy is designed to 
 
 - Goal 1: Provide a user-friendly interface for entering and managing financial information.
 - Goal 2: Accurately calculate budgets based on user inputs.
-- Goal 4: Display budget information in an easy-to-understand dashboard.
+- Goal 3: Display budget information in an easy-to-understand dashboard.
 
 - Objective 1: Establish a Database for storing user and budget data.
 - Objective 2: Develop a User Entry Form Service for inputting user information.
