@@ -29,8 +29,8 @@ Keeping track of your budget can be difficult task. Budget Buddy is designed to 
    - When: The user inputs their personal and financial information.
    - Then: The system validates the inputs for accuracy and completeness and stores the information in the database.
   
-2. User Entry Form Service
-   - Given: A user has accessed the User Entry Form.
+2. User Edit Entry Form Service
+   - Given: A user needs to update their information. 
    - When: The user inputs their personal and financial information.
    - Then: The system validates the inputs for accuracy and completeness and stores the information in the database.
 
