@@ -1,16 +1,13 @@
 ---
-## Title
+## 1. Title
 
 Budget Buddy - Enterprise Budgeting Application
 
 ---
 
-## Project Overview 
+## 2. Introduction
 
 Keeping track of your budget can be difficult task. Budget Buddy is designed to help users manage their finances by providing a comprehensive budgeting tool. The application allows users to input their financial information, adjust entries, calculate budgets, and view their financial status through an intuitive dashboard.
-
----
-## Goals and Objectives 
 
 - Goal 1: Provide a user-friendly interface for entering and managing financial information.
 - Goal 2: Accurately calculate budgets based on user inputs.
@@ -21,9 +18,15 @@ Keeping track of your budget can be difficult task. Budget Buddy is designed to 
 - Objective 3: Create an Adjust Entries Form Service for modifying financial data.
 - Objective 4: Implement a Budget Calculation Service for processing budget data.
 - Objective 5: Design a Dashboard Service for visualizing budget information.
+---
+## 3. Story Board (link)
+
+I will work on
+-Logan
 
 ---
-## Functional Requirements 
+
+## 4. Functional Requirements 
 1. User Entry Form Service
    - Given: A user has accessed the User Entry Form.
    - When: The user inputs their personal and financial information.
@@ -45,21 +48,23 @@ Keeping track of your budget can be difficult task. Budget Buddy is designed to 
    - Then: 
 
 ---
-## Story Board (link)
-
-I will work on
--Logan
-
-## UML (link)
+## 5. Class Diagram (link)
 
 
 
-## Architecture and Components (image)
+## 6. JSON Schema
+
+---
+
+## 7. Scrum Roles
 
 
 
 ---
-## Milestones
+## 8. Github.com Project Link
+
+---
+## 9. Scrum Board
 
 - Milestone 1: Establish Database
 - Milestone 2: Complete User Entry Form Service 
@@ -70,5 +75,3 @@ I will work on
 - Milestone 7: Launch Budget Buddy 
 
 ---
-
-
