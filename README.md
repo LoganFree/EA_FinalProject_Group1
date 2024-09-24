@@ -7,7 +7,7 @@ Budget Buddy - Enterprise Budgeting Application
 
 ## 2. Introduction
 
-Keeping track of your budget can be difficult task. Budget Buddy is designed to help users manage their finances by providing a comprehensive budgeting tool. The application allows users to input their financial information, adjust entries, calculate budgets, and view their financial status through an intuitive dashboard.
+Keeping track of your budget can be a difficult task. Budget Buddy is designed to help users manage their finances by providing a comprehensive budgeting tool. The application allows users to input their financial information, adjust entries, calculate budgets, and view their financial status through an intuitive dashboard.
 
 - Goal 1: Provide a user-friendly interface for entering and managing financial information.
 - Goal 2: Accurately calculate budgets based on user inputs.
