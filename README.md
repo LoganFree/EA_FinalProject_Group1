@@ -30,22 +30,22 @@ I will work on
 1. User Entry Form Service - I want to add grocery expense to my budget.
    - Given: A user has accessed the User Entry Form to add expense to their budget.
    - When: The user has accessed the Add Expense section and chosen a category of expenses. Then the user inputs the amount spent, the date of the expense, and other optional information.
-   - Then: The system validates the inputs for accuracy and completeness, such as ensuring the date is in a valid format and the amount is greater than 0, then stores the information in the database. If the validation fails, an error message is displayed, prompting the user to correct the input.
+   - Then: The system validates the inputs and ensures the date is in a valid format and the amount is greater than 0, then stores the information in the database. If the validation fails, an error message is displayed, prompting the user to correct the input.
   
-2. User Edit Entry Form Service
-   - Given: A user needs to update their information. 
-   - When: The user inputs their personal and financial information.
-   - Then: The system validates the inputs for accuracy and completeness and stores the information in the database.
+2. User Edit Entry Form Service - I want to update expense information in my budget.
+   - Given: A user needs to update their expense information, such as the category of expenses, amount spent, or date of the expense.
+   - When: The user modifies the personal and financial information in the edit form.
+   - Then: The system validates the inputs and ensures the date is in a valid format and the amount is greater than 0, then stores the updated information in the database. If the validation fails, an error message is displayed, prompting the user to correct the input.
 
-3. Budget Calculation Service
+3. Budget Calculation Service - I want to see how much my expenses are
    - Given: A user has entered or adjusted their financial information.
    - When: The user requests a budget calculation.
    - Then: The system processes the inputs and calculates the budget information accurately.
   
-4. As a college student, I want to be able to see my budget for each week.
-   - Given: 
-   - When:
-   - Then: 
+4. User Budget Inspectation - As a college student, I want to be able to view weekly statement.
+   - Given: A user needs to view their budget for each week.
+   - When: The user navigates to View Statement section and select Weekly View option
+   - Then: The system displays the user's budget, broken down by each week.
 
 ---
 ## 5. Class Diagram (link)
