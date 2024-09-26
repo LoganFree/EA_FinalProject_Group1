@@ -21,8 +21,9 @@ Keeping track of your budget can be a difficult task. Budget Buddy is designed t
 ---
 ## 3. Story Board (link)
 
-I will work on
--Logan
+![Storyboard1](https://github.com/user-attachments/assets/21045234-ab53-41e7-8b18-d45a23b6e41b)
+
+![Storyboard2](https://github.com/user-attachments/assets/1dc1e34b-cf24-4c7d-86f5-1d841b323b4d)
 
 ---
 
@@ -50,12 +51,12 @@ I will work on
 ---
 ## 5. Class Diagram (link)
 
-Mickey
+![image](https://github.com/user-attachments/assets/bfbce214-beb2-44f3-8805-ebc03e63c4cd)
 
 ---
 ## 6. JSON Schema
 
-Loc
+![image](https://github.com/user-attachments/assets/bc150e81-86d6-4ed7-8854-54eda50adbf4)
 
 ---
 ## 7. Scrum Roles
