@@ -64,7 +64,7 @@ Keeping track of your budget can be a difficult task. Budget Buddy is designed t
 Scrum Master: Logan Freeman
 
 Scrum Development Team
-   - Testing/Debuging: Alex Brooksbank 
+   - Testing/Debugging: Alex Brooksbank 
    - Development: Anthony Johnson, Loc Nguyen
    - Design: Mickey Ofosu-Frimpong, Logan Freeman
 
