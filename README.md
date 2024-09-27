@@ -77,7 +77,7 @@ https://github.com/LoganFree/EA_FinalProject_Group1
 ---
 ## 9. Scrum Board
 
-- Milestone 1: come uo with a design for the app
+- Milestone 1: Come up With a Design for the App
 - Milestone 2: Complete User Entry Form Service 
 - Milestone 3: Develop Adjust Entries Form Service 
 - Milestone 4: Implement Budget Calculation Service
