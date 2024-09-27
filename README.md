@@ -77,12 +77,13 @@ https://github.com/LoganFree/EA_FinalProject_Group1
 ---
 ## 9. Scrum Board
 
-- Milestone 1: Establish Database
+- Milestone 1: come uo with a design for the app
 - Milestone 2: Complete User Entry Form Service 
 - Milestone 3: Develop Adjust Entries Form Service 
-- Milestone 4: Implement Budget Calculation Service 
-- Milestone 5: Design Dashboard Service 
-- Milestone 6: Conduct testing and quality assurance 
-- Milestone 7: Launch Budget Buddy 
+- Milestone 4: Implement Budget Calculation Service
+- Milestone 5: Establish a Database 
+- Milestone 6: Design Dashboard Service 
+- Milestone 7: Conduct testing and quality assurance 
+- Milestone 8: Launch Budget Buddy 
 
 ---
