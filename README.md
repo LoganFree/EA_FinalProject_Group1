@@ -21,7 +21,7 @@ Keeping track of your budget can be a difficult task. Budget Buddy is designed t
 ---
 ## 3. Story Board (link)
 
-![Storyboard1](https://github.com/user-attachments/assets/21045234-ab53-41e7-8b18-d45a23b6e41b)
+![Storyboard1](https://github.com/user-attachments/assets/8a45a157-f91e-49d8-b060-4d1f5393890a)
 
 ![Storyboard2](https://github.com/user-attachments/assets/1dc1e34b-cf24-4c7d-86f5-1d841b323b4d)
 
