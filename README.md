@@ -49,9 +49,10 @@ Keeping track of your budget can be a difficult task. Budget Buddy is designed t
    - Then: The system displays the user's budget, broken down by each week.
 
 ---
-## 5. Class Diagram (link)
+## 5. Class Diagram
 
-![image](https://github.com/user-attachments/assets/bfbce214-beb2-44f3-8805-ebc03e63c4cd)
+![UML](https://github.com/user-attachments/assets/6049e9a2-52a6-4a16-9e62-abcb37558290)
+https://lucid.app/lucidchart/42ded405-90bc-41cd-a671-8c033ac885cf/edit?viewport_loc=-271%2C-103%2C3276%2C1512%2C0_0&invitationId=inv_6836303a-8d2c-4b1d-a5d8-89373cd3cad6 
 
 ---
 ## 6. JSON Schema
