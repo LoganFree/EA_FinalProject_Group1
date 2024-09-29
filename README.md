@@ -107,7 +107,7 @@ https://lucid.app/lucidchart/42ded405-90bc-41cd-a671-8c033ac885cf/edit?viewport_
             "type": "object",
             "additionalProperties": false,
             "properties": {
-                "earnsSalary": {
+                "earnIsSalary": {
                     "type": "boolean"
                 },
                 "earnAmount": {
@@ -116,7 +116,7 @@ https://lucid.app/lucidchart/42ded405-90bc-41cd-a671-8c033ac885cf/edit?viewport_
             },
             "required": [
                 "earnAmount",
-                "earnsSalary"
+                "earnIsSalary"
             ],
             "title": "Earning"
         },
