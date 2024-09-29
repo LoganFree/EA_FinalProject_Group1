@@ -165,7 +165,7 @@ https://github.com/LoganFree/EA_FinalProject_Group1
 
 https://github.com/users/LoganFree/projects/2
 
-- Milestone 1: Come up With a Design for the App ([Link to Milestone 1](https://github.com/users/LoganFree/projects/2/views/1))
+- Milestone 1: Come up With a Design for the App ([Link to Milestone 1 Project](https://github.com/users/LoganFree/projects/2/views/1))
 - Milestone 2: Complete User Entry Form Service 
 - Milestone 3: Develop Adjust Entries Form Service 
 - Milestone 4: Implement Budget Calculation Service
