@@ -13,9 +13,9 @@ Keeping track of your budget can be a difficult task. Budget Buddy is designed t
 - Goal 2: Accurately calculate budgets based on user inputs.
 - Goal 3: Display budget information in an easy-to-understand dashboard.
 
-- Objective 1: Establish a Database for storing user and budget data.
-- Objective 2: Develop a User Entry Form Service for inputting user information.
-- Objective 3: Create an Adjust Entries Form Service for modifying financial data.
+- Objective 1: Develop a User Entry Form Service for inputting user information.
+- Objective 2: Create an Adjust Entries Form Service for modifying financial data.
+- Objective 3: Establish a Database for storing user and budget data.
 - Objective 4: Implement a Budget Calculation Service for processing budget data.
 - Objective 5: Design a Dashboard Service for visualizing budget information.
 ---
