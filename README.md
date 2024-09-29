@@ -30,15 +30,15 @@ Keeping track of your budget can be a difficult task. Budget Buddy is designed t
 ## 4. Functional Requirements 
 1. User Entry Form Service - I want to add grocery expense to my budget.
    - Given: A user has accessed the User Entry Form to add expense to their budget.
-   - When: The user has accessed the Add Expense section and chosen a category of expenses. Then the user inputs the amount spent, the date of the expense, and other optional information.
-   - Then: The system validates the inputs and ensures the date is in a valid format and the amount is greater than 0, then stores the information in the database. If the validation fails, an error message is displayed, prompting the user to correct the input.
+   - When: The user inputs the amount spent, the category for the expense, a description, and other optional information.
+   - Then: The system validates the inputs, insuring the amount is greater than 0 and that both the category and description are valid, then stores the information in the database. If the validation fails, an error message is displayed, prompting the user to correct the input.
   
 2. User Edit Entry Form Service - I want to update expense information in my budget.
-   - Given: A user needs to update their expense information, such as the category of expenses, amount spent, or date of the expense.
+   - Given: A user needs to update their expense information, such as the category of expenses, amount spent, or description of the expense.
    - When: The user modifies the personal and financial information in the edit form.
-   - Then: The system validates the inputs and ensures the date is in a valid format and the amount is greater than 0, then stores the updated information in the database. If the validation fails, an error message is displayed, prompting the user to correct the input.
+   - Then: The system validates the inputs, insuring the amount is greater than 0 and that both the category and description are valid, then stores the information in the database. If the validation fails, an error message is displayed, prompting the user to correct the input.
 
-3. Budget Calculation Service - I want to see how much my expenses are
+3. Budget Calculation Service - I want to see how much my expenses are.
    - Given: A user has entered or adjusted their financial information.
    - When: The user requests a budget calculation.
    - Then: The system processes the inputs and calculates the budget information accurately.
