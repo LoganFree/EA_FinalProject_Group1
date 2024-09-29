@@ -51,7 +51,7 @@ Keeping track of your budget can be a difficult task. Budget Buddy is designed t
 ---
 ## 5. Class Diagram
 
-![UML](https://github.com/user-attachments/assets/6049e9a2-52a6-4a16-9e62-abcb37558290)
+![UML](https://github.com/user-attachments/assets/8408b834-4271-44d1-b86a-2b182789fa0d)
 https://lucid.app/lucidchart/42ded405-90bc-41cd-a671-8c033ac885cf/edit?viewport_loc=-271%2C-103%2C3276%2C1512%2C0_0&invitationId=inv_6836303a-8d2c-4b1d-a5d8-89373cd3cad6 
 
 ---
