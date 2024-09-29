@@ -45,7 +45,7 @@ Keeping track of your budget can be a difficult task. Budget Buddy is designed t
   
 4. User Budget Inspectation - As a college student, I want to be able to view weekly statement.
    - Given: A user needs to view their budget for each week.
-   - When: The user navigates to View Statement section and select Weekly View option
+   - When: The user navigates to View Statement section and select Weekly View option.
    - Then: The system displays the user's budget, broken down by each week.
 
 ---
