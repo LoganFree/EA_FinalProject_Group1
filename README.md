@@ -56,9 +56,96 @@ https://lucid.app/lucidchart/42ded405-90bc-41cd-a671-8c033ac885cf/edit?viewport_
 
 ---
 ## 6. JSON Schema
+```json
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/BudgetBuddy",
+    "definitions": {
+        "BudgetBuddy": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "Earning": {
+                    "$ref": "#/definitions/Earning"
+                },
+                "Bill": {
+                    "$ref": "#/definitions/Bill"
+                },
+                "Expense": {
+                    "$ref": "#/definitions/Expense"
+                }
+            },
+            "required": [
+                "Bill",
+                "Earning",
+                "Expense"
+            ],
+            "title": "BudgetBuddy"
+        },
+        "Bill": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "billAmount": {
+                    "type": "integer"
+                },
+                "billDueDate": {
+                    "type": "string"
+                },
+                "billDescription": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "billAmount",
+                "billDescription",
+                "billDueDate"
+            ],
+            "title": "Bill"
+        },
+        "Earning": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "earnsSalary": {
+                    "type": "boolean"
+                },
+                "earnAmount": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "earnAmount",
+                "earnsSalary"
+            ],
+            "title": "Earning"
+        },
+        "Expense": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "expAmount": {
+                    "type": "integer"
+                },
+                "expCategory": {
+                    "type": "string"
+                },
+                "expDescription": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "expAmount",
+                "expCategory",
+                "expDescription"
+            ],
+            "title": "Expense"
+        }
+    }
+}
 
-![image](https://github.com/user-attachments/assets/bc150e81-86d6-4ed7-8854-54eda50adbf4)
 
+```
 ---
 ## 7. Scrum Roles
 
