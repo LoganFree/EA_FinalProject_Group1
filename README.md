@@ -52,8 +52,7 @@ Keeping track of your budget can be a difficult task. Budget Buddy is designed t
 ## 5. Class Diagram
 
 ![UML](https://github.com/user-attachments/assets/8408b834-4271-44d1-b86a-2b182789fa0d)
-https://lucid.app/lucidchart/42ded405-90bc-41cd-a671-8c033ac885cf/edit?viewport_loc=-271%2C-103%2C3276%2C1512%2C0_0&invitationId=inv_6836303a-8d2c-4b1d-a5d8-89373cd3cad6 
-
+[Link to LucidChart](https://lucid.app/lucidchart/42ded405-90bc-41cd-a671-8c033ac885cf/edit?viewport_loc=-678%2C37%2C4517%2C2193%2C0_0&invitationId=inv_6836303a-8d2c-4b1d-a5d8-89373cd3cad6)
 ---
 ## 6. JSON Schema
 ```json
@@ -166,7 +165,7 @@ https://github.com/LoganFree/EA_FinalProject_Group1
 
 https://github.com/users/LoganFree/projects/2
 
-- Milestone 1: Come up With a Design for the App (https://github.com/users/LoganFree/projects/2/views/1)
+- Milestone 1: Come up With a Design for the App ([Link to Milestone 1](https://github.com/users/LoganFree/projects/2/views/1))
 - Milestone 2: Complete User Entry Form Service 
 - Milestone 3: Develop Adjust Entries Form Service 
 - Milestone 4: Implement Budget Calculation Service
