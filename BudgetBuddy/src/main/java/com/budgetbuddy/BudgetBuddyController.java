@@ -18,18 +18,21 @@ public class BudgetBuddyController {
     @RequestMapping("/")
     public String index(Model model)
     {
+        model.addAttribute("page", "home");
         return "startpage";
     }
 
     @RequestMapping("/entryform")
-    public String entryForm()
+    public String entryForm(Model model)
     {
+        model.addAttribute("page", "entry");
         return "entryform";
     }
 
     @RequestMapping("/dashboard")
-    public String dashboard()
+    public String dashboard(Model model)
     {
+        model.addAttribute("page", "dashboard");
         return "dashboard";
     }
 
