@@ -3,11 +3,18 @@
     padding: 20px 20px;
     background-color: #f5ccc9;
 }
+
 .nav-item{
     background-color: white;
     margin-left: 10px;
     margin-right: 10px;
 }
-.navbar-nav{
-    background-color: gray;
+.nav-item:hover{
+    background-color: #f08d86;
+}
+
+
+
+.navbar{
+    background: linear-gradient(to right, #f5ccc9, lightgray, lightgray);
 }
