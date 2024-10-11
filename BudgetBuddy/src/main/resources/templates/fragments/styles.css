@@ -5,5 +5,9 @@
 }
 .nav-item{
     background-color: white;
+    margin-left: 10px;
+    margin-right: 10px;
 }
-.navbar-nav
+.navbar-nav{
+    background-color: gray;
+}

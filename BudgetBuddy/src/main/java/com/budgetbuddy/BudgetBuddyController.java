@@ -37,4 +37,10 @@ public class BudgetBuddyController {
     }
 
 
+    @RequestMapping("/fragments/styles.css")
+    public String styles(Model model)
+    {
+        return "fragments/styles.css";
+    }
+
 }
