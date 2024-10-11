@@ -10,8 +10,8 @@ public interface IBillDAO {
 
         List<Bill> fetchAll();
 
-        Bill fetch(int id);
+        Bill fetch(long id);
 
-        void delete(int id);
+        void delete(long id);
     }
 

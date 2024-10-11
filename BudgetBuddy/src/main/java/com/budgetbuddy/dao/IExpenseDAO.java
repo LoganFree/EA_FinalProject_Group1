@@ -9,8 +9,8 @@ public interface IExpenseDAO {
 
         List<Expense> fetchAll();
 
-        Expense fetch(int id);
+        Expense fetch(long id);
 
-        void delete(int id);
+        void delete(long id);
 
 }

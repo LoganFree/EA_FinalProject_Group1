@@ -8,7 +8,7 @@ public interface IEarningDAO {
 
         List<Earning> fetchAll();
 
-       Earning fetch(int id);
+       Earning fetch(long id);
 
-        void delete(int id);
+        void delete(long id);
     }
