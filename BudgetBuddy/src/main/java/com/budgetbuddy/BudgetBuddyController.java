@@ -21,4 +21,17 @@ public class BudgetBuddyController {
         return "startpage";
     }
 
+    @RequestMapping("/entryform")
+    public String entryForm()
+    {
+        return "entryform";
+    }
+
+    @RequestMapping("/dashboard")
+    public String dashboard()
+    {
+        return "dashboard";
+    }
+
+
 }
