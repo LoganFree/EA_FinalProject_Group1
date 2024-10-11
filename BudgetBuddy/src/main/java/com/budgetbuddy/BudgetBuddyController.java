@@ -18,7 +18,7 @@ public class BudgetBuddyController {
     @RequestMapping("/")
     public String index(Model model)
     {
-        return "entryform";
+        return "startpage";
     }
 
 }
