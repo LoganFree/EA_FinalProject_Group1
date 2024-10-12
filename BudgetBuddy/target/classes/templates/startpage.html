@@ -13,17 +13,19 @@
 <div th:replace="fragments/topnav :: navbar">
 </div>
 
-<div>
+<div class="divider d-flex justify-content-center">
     <br>
-    <h3 class="text-center">Welcome to</h3>
-    <h1 class="text-center">Budget Buddy</h1>
+    <div class="box-content" style="margin: 20px">
+        <h3 class="text-center">Welcome to</h3>
+        <h1 class="text-center">Budget Buddy</h1>
+    </div>
+    <br>
 </div>
-
 
 <div class="d-flex justify-content-center align-items-center" style="height: 50vh;">
     <div>
-        <a href="/entryform" class="btn btn-square mx-2">Entry Form</a>
-        <a href="/dashboard" class="btn btn-square mx-2">Dashboard</a>
+        <a href="/entry-form" class="btn btn-content mx-2">Entry Form</a>
+        <a href="/dashboard" class="btn btn-content mx-2">Dashboard</a>
     </div>
 </div>
 

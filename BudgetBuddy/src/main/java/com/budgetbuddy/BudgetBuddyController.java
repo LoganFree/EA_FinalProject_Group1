@@ -22,7 +22,7 @@ public class BudgetBuddyController {
         return "startpage";
     }
 
-    @RequestMapping("/entryform")
+    @RequestMapping("/entry-form")
     public String entryForm(Model model)
     {
         model.addAttribute("page", "entry");

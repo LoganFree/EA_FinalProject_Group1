@@ -13,7 +13,70 @@
 <div th:replace="fragments/topnav :: navbar">
 </div>
 
-ENTRY FORM
+<div class="divider d-flex justify-content-center align-items-center">
+    <a class="navbar-brand"><b>Entry Form</b></a>
+</div>
+
+<div class="body-content">
+
+    <br>
+
+    <div class="question-content">
+        <p><b>Please select your wage:</b></p>
+        <div class="flex-container">
+            <div class="box-content">
+                <input type="radio" id="Hourly" name="options" value="1">
+                <label for="Hourly">Hourly</label><br>
+
+                <input type="radio" id="Yearly" name="options" value="2">
+                <label for="Yearly">Yearly</label>
+            </div>
+            <div class="box-content text-inputs">
+                <label for="wage">Wage:</label><br>
+                $ <input type="text" id="wage" name="wage" placeholder="Enter your wage">
+            </div>
+            <script>
+                document.getElementById('wage').addEventListener('input', function (e) {
+                    this.value = this.value.replace(/[^0-9.,]/g, '');
+                });
+            </script>
+        </div>
+    </div>
+
+    <div class="divider" style="width: 40%"></div>
+
+    <div class="question-content">
+        <p><b>Add monthly bills:</b></p>
+        <div class="flex-container">
+            <div class="box-content text-inputs">
+                <div class="input-pair">
+                    <label for="billAmount">Bill Amount:</label>
+                    <input type="text" id="billAmount" name="billAmount" placeholder="Amount">
+                </div>
+                <div class="input-pair">
+                    <label for="billDueDate">Due Date:</label>
+                    <input type="text" id="billDueDate" name="billDueDate" placeholder="Due Date">
+                </div>
+                <div class="input-pair">
+                    <label for="billDescription">Description:</label>
+                    <input type="text" id="billDescription" name="billDescription" placeholder="Description">
+                </div>
+            </div>
+            <script>
+                document.getElementById('billAmount').addEventListener('input', function (e) {
+                    this.value = this.value.replace(/[^0-9.,]/g, '');
+                });
+            </script>
+        </div>
+    </div>
+    <br>
+    <div class="btn slim-btn-content mx-2" style="width: 30%; height: 5px;">
+        <p>+ Add</p>
+    </div>
+
+
+</div>
+
 
 </body>
 </html>
