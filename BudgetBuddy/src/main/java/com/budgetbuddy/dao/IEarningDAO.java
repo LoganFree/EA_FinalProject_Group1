@@ -4,11 +4,12 @@ import com.budgetbuddy.dto.Earning;
 import java.util.List;
 
 public interface IEarningDAO {
-        Earning save(Earning earning) throws Exception;
+        //Earning management
+        Earning save(Earning earning);
+        Earning updateEarning(Earning earning);
+        Earning getEarningById(long id);
+        void deleteEarning(long id);
+        List<Earning> getAllEarnings();
+        double calculateTotalEarning();
 
-        List<Earning> fetchAll();
-
-       Earning fetch(int id);
-
-        void delete(int id);
     }
