@@ -43,4 +43,9 @@ public class BudgetBuddyController {
         return "fragments/styles.css";
     }
 
+    @RequestMapping("/test")
+    public String test(Model model)
+    {
+        return "test";
+    }
 }
