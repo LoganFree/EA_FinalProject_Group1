@@ -66,4 +66,5 @@ public class BudgetBuddyController {
         }
         return "entryform";
     }
+
 }

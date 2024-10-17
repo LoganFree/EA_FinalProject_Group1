@@ -44,12 +44,11 @@
             </script>
         </div>
     </div>
-
+<!--
     <div class="divider" style="width: 40%"></div>
 
     <div class="flex-container">
 
-        <!-- Question #2 for Bills -->
         <div class="question-content">
             <p><b>Add monthly bills:</b></p>
             <div class="flex-container">
@@ -76,7 +75,6 @@
             <a onclick="addBill" class="btn btn-content-slim mx-2"><b>+ add bill</b></a>
         </div>
 
-        <!-- Question #3 for Expenses -->
         <div class="question-content">
             <p><b>Add weekly expenses:</b></p>
             <div class="flex-container">
@@ -104,7 +102,7 @@
         </div>
     </div>
 
-
+-->
 
 
     <div class="container mt-5">
@@ -119,22 +117,22 @@
             </tr>
             </thead>
             <tbody id="expenseTable">
-            <!-- Existing data will be appended here -->
+
             </tbody>
             <tfoot>
             <tr>
                 <td colspan="4">
-                    <form th:action="@{/saveBill}" th:object="${bill}" method="POST" onsubmit="return addBill()">
+                    <form th:action="@{/saveBill}" th:object="${Bill}" method="POST">
 
                         <div class="row mb-3">
                             <div class="col">
-                                <input type="number" id="billAmount1" th:field="*{billAmount}" class="form-control" placeholder="Amount">
+                                <input type="number" name="billAmount" th:field="*{BillAmount}" class="form-control" placeholder="Amount">
                             </div>
                             <div class="col">
-                                <input type="date" id="billDueDate1"  th:field="*{billDueDate}" class="form-control" placeholder="Due Date">
+                                <input type="date" name="billDueDate"  th:field="*{BillDueDate}" class="form-control" placeholder="Due Date">
                             </div>
                             <div class="col">
-                                <input type="text" id="billDescription1" th:field="*{billDescription}" class="form-control" placeholder="Description">
+                                <input type="text" name="billDescription" th:field="*{BillDescription}" class="form-control" placeholder="Description">
                             </div>
                             <div class="col">
                                 <button type="submit" class="btn btn-content-slim mx-2">Add</button>
