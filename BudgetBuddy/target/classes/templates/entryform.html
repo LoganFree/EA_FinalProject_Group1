@@ -124,20 +124,17 @@
             <tfoot>
             <tr>
                 <td colspan="4">
-                    <form onsubmit="return addBill()">
-                        <!--th:action="@{/saveBill}" th:object="${Bill}" method="POST"-->
+                    <form th:action="@{/saveBill}" th:object="${bill}" method="POST" onsubmit="return addBill()">
+
                         <div class="row mb-3">
                             <div class="col">
-                                <input type="number" id="billAmount1" class="form-control" placeholder="Amount">
-                                <!--th:field="*{billAmount}"-->
+                                <input type="number" id="billAmount1" th:field="*{billAmount}" class="form-control" placeholder="Amount">
                             </div>
                             <div class="col">
-                                <input type="date" id="billDueDate1" class="form-control" placeholder="Due Date">
-                                <!-- th:field="*{billDueDate}"-->
+                                <input type="date" id="billDueDate1"  th:field="*{billDueDate}" class="form-control" placeholder="Due Date">
                             </div>
                             <div class="col">
-                                <input type="text" id="billDescription1" class="form-control" placeholder="Description">
-                                <!--th:field="*{billDescription}"-->
+                                <input type="text" id="billDescription1" th:field="*{billDescription}" class="form-control" placeholder="Description">
                             </div>
                             <div class="col">
                                 <button type="submit" class="btn btn-content-slim mx-2">Add</button>

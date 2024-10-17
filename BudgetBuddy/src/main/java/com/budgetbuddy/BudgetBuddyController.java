@@ -1,5 +1,8 @@
 package com.budgetbuddy;
 
+import com.budgetbuddy.dto.Bill;
+import com.budgetbuddy.service.IBillService;
+
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -14,6 +17,8 @@ import java.util.List;
 
 @Controller
 public class BudgetBuddyController {
+    @Autowired
+    IBillService billService;
 
     @RequestMapping("/")
     public String index(Model model)
@@ -47,5 +52,18 @@ public class BudgetBuddyController {
     public String test(Model model)
     {
         return "test";
+    }
+
+    @RequestMapping("/saveBill")
+    public String saveBill(Bill bill)
+    {
+        try {
+            billService.save(bill);
+        } catch (Exception e) {
+            //   throw new RuntimeException(e);
+            e.printStackTrace();
+            return "entryform";
+        }
+        return "entryform";
     }
 }
