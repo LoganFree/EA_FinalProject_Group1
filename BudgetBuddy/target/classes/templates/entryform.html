@@ -122,17 +122,16 @@
             <tfoot>
             <tr>
                 <td colspan="4">
-                    <form th:action="@{/saveBill}" th:object="${Bill}" method="POST">
-
+                    <form action="#" th:action="@{/saveBill}" th:object="${bill}" method="POST">
                         <div class="row mb-3">
                             <div class="col">
-                                <input type="number" name="billAmount" th:field="*{BillAmount}" class="form-control" placeholder="Amount">
+                                <input type="number" id="billAmount" name="billAmount" th:field="*{BillAmount}" class="form-control" placeholder="Amount">
                             </div>
                             <div class="col">
-                                <input type="date" name="billDueDate"  th:field="*{BillDueDate}" class="form-control" placeholder="Due Date">
+                                <input type="date" id="billDueDate" name="billDueDate" th:field="*{BillDueDate}" class="form-control" placeholder="Due Date">
                             </div>
                             <div class="col">
-                                <input type="text" name="billDescription" th:field="*{BillDescription}" class="form-control" placeholder="Description">
+                                <input type="text" id="billDescription" name="billDescription" th:field="*{BillDescription}" class="form-control" placeholder="Description">
                             </div>
                             <div class="col">
                                 <button type="submit" class="btn btn-content-slim mx-2">Add</button>
@@ -154,9 +153,9 @@
             var cell3 = row.insertCell(2);
             var cell4 = row.insertCell(3);
 
-            var billAmount = document.getElementById("billAmount1").value;
-            var billDueDate = document.getElementById("billDueDate1").value;
-            var billDescription = document.getElementById("billDescription1").value;
+            var billAmount = document.getElementById("billAmount").value;
+            var billDueDate = document.getElementById("billDueDate").value;
+            var billDescription = document.getElementById("billDescription").value;
 
             cell1.textContent = billAmount;
             cell2.textContent = billDueDate;
@@ -164,9 +163,9 @@
             cell4.innerHTML = '<button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button>';
 
             // Clear input fields
-            document.getElementById("billAmount1").value = "";
-            document.getElementById("billDueDate1").value = "";
-            document.getElementById("billDescription1").value = "";
+            document.getElementById("billAmount").value = "";
+            document.getElementById("billDueDate").value = "";
+            document.getElementById("billDescription").value = "";
 
             // Prevent the form from submitting
             return false;
