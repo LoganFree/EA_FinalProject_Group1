@@ -1,7 +1,5 @@
 package com.budgetbuddy;
 
-import com.budgetbuddy.dto.Bill;
-import com.budgetbuddy.service.BillService;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -16,20 +14,33 @@ import java.util.List;
 
 @Controller
 public class BudgetBuddyController {
-    @Autowired
-    private BillService billService;
 
     @RequestMapping("/")
     public String index(Model model)
     {
+        model.addAttribute("page", "home");
         return "startpage";
     }
 
-    @PostMapping("/")
-    public ResponseEntity<Bill> createBill(@RequestBody Bill bill)
+    @RequestMapping("/entry-form")
+    public String entryForm(Model model)
     {
-        Bill createdBill = billService.save(bill);
-        return ResponseEntity.ok(createdBill);
+        model.addAttribute("page", "entry");
+        return "entryform";
+    }
+
+    @RequestMapping("/dashboard")
+    public String dashboard(Model model)
+    {
+        model.addAttribute("page", "dashboard");
+        return "dashboard";
+    }
+
+
+    @RequestMapping("/fragments/styles.css")
+    public String styles(Model model)
+    {
+        return "fragments/styles.css";
     }
 
 }
