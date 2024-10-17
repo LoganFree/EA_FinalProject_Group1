@@ -9,7 +9,7 @@ public interface IExpenseService {
     //Expense management
     Expense createExpense(Expense expense);
     Expense updateExpense(Expense expense);
-    Expense getExpenseById(long id);
+    Expense getExpenseByCategory(String category);
     void deleteExpense(long id);
     List<Expense> getAllExpenses();
     double calculateTotalExpense();

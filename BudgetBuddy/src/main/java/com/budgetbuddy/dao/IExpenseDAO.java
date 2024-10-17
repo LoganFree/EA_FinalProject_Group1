@@ -9,7 +9,7 @@ public interface IExpenseDAO {
         //Expense management
         Expense save(Expense expense);
         Expense updateExpense(Expense expense);
-        Expense getExpenseById(long id);
+        Expense getExpenseByCategory(String category);
         void deleteExpense(long id);
         List<Expense> getAllExpenses();
         double calculateTotalExpense();

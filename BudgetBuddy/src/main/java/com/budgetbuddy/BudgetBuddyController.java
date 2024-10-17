@@ -1,5 +1,6 @@
 package com.budgetbuddy;
 
+import com.budgetbuddy.dto.Bill;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -42,5 +43,7 @@ public class BudgetBuddyController {
     {
         return "fragments/styles.css";
     }
+
+    public Bill created
 
 }
