@@ -10,17 +10,19 @@
 </head>
 <body>
 
+<!-- Top Nav -->
 <div th:replace="fragments/topnav :: navbar">
 </div>
 
+<!-- Page Title -->
 <div class="divider d-flex justify-content-center align-items-center">
     <a class="navbar-brand"><b>Entry Form</b></a>
 </div>
 
+<!-- Wrapper for body content-->
 <div class="body-content">
 
-    <br>
-
+    <!-- Question #1 for Wage -->
     <div class="question-content">
         <p><b>Please select your wage:</b></p>
         <div class="flex-container">
@@ -42,37 +44,139 @@
             </script>
         </div>
     </div>
+    <!--
+        <div class="divider" style="width: 40%"></div>
 
-    <div class="divider" style="width: 40%"></div>
-
-    <div class="question-content">
-        <p><b>Add monthly bills:</b></p>
         <div class="flex-container">
-            <div class="box-content text-inputs">
-                <div class="input-pair">
-                    <label for="billAmount">Bill Amount:</label>
-                    <input type="text" id="billAmount" name="billAmount" placeholder="Amount">
+
+            <div class="question-content">
+                <p><b>Add monthly bills:</b></p>
+                <div class="flex-container">
+                    <div class="box-content text-inputs">
+                        <div class="input-pair">
+                            <label for="billAmount">Bill Amount:</label>
+                            $ <input type="text" id="billAmount" name="billAmount" placeholder="Amount">
+                        </div>
+                        <div class="input-pair">
+                            <label for="billDueDate">Due Date:</label>
+                            <input type="date" id="billDueDate" name="billDueDate" placeholder="Due Date">
+                        </div>
+                        <div class="input-pair">
+                            <label for="billDescription">Description:</label>
+                            <input type="text" id="billDescription" name="billDescription" placeholder="Description">
+                        </div>
+                    </div>
+                    <script>
+                        document.getElementById('billAmount').addEventListener('input', function (e) {
+                            this.value = this.value.replace(/[^0-9.,]/g, '');
+                        });
+                    </script>
                 </div>
-                <div class="input-pair">
-                    <label for="billDueDate">Due Date:</label>
-                    <input type="text" id="billDueDate" name="billDueDate" placeholder="Due Date">
-                </div>
-                <div class="input-pair">
-                    <label for="billDescription">Description:</label>
-                    <input type="text" id="billDescription" name="billDescription" placeholder="Description">
-                </div>
+                <a onclick="addBill" class="btn btn-content-slim mx-2"><b>+ add bill</b></a>
             </div>
-            <script>
-                document.getElementById('billAmount').addEventListener('input', function (e) {
-                    this.value = this.value.replace(/[^0-9.,]/g, '');
-                });
-            </script>
+
+            <div class="question-content">
+                <p><b>Add weekly expenses:</b></p>
+                <div class="flex-container">
+                    <div class="box-content text-inputs">
+                        <div class="input-pair">
+                            <label for="billAmount">Expense Amount:</label>
+                            <input type="text" id="expenseAmount" name="expenseAmount" placeholder="Amount">
+                        </div>
+                        <div class="input-pair">
+                            <label for="category">Category:</label>
+                            <input type="text" id="category" name="category" placeholder="Category">
+                        </div>
+                        <div class="input-pair">
+                            <label for="billDescription">Description:</label>
+                            <input type="text" id="expenseDescription" name="expenseDescription" placeholder="Description">
+                        </div>
+                    </div>
+                    <script>
+                        document.getElementById('billAmount').addEventListener('input', function (e) {
+                            this.value = this.value.replace(/[^0-9.,]/g, '');
+                        });
+                    </script>
+                </div>
+                <a onclick="addExpense" class="btn btn-content-slim mx-2"><b>+ add expense</b></a>
+            </div>
         </div>
+
+    -->
+
+
+    <div class="container mt-5">
+        <h2>Add Monthly Bill:</h2>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Bill Amount</th>
+                <th>Due Date</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="expenseTable">
+
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="4">
+                    <form action="#" th:action="@{/saveBill}" th:object="${bill}" method="POST">
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="number" id="billAmount" name="billAmount" th:field="*{BillAmount}" class="form-control" placeholder="Amount">
+                            </div>
+                            <div class="col">
+                                <input type="date" id="billDueDate" name="billDueDate" th:field="*{BillDueDate}" class="form-control" placeholder="Due Date">
+                            </div>
+                            <div class="col">
+                                <input type="text" id="billDescription" name="billDescription" th:field="*{BillDescription}" class="form-control" placeholder="Description">
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-content-slim mx-2">Add</button>
+                            </div>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
     </div>
-    <br>
-    <div class="btn slim-btn-content mx-2" style="width: 30%; height: 5px;">
-        <p>+ Add</p>
-    </div>
+
+    <script>
+        function addBill() {
+            var table = document.getElementById("expenseTable");
+            var row = table.insertRow(0); // Insert new row at the top
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+
+            var billAmount = document.getElementById("billAmount").value;
+            var billDueDate = document.getElementById("billDueDate").value;
+            var billDescription = document.getElementById("billDescription").value;
+
+            cell1.textContent = billAmount;
+            cell2.textContent = billDueDate;
+            cell3.textContent = billDescription;
+            cell4.innerHTML = '<button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button>';
+
+            // Clear input fields
+            document.getElementById("billAmount").value = "";
+            document.getElementById("billDueDate").value = "";
+            document.getElementById("billDescription").value = "";
+
+            // Prevent the form from submitting
+            return false;
+        }
+
+        function deleteRow(button) {
+            var row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+    </script>
+
 
 
 </div>
