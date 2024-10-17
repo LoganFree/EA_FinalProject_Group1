@@ -1,4 +1,9 @@
 package com.budgetbuddy.dto;
 
-public class Expense {
+import lombok.Data;
+
+public @Data class Expense {
+    private double expAmount;
+    private String expCategory;
+    private String expDescription;
 }

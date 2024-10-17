@@ -1,4 +1,11 @@
 package com.budgetbuddy.dto;
 
-public class Bill {
+import lombok.Data;
+
+import java.util.Date;
+
+public @Data class Bill {
+    private double billAmount;
+    private Date billDueDate;
+    private String billDescription;
 }
