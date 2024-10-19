@@ -125,16 +125,16 @@
                     <form action="#" th:action="@{/saveBill}" th:object="${bill}" method="POST">
                         <div class="row mb-3">
                             <div class="col">
-                                <input type="number" id="billAmount" name="billAmount" step="0.01" th:field="*{billAmount}" class="form-control" placeholder="Amount">
+                                <input type="number" id="billAmount" name="billAmount" th:field="*{BillAmount}" class="form-control" placeholder="Amount">
                             </div>
                             <div class="col">
-                                <input type="date" id="billDueDate" name="billDueDate" th:field="*{billDueDate}" class="form-control" placeholder="Due Date">
+                                <input type="date" id="billDueDate" name="billDueDate" th:field="*{BillDueDate}" class="form-control" placeholder="Due Date">
                             </div>
                             <div class="col">
-                                <input type="text" id="billDescription" name="billDescription" th:field="*{billDescription}" class="form-control" placeholder="Description">
+                                <input type="text" id="billDescription" name="billDescription" th:field="*{BillDescription}" class="form-control" placeholder="Description">
                             </div>
                             <div class="col">
-                                <button type="submit" class="btn btn-content-slim mx-2" onclick="addBill()">Add</button>
+                                <button type="submit" onsubmit="addBill()" class="btn btn-content-slim mx-2">Add</button>
                             </div>
                         </div>
                     </form>
