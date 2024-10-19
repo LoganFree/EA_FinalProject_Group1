@@ -36,7 +36,7 @@
 }
 .flex-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 input[type="radio"] {
     transform: scale(1.4);
@@ -85,7 +85,10 @@ input[type="radio"] {
     display: inline-block;
     font-size: 20px;
     padding: 10px;
+    padding-right: 200px;
+    padding-bottom: 50px;
     margin-top: 20px;
+    margin-bottom: 75px;
 }
 
 .divider{
