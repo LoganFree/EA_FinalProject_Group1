@@ -42,6 +42,18 @@
                     this.value = this.value.replace(/[^0-9.,]/g, '');
                 });
             </script>
+            <span style="padding:20px; align-content: center;" class="divider">
+                &nbsp;&nbsp;<b>OR</b>&nbsp;&nbsp;
+            </span>
+            <div class="box-content text-inputs">
+                <label for="wage">Account ID:</label><br>
+                ID <input type="text" id="accountID" name="accountID" placeholder="Enter your Account ID">
+            </div>
+            <script>
+                document.getElementById('accountID').addEventListener('input', function (e) {
+                    this.value = this.value.replace(/[^0-9.,]/g, '');
+                });
+            </script>
         </div>
     </div>
     <!--
