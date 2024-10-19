@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -33,10 +35,14 @@ public class BudgetBuddyController {
     public String entryForm(Model model)
     {
         Bill bill = new Bill();
-        bill.setBillAmount(100.00);
-        //bill.setBillDueDate(new Date("10-10-2024"));
-        bill.setBillDescription("Test");
-        model.addAttribute(bill);
+
+        //setBillAmount(100.0);
+        //bill.setBillDueDate("2024-10-10");
+        //bill.setBillDescription("Test");
+        List<Bill> bills = billService.getAllBills();
+
+        model.addAttribute("bills", bills);
+        model.addAttribute("bill", bill);
 
         //model.addAttribute("page", "entry");
         return "entryform";
