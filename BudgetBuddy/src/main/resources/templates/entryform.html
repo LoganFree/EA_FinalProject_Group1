@@ -23,38 +23,52 @@
 <div class="body-content">
 
     <!-- Question #1 for Wage -->
-    <div class="question-content">
+    <div class="question-content divider">
         <p><b>Please select your wage:</b></p>
         <div class="flex-container">
             <div class="box-content">
-                <input type="radio" id="Hourly" name="options" value="1">
+                <input type="radio" id="Hourly" name="options" value="1" onclick="toggleElement()">
                 <label for="Hourly">Hourly</label><br>
-
-                <input type="radio" id="Yearly" name="options" value="2">
+                <input type="radio" id="Yearly" name="options" value="2" onclick="toggleElement()">
                 <label for="Yearly">Yearly</label>
             </div>
             <div class="box-content text-inputs">
                 <label for="wage">Wage:</label><br>
                 $ <input type="text" id="wage" name="wage" placeholder="Enter your wage">
             </div>
+            <div class="box-content text-inputs" id="toggleTarget" style="display: none;">
+                <label for="wage">Hours a Week:</label><br>
+                $ <input type="number" id="hoursWeek" name="hoursWeek" placeholder="hours" style="width: 100px">
+            </div>
             <script>
                 document.getElementById('wage').addEventListener('input', function (e) {
                     this.value = this.value.replace(/[^0-9.,]/g, '');
                 });
-            </script>
-            <span style="padding:20px; align-content: center;" class="divider">
-                &nbsp;&nbsp;<b>OR</b>&nbsp;&nbsp;
-            </span>
-            <div class="box-content text-inputs">
-                <label for="wage">Account ID:</label><br>
-                ID <input type="text" id="accountID" name="accountID" placeholder="Enter your Account ID">
-            </div>
-            <script>
-                document.getElementById('accountID').addEventListener('input', function (e) {
-                    this.value = this.value.replace(/[^0-9.,]/g, '');
-                });
+
+                function toggleElement() {
+                    var element = document.getElementById('toggleTarget');
+                    var hourlyRadio = document.getElementById('Hourly');
+
+                    if (hourlyRadio.checked) {
+                        element.style.display = 'block';
+                    } else {
+                        element.style.display = 'none';
+                    }
+                }
             </script>
         </div>
+        <span style="padding:20px; align-content: center;" class="divider">
+                &nbsp;&nbsp;<b>OR</b>&nbsp;&nbsp;
+            </span>
+        <div class="box-content text-inputs">
+            <label for="wage">Account ID:</label><br>
+            ID <input type="number" id="accountID" name="accountID" placeholder="Enter your Account ID">
+        </div>
+        <script>
+            document.getElementById('accountID').addEventListener('input', function (e) {
+                this.value = this.value.replace(/[^0-9]/g, '');
+            });
+        </script>
     </div>
     <!--
         <div class="divider" style="width: 40%"></div>
@@ -134,19 +148,19 @@
             <tfoot>
             <tr>
                 <td colspan="4">
-                    <form action="#" th:action="@{/saveBill}" th:object="${bill}" method="POST">
+                    <form action="#" th:action="@{/saveBill}" th:object="${bill}" method="POST" onsubmit="addBill()">
                         <div class="row mb-3">
                             <div class="col">
-                                <input type="number" id="billAmount" name="billAmount" th:field="*{BillAmount}" class="form-control" placeholder="Amount">
+                                <input type="number" id="billAmount" name="billAmount" th:field="*{billAmount}" class="form-control" placeholder="Amount">
                             </div>
                             <div class="col">
-                                <input type="date" id="billDueDate" name="billDueDate" th:field="*{BillDueDate}" class="form-control" placeholder="Due Date">
+                                <input type="date" id="billDueDate" name="billDueDate" th:field="*{billDueDate}" class="form-control" placeholder="Due Date">
                             </div>
                             <div class="col">
-                                <input type="text" id="billDescription" name="billDescription" th:field="*{BillDescription}" class="form-control" placeholder="Description">
+                                <input type="text" id="billDescription" name="billDescription" th:field="*{billDescription}" class="form-control" placeholder="Description">
                             </div>
                             <div class="col">
-                                <button type="submit" onsubmit="addBill()" class="btn btn-content-slim mx-2">Add</button>
+                                <button type="submit" class="btn btn-content-slim mx-2">Add</button>
                             </div>
                         </div>
                     </form>

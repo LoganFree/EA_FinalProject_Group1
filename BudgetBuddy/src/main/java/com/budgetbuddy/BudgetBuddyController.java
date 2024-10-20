@@ -36,9 +36,9 @@ public class BudgetBuddyController {
         bill.setBillAmount(100.00);
         //bill.setBillDueDate(new Date("10-10-2024"));
         bill.setBillDescription("Test");
-        model.addAttribute(bill);
 
-        //model.addAttribute("page", "entry");
+        model.addAttribute("page", "entry");
+        model.addAttribute(bill);
         return "entryform";
     }
 
