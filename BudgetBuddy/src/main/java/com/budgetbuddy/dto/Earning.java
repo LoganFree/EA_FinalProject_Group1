@@ -4,6 +4,6 @@ import lombok.Data;
 
 public @Data class Earning {
     private boolean earnIsSalary;
-    private double earnAmount;
-    private double weeklyHours;
+    private Double earnAmount;
+    private Double weeklyHours;
 }

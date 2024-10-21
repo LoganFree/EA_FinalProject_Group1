@@ -95,7 +95,10 @@
                                 <input type="number" id="expenseAmount" name="expenseAmount" th:field="*{expAmount}" class="form-control" placeholder="Amount">
                             </div>
                             <div class="col">
-                                <input type="text" id="expenseCategory" name="expenseCategory" th:field="*{expCategory}" class="form-control" placeholder="Category">
+                                <label for="expenseCategory"><select id="expenseCategory" name="expenseCategory" th:field="*{expCategory}" class="form-control">
+                                    <option value="" disabled selected>Select a category</option>
+                                    <option th:each="category : ${categories}" th:text="${category.getCategoryName()}"></option>
+                                    </select></label>
                             </div>
                             <div class="col">
                                 <input type="text" id="expenseDescription" name="expenseDescription" th:field="*{expDescription}" class="form-control" placeholder="Description">
@@ -161,10 +164,10 @@
             <tfoot>
             <tr>
                 <td colspan="4">
-                    <form action="#" th:action="@{/saveBill}" th:object="${bill}" method="POST" onsubmit="addBill()">
+                    <form action="#" th:action="@{/saveBill}" th:object="${bill}" method="POST" onsubmit="return addBill();">
                         <div class="row mb-3">
                             <div class="col">
-                                <input type="number" id="billAmount" name="billAmount" th:field="*{billAmount}" class="form-control" placeholder="Amount">
+                                <input type="number" id="billAmount" name="billAmount" th:field="*{billAmount}" class="form-control" placeholder="Amount" required>
                             </div>
                             <div class="col">
                                 <input type="date" id="billDueDate" name="billDueDate" th:field="*{billDueDate}" class="form-control" placeholder="Due Date">
