@@ -130,6 +130,77 @@
 
     -->
 
+    <div class="container mt-5">
+        <h2>Add Weekly Expense:</h2>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Expense Amount</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="expenseTable">
+
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="4">
+                    <form action="#" th:action="@{/saveExpense}" th:object="${expense}" method="POST" onsubmit="addExpense()">
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="number" id="expenseAmount" name="expenseAmount" th:field="*{expenseAmount}" class="form-control" placeholder="Amount">
+                            </div>
+                            <div class="col">
+                                <input type="text" id="expenseCategory" name="expenseCategory" th:field="*{expenseCategory}" class="form-control" placeholder="Category">
+                            </div>
+                            <div class="col">
+                                <input type="text" id="expenseDescription" name="expenseDescription" th:field="*{expenseDescription}" class="form-control" placeholder="Description">
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn btn-content-slim mx-2">Add</button>
+                            </div>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script>
+        function addExpense() {
+            var table = document.getElementById("expenseTable");
+            var row = table.insertRow(0); // Insert new row at the top
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+
+            var expenseAmount = document.getElementById("expenseAmount").value;
+            var expenseCategory = document.getElementById("expenseCategory").value;
+            var expenseDescription = document.getElementById("expenseDescription").value;
+
+            cell1.textContent = expenseAmount;
+            cell2.textContent = expenseCategory;
+            cell3.textContent = expenseDescription;
+            cell4.innerHTML = '<button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button>';
+
+            // Clear input fields
+            document.getElementById("expenseAmount").value = "";
+            document.getElementById("expenseCategory").value = "";
+            document.getElementById("expenseDescription").value = "";
+
+            // Prevent the form from submitting
+            return false;
+        }
+
+        function deleteRow(button) {
+            var row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+    </script>
+
 
     <div class="container mt-5">
         <h2>Add Monthly Bill:</h2>
@@ -142,7 +213,7 @@
                 <th>Action</th>
             </tr>
             </thead>
-            <tbody id="expenseTable">
+            <tbody id="billTable">
 
             </tbody>
             <tfoot>
@@ -169,10 +240,9 @@
             </tfoot>
         </table>
     </div>
-
     <script>
         function addBill() {
-            var table = document.getElementById("expenseTable");
+            var table = document.getElementById("billTable");
             var row = table.insertRow(0); // Insert new row at the top
             var cell1 = row.insertCell(0);
             var cell2 = row.insertCell(1);
