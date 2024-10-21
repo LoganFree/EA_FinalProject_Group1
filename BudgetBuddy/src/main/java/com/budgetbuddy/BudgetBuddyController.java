@@ -1,6 +1,8 @@
 package com.budgetbuddy;
 
+import com.budgetbuddy.dao.CategoryDAO;
 import com.budgetbuddy.dto.Bill;
+import com.budgetbuddy.dto.Category;
 import com.budgetbuddy.dto.Expense;
 import com.budgetbuddy.service.BillService;
 //import com.budgetbuddy.service.ExpenseService;
@@ -20,6 +22,9 @@ public class BudgetBuddyController {
     //ExpenseService expenseService;
     @Autowired
     private WeekDayService weekDayService;
+
+    @Autowired
+    private CategoryDAO categoryDAO;
 
     //call for CSS
     @RequestMapping("/fragments/styles.css")
@@ -46,8 +51,9 @@ public class BudgetBuddyController {
 
         Expense expense = new Expense();
         expense.setExpAmount(100.00);
-        expense.setExpCategory("n/a");
+        expense.setExpCategory(new Category("n/a"));
         expense.setExpDescription("Test");
+        model.addAttribute("categories");
         model.addAttribute(expense);
         return "entryform";
     }
