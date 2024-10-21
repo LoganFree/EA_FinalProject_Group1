@@ -51,7 +51,7 @@ input[type="radio"] {
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 .slim-btn-content {
-    padding: 10px 20px;
+    padding: 5px 20px;
     text-align: center;
     background-color: #f5ccc9;
     border: 2px solid white;
@@ -96,16 +96,38 @@ input[type="radio"] {
     border-image: linear-gradient(to right, white, #f5ccc9, white) 1;
 }
 
-table {
+table { /*Formatted like the forms above it*/
     background-color: #ededed;
     border: 2px solid white !important;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
     width: 100%;
 }
 
-th, td {
+th, td { /*Formatted like the forms above it*/
     text-align: center;
-    padding: 15px;
+    padding: 10px;
     background-color: #ededed !important;
     border: 1px solid white;
+}
+.table td, .table th {
+    width: 25%; /* Ensure all columns have equal width */
+}
+
+.row {
+    margin: 0 !important; /* Remove extra margins in the grid */
+}
+
+.col {
+    padding: 0 !important; /* Remove padding in the grid layout */
+}
+tfoot input {
+    width: 100%; /* Input takes full width of the table cell */
+    text-align: center;
+    padding: 5px;
+}
+
+tfoot button {
+    width: 100%; /* Button takes full width of the table cell */
+    padding: 10px; /* Ensure the button has a good size without overflow */
+    text-align: center;
 }
