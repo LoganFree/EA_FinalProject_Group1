@@ -17,10 +17,13 @@
 
     <div class="flex-container">
         <div class="question-content divider">
-            <p><b>Week - </b></p>
+            <p><b>Week:</b></p>
             <div class="flex-container">
                 <div class="box-content">
-                    <input type="week" id="Week" name="Week" placeholder="Week">
+
+                    <form th:action="@{/week-selected}" method="post">
+                        <input type="week" id="Week" name="week" placeholder="Week" th:value="${selectedWeek}" oninput="this.form.submit()">                    </form>
+                    <div id="weekDays" th:utext="${weekDays != null ? 'Days of this week: <b>' + weekDays + '</b>.' : 'Please select a week.'}"></div>
                 </div>
             </div>
         </div>
