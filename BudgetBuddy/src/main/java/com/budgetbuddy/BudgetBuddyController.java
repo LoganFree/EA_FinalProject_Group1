@@ -1,6 +1,5 @@
 package com.budgetbuddy;
 
-import com.budgetbuddy.dao.CategoryDAO;
 import com.budgetbuddy.dto.Bill;
 import com.budgetbuddy.dto.Expense;
 import com.budgetbuddy.service.BillService;
@@ -10,13 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 
 @Controller
 public class BudgetBuddyController {
     @Autowired
     BillService billService;
-    @Autowired
-    private CategoryDAO categoryDAO;
     @Autowired
     private WeekDayService weekDayService;
 
@@ -38,21 +36,24 @@ public class BudgetBuddyController {
     public String entryForm(Model model) {
         Bill bill = new Bill();
         bill.setBillAmount(100.00);
-        //bill.setBillDueDate(new Date("10-10-2024"));
+        //bill.setBillDueDate(new Date("2024-10-10"));
         bill.setBillDescription("Test");
         model.addAttribute("page", "entry");
         model.addAttribute(bill);
 
         Expense expense = new Expense();
-        model.addAttribute("categories", categoryDAO.getCategories());
+        expense.setExpAmount(100.00);
+        expense.setExpCategory("n/a");
+        expense.setExpDescription("Test");
         model.addAttribute(expense);
         return "entryform";
     }
 
     //called when a bill is added on the entry form
-    @PostMapping("/saveBill")
+    @RequestMapping("/saveBill")
     public String saveBill(Bill bill, Model model) {
         model.addAttribute("page", "entry");
+
         try {
             billService.save(bill);
         } catch (Exception e) {
