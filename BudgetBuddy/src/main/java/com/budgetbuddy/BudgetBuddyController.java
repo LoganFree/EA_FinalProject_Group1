@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 @Controller
 public class BudgetBuddyController {
     @Autowired
@@ -34,12 +36,15 @@ public class BudgetBuddyController {
     public String entryForm(Model model) {
         Bill bill = new Bill();
         bill.setBillAmount(100.00);
-        //bill.setBillDueDate(new Date("10-10-2024"));
+        //bill.setBillDueDate(new Date("2024-10-10"));
         bill.setBillDescription("Test");
         model.addAttribute("page", "entry");
         model.addAttribute(bill);
 
         Expense expense = new Expense();
+        expense.setExpAmount(100.00);
+        expense.setExpCategory("n/a");
+        expense.setExpDescription("Test");
         model.addAttribute(expense);
         return "entryform";
     }
