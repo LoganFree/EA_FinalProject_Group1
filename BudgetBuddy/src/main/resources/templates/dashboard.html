@@ -20,9 +20,12 @@
             <p><b>Week:</b></p>
             <div class="flex-container">
                 <div class="box-content">
-                    <input type="week" id="Week" name="Week" placeholder="Week">
-                </div>
 
+                    <form th:action="@{/week-selected}" method="post">
+                        <input type="week" id="Week" name="week" placeholder="Week" th:value="${selectedWeek}" oninput="this.form.submit()">                    </form>
+                    <div id="weekDays" th:text="${weekDays}"></div>
+
+                </div>
             </div>
         </div>
 
