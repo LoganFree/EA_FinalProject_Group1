@@ -64,9 +64,11 @@ public class BudgetBuddyController {
 
     @PostMapping("/week-selected")
     public String getWeekDates(@RequestParam("week") String week, Model model) {
+        model.addAttribute("page", "dashboard");
+
         String formattedWeek = weekService.getWeekDates(week);
         model.addAttribute("weekDays", formattedWeek);
         model.addAttribute("selectedWeek", week);
-        return "dashboard"; // Ensure "dashboard.html" is in src/main/resources/templates
+        return "dashboard";
     }
 }
