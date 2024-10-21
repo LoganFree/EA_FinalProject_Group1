@@ -2,15 +2,10 @@ package com.budgetbuddy;
 
 import com.budgetbuddy.dto.Bill;
 import com.budgetbuddy.service.BillService;
-import com.budgetbuddy.service.WeekService;
+import com.budgetbuddy.service.WeekDayService;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -18,7 +13,7 @@ public class BudgetBuddyController {
     @Autowired
     BillService billService;
     @Autowired
-    private WeekService weekService;
+    private WeekDayService weekDayService;
 
     //call for CSS
     @RequestMapping("/fragments/styles.css")
@@ -74,7 +69,7 @@ public class BudgetBuddyController {
         model.addAttribute("page", "dashboard");
 
         //call weekService
-        String formattedWeek = weekService.getWeekDates(week);
+        String formattedWeek = weekDayService.getWeekDates(week);
         model.addAttribute("weekDays", formattedWeek);
         model.addAttribute("selectedWeek", week);
         return "dashboard";

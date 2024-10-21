@@ -8,7 +8,7 @@ import java.time.temporal.WeekFields;
 import java.util.Locale;
 
 @Service
-public class WeekService {
+public class WeekDayService {
 
     public String getWeekDates(String week) {
         if (week != null && !week.isEmpty()) {
@@ -23,7 +23,7 @@ public class WeekService {
 
             LocalDate endDate = monday.plusDays(6);
 
-            return String.format("Days of Week: %d/%d-%d/%d",
+            return String.format("%d/%d-%d/%d",
                     monday.getMonthValue(), monday.getDayOfMonth(),
                     endDate.getMonthValue(), endDate.getDayOfMonth());
         } else {
