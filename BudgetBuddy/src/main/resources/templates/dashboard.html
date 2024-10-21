@@ -20,9 +20,8 @@
             <p><b>Week:</b></p>
             <div class="flex-container">
                 <div class="box-content">
-
                     <form th:action="@{/week-selected}" method="post">
-                        <input type="week" id="Week" name="week" placeholder="Week" th:value="${selectedWeek}" oninput="this.form.submit()">                    </form>
+                        <input type="week" id="Week" name="week" placeholder="Week" th:value="${selectedWeek}" oninput="this.form.submit()"></form>
                     <div id="weekDays" th:utext="${weekDays != null ? 'Days of this week: <b>' + weekDays + '</b>.' : 'Please select a week.'}"></div>
                 </div>
             </div>
@@ -47,10 +46,9 @@
             <p><b>Weekly Expenses:</b></p>
             <div class="flex-container">
                 <ul>
-                    <li>Groceries > $70</li>
-                    <li>Entertainment > $48</li>
-                    <li>Movies > $28</li>
-                    <li>Game > $20</li>
+                    <li th:each="expense : ${expenses}">
+                        <span th:text="${expense.description}"></span> > $<span th:text="${expense.amount}"></span>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -59,8 +57,9 @@
             <p><b>Monthly Bill:</b></p>
             <div class="flex-container">
                 <ul>
-                    <li>Car Bill > $500 due on 23</li>
-                    <li>Car Insurance > $80 due on 30</li>
+                    <li th:each="bill : ${bills}">
+                        <span th:text="${bill.description}"></span> > $<span th:text="${bill.amount}"></span> due on <span th:text="${bill.dueDate}"></span>
+                    </li>
                 </ul>
             </div>
         </div>

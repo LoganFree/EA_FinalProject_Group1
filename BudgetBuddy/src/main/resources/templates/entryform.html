@@ -70,66 +70,8 @@
             });
         </script>
     </div>
-    <!--
-        <div class="divider" style="width: 40%"></div>
 
-        <div class="flex-container">
-
-            <div class="question-content">
-                <p><b>Add monthly bills:</b></p>
-                <div class="flex-container">
-                    <div class="box-content text-inputs">
-                        <div class="input-pair">
-                            <label for="billAmount">Bill Amount:</label>
-                            $ <input type="text" id="billAmount" name="billAmount" placeholder="Amount">
-                        </div>
-                        <div class="input-pair">
-                            <label for="billDueDate">Due Date:</label>
-                            <input type="date" id="billDueDate" name="billDueDate" placeholder="Due Date">
-                        </div>
-                        <div class="input-pair">
-                            <label for="billDescription">Description:</label>
-                            <input type="text" id="billDescription" name="billDescription" placeholder="Description">
-                        </div>
-                    </div>
-                    <script>
-                        document.getElementById('billAmount').addEventListener('input', function (e) {
-                            this.value = this.value.replace(/[^0-9.,]/g, '');
-                        });
-                    </script>
-                </div>
-                <a onclick="addBill" class="btn btn-content-slim mx-2"><b>+ add bill</b></a>
-            </div>
-
-            <div class="question-content">
-                <p><b>Add weekly expenses:</b></p>
-                <div class="flex-container">
-                    <div class="box-content text-inputs">
-                        <div class="input-pair">
-                            <label for="billAmount">Expense Amount:</label>
-                            <input type="text" id="expenseAmount" name="expenseAmount" placeholder="Amount">
-                        </div>
-                        <div class="input-pair">
-                            <label for="category">Category:</label>
-                            <input type="text" id="category" name="category" placeholder="Category">
-                        </div>
-                        <div class="input-pair">
-                            <label for="billDescription">Description:</label>
-                            <input type="text" id="expenseDescription" name="expenseDescription" placeholder="Description">
-                        </div>
-                    </div>
-                    <script>
-                        document.getElementById('billAmount').addEventListener('input', function (e) {
-                            this.value = this.value.replace(/[^0-9.,]/g, '');
-                        });
-                    </script>
-                </div>
-                <a onclick="addExpense" class="btn btn-content-slim mx-2"><b>+ add expense</b></a>
-            </div>
-        </div>
-
-    -->
-
+    <!-- Entry for adding a Weekly Expense -->
     <div class="container mt-5">
         <h2>Add Weekly Expense:</h2>
         <table class="table table-bordered">
@@ -201,7 +143,7 @@
         }
     </script>
 
-
+    <!-- Entry for adding a Monthly Bill  -->
     <div class="container mt-5">
         <h2>Add Monthly Bill:</h2>
         <table class="table table-bordered">
