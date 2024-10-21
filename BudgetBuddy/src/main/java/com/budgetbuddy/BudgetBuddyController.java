@@ -1,6 +1,7 @@
 package com.budgetbuddy;
 
 import com.budgetbuddy.dto.Bill;
+import com.budgetbuddy.dto.Expense;
 import com.budgetbuddy.service.BillService;
 import com.budgetbuddy.service.WeekDayService;
 import org.springframework.ui.Model;
@@ -37,6 +38,9 @@ public class BudgetBuddyController {
         bill.setBillDescription("Test");
         model.addAttribute("page", "entry");
         model.addAttribute(bill);
+
+        Expense expense = new Expense();
+        model.addAttribute(expense);
         return "entryform";
     }
 
