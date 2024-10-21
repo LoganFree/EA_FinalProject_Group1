@@ -4,7 +4,7 @@ import lombok.Data;
 
 public @Data class Expense {
     private int expID;
-    private double expAmount;
-    private String expCategory;
+    private Double expAmount;
+    private Category expCategory;
     private String expDescription;
 }
