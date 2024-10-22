@@ -46,11 +46,20 @@ public class BudgetBuddyController {
         model.addAttribute("page", "entry");
 
         //create default test values
-        Bill bill = new Bill(100.00,"Test", null);
+        Bill bill = new Bill();
+
+        bill.setBillAmount(100.0);
+        bill.setBillDueDate(null);
+        bill.setBillDescription("test");
+
         model.addAttribute(bill);
 
         //create default test values
-        Expense expense = new Expense(100.00,"Test");
+        Expense expense = new Expense();
+
+        expense.setExpAmount(100.0);
+        expense.setExpCategory(null);
+        expense.setExpDescription("test");
 
         //get categories for dropdown
         List<Category> categories = categoryDAO.getCategories();
@@ -90,18 +99,6 @@ public class BudgetBuddyController {
         }
         return "entryform";
     }
-
-    /*@PostMapping("/saveExpense")
-    public String saveExpense(@RequestParam("expenseAmount") double expAmount,
-                              @RequestParam("expenseCategory") String expCategory,
-                              @RequestParam("expenseDescription") String expDescription,
-                              Model model) {
-        Expense expense = new Expense(expAmount, expCategory, expDescription);
-        expenseService.saveExpense(expense);
-
-        model.addAttribute("expenses", expenseService.getAllExpenses());
-        return "entryform";
-    }*/
 
     //DASHBOARD
     @RequestMapping("/dashboard")

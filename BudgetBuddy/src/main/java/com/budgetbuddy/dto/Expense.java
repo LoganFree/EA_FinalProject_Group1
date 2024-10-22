@@ -7,12 +7,5 @@ public @Data class Expense {
     private double expAmount;
     private Category expCategory;
     private String expDescription;
-
-    /*Category category*/
-    public Expense(double amount, String description) {
-        this.expAmount = amount;
-        this.expDescription = description;
-
-    }
 }
 

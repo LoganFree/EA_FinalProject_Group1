@@ -89,7 +89,7 @@
             <tfoot>
             <tr>
                 <td colspan="4">
-                    <form action="#" th:action="@{/save-exp}" th:object="${expense}" method="POST">
+                    <form action="#" th:action="@{/save-exp}" th:object="${expense}" method="POST" onsubmit="return addExpense();">
                         <div class="row mb-3">
                             <div class="col">
                                 <input type="number" id="expenseAmount" name="expenseAmount" th:field="*{expAmount}" class="form-control" placeholder="Amount" required>
