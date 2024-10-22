@@ -5,7 +5,8 @@ import com.budgetbuddy.dto.Bill;
 import com.budgetbuddy.dto.Category;
 import com.budgetbuddy.dto.Expense;
 import com.budgetbuddy.service.BillService;
-//import com.budgetbuddy.service.ExpenseService;
+import com.budgetbuddy.service.ExpenseService;
+import com.budgetbuddy.service.TempDataService;
 import com.budgetbuddy.service.WeekDayService;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class BudgetBuddyController {
     @Autowired
     CategoryDAO categoryDAO = new CategoryDAO();
 
+    @Autowired
+    private TempDataService tempDataService;
+
     //call for CSS
     @RequestMapping("/fragments/styles.css")
     public String styles(Model model) {
@@ -42,17 +46,12 @@ public class BudgetBuddyController {
     //ENTRY FORM
     @RequestMapping("/entry-form")
     public String entryForm(Model model) {
-        Bill bill = new Bill();
-        bill.setBillAmount(100.00);
-        //bill.setBillDueDate(new Date("2024-10-10"));
-        bill.setBillDescription("Test");
         model.addAttribute("page", "entry");
+
+        Bill bill = new Bill(100.00,"Test", null);
         model.addAttribute(bill);
 
-        Expense expense = new Expense();
-        expense.setExpAmount(100.00);
-        expense.setExpCategory(new Category("n/a"));
-        expense.setExpDescription("Test");
+        Expense expense = new Expense(100.00,"Test");
 
         List<Category> categories = categoryDAO.getCategories();
         model.addAttribute("categories", categories);
@@ -87,69 +86,15 @@ public class BudgetBuddyController {
         return "entryform";
     }*/
 
-    List<ExpenseItem> expenses = new ArrayList<>();
-    List<BillItem> bills = new ArrayList<>();
-
-
     //DASHBOARD
     @RequestMapping("/dashboard")
     public String dashboard(Model model) {
         model.addAttribute("page", "dashboard");
 
-        expenses.add(new ExpenseItem("Groceries", 70));
-        expenses.add(new ExpenseItem("Entertainment", 48));
-        expenses.add(new ExpenseItem("Movies", 28));
-        expenses.add(new ExpenseItem("Game", 20));
-
-        bills.add(new BillItem("Car Bill", 28, 23));
-        bills.add(new BillItem("Car Insurance", 20, 23));
-
-        model.addAttribute("expenses", expenses);
-        model.addAttribute("bills", bills);
+        model.addAttribute("expenses", tempDataService.getExpenses());
+        model.addAttribute("bills", tempDataService.getBills());
 
         return "dashboard";
-    }
-
-    public static class ExpenseItem {
-        private String description;
-        private double amount;
-
-        public ExpenseItem(String description, double amount) {
-            this.description = description;
-            this.amount = amount;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public double getAmount() {
-            return amount;
-        }
-    }
-
-    public static class BillItem {
-        private String description;
-        private double amount;
-        private int duedate;
-
-        public BillItem(String description, double amount, int duedate) {
-            this.description = description;
-            this.amount = amount;
-            this.duedate = duedate;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public double getAmount() {
-            return amount;
-        }
-
-        public int getDueDate() {
-            return duedate;
-        }
     }
 
     //called when a week is selected in the dashboard
@@ -162,6 +107,9 @@ public class BudgetBuddyController {
         String formattedWeek = weekDayService.getWeekDates(week);
         model.addAttribute("weekDays", formattedWeek);
         model.addAttribute("selectedWeek", week);
+
+        model.addAttribute("expenses", tempDataService.getExpenses());
+        model.addAttribute("bills", tempDataService.getBills());
 
         return "dashboard";
     }

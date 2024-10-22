@@ -46,8 +46,8 @@
             <p><b>Weekly Expenses:</b></p>
             <div class="flex-container">
                 <ul>
-                    <li th:each="expense : ${expenses}">
-                        <span th:text="${expense.description}"></span> > $<span th:text="${expense.amount}"></span>
+                    <li class="box-content" style="display: block" th:each="expense : ${expenses}">
+                        <span th:text="${expense.expDescription}"></span> > $<span th:text="${expense.expAmount}"></span>
                     </li>
                 </ul>
             </div>
@@ -57,8 +57,8 @@
             <p><b>Monthly Bill:</b></p>
             <div class="flex-container">
                 <ul>
-                    <li th:each="bill : ${bills}">
-                        <span th:text="${bill.description}"></span> > $<span th:text="${bill.amount}"></span> due on <span th:text="${bill.dueDate}"></span>
+                    <li class="box-content" style="display: block" th:each="bill : ${bills}">
+                        <span th:text="${bill.billDescription}"></span> > $<span th:text="${bill.billAmount}"></span> on day <span th:text="${bill.billDueDate}"></span>
                     </li>
                 </ul>
             </div>
