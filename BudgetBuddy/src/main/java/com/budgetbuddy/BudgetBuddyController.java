@@ -20,6 +20,7 @@ import java.util.Date;
 public class BudgetBuddyController {
     @Autowired
     BillService billService;
+    @Autowired
     ExpenseService expenseService;
     @Autowired
     private WeekDayService weekDayService;
@@ -65,7 +66,7 @@ public class BudgetBuddyController {
         model.addAttribute("page", "entry");
 
         try {
-            //expenseService.save(expense);
+            expenseService.save(expense);
         } catch (Exception e) {
             //   throw new RuntimeException(e);
             e.printStackTrace();

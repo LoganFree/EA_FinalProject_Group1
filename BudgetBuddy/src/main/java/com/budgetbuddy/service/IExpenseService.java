@@ -7,12 +7,11 @@ import java.util.List;
 public interface IExpenseService {
 
     //Expense management
-    Expense createExpense(Expense expense);
+    Expense save(Expense expense);
     Expense updateExpense(Expense expense);
-    List<Expense> getExpenseByCategory(String category);
+    List<Expense> getExpensesByCategory(String category);
     void deleteExpense(long id);
     List<Expense> getAllExpenses();
-    double calculateTotalExpense();
-
+    Double calculateTotalExpense();
 
 }
