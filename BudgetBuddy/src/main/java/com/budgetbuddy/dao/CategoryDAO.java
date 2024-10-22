@@ -10,7 +10,8 @@ import java.util.List;
 @Repository
 public class CategoryDAO implements ICategoryDAO{
     //Create a list of category
-    private static final List<Category> categoryList = Arrays.asList(
+
+    List<Category> categoryList = new ArrayList<>(Arrays.asList(
             new Category("Food"),
             new Category("Groceries"),
             new Category("Utilities"),
@@ -18,8 +19,9 @@ public class CategoryDAO implements ICategoryDAO{
             new Category("Health"),
             new Category("Transportation"),
             new Category("Other")
-    );
+    ));
 
+    @Override
     public List<Category> getCategories() {
         return categoryList;
     }

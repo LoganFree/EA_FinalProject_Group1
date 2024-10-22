@@ -24,7 +24,7 @@ public class BudgetBuddyController {
     private WeekDayService weekDayService;
 
     @Autowired
-    private CategoryDAO categoryDAO;
+    CategoryDAO categoryDAO = new CategoryDAO();
 
     //call for CSS
     @RequestMapping("/fragments/styles.css")
@@ -53,7 +53,9 @@ public class BudgetBuddyController {
         expense.setExpAmount(100.00);
         expense.setExpCategory(new Category("n/a"));
         expense.setExpDescription("Test");
-        model.addAttribute("categories");
+
+        List<Category> categories = categoryDAO.getCategories();
+        model.addAttribute("categories", categories);
         model.addAttribute(expense);
         return "entryform";
     }
