@@ -6,7 +6,12 @@ public class CalculationService {
     private double earnAmount;
     private double weeklyHours;
 
+    private double weeklyExpensesTotal;
+
+    private double montlyBill;
+
     public double weeklyBudget;
+
 
 
     public CalculationService(boolean earnIsSalary, double earnAmount, double weeklyHours) {

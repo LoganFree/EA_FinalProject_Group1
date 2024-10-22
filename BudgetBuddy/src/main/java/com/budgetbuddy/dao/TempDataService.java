@@ -1,7 +1,6 @@
-package com.budgetbuddy.service;
+package com.budgetbuddy.dao;
 
 import com.budgetbuddy.dto.Bill;
-import com.budgetbuddy.dto.Category;
 import com.budgetbuddy.dto.Expense;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +14,7 @@ public class TempDataService {
     private List<Bill> bills = new ArrayList<>();
 
     public TempDataService() {
-        // Initialize with some data
+        // Initialize temp data
         expenses.add(new Expense(70, "Groceries"));
         expenses.add(new Expense(48,"Entertainment"));
         expenses.add(new Expense(28,"Movies" ));
