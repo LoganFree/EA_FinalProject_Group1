@@ -22,10 +22,8 @@ public class BudgetBuddyController {
     ExpenseService expenseService;
     @Autowired
     private WeekDayService weekDayService;
-
     @Autowired
     CategoryDAO categoryDAO = new CategoryDAO();
-
     @Autowired
     private TempDataService tempDataService;
 
@@ -47,23 +45,27 @@ public class BudgetBuddyController {
     public String entryForm(Model model) {
         model.addAttribute("page", "entry");
 
+        //create default test values
         Bill bill = new Bill(100.00,"Test", null);
         model.addAttribute(bill);
 
+        //create default test values
         Expense expense = new Expense(100.00,"Test");
 
+        //get categories for dropdown
         List<Category> categories = categoryDAO.getCategories();
         model.addAttribute("categories", categories);
         model.addAttribute(expense);
         return "entryform";
     }
 
-    //called when a bill is added on the entry form
+    //called when a expense is added on the entry form
     @RequestMapping("/save-exp")
     public String saveExp(Expense expense, Model model) {
         model.addAttribute("page", "entry");
 
         try {
+            //access DAO
             //expenseService.save(expense);
         } catch (Exception e) {
             //   throw new RuntimeException(e);
@@ -79,6 +81,7 @@ public class BudgetBuddyController {
         model.addAttribute("page", "entry");
 
         try {
+            //access DAO
             billService.save(bill);
         } catch (Exception e) {
             //   throw new RuntimeException(e);
@@ -105,6 +108,7 @@ public class BudgetBuddyController {
     public String dashboard(Model model) {
         model.addAttribute("page", "dashboard");
 
+        //get temp data from DAO
         model.addAttribute("expenses", tempDataService.getExpenses());
         model.addAttribute("bills", tempDataService.getBills());
 
@@ -122,6 +126,7 @@ public class BudgetBuddyController {
         model.addAttribute("weekDays", formattedWeek);
         model.addAttribute("selectedWeek", week);
 
+        //get temp data from DAO
         model.addAttribute("expenses", tempDataService.getExpenses());
         model.addAttribute("bills", tempDataService.getBills());
 
