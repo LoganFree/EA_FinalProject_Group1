@@ -47,7 +47,7 @@
             <div class="flex-container">
                 <ul>
                     <li class="box-content" style="display: block" th:each="expense : ${expenses}">
-                        <span th:text="${expense.expDescription}"></span> > $<span th:text="${expense.expAmount}"></span>
+                        <span th:text="${expense.expDescription}"></span> | $<span th:text="${expense.expAmount}"></span>
                     </li>
                 </ul>
             </div>
@@ -58,7 +58,7 @@
             <div class="flex-container">
                 <ul>
                     <li class="box-content" style="display: block" th:each="bill : ${bills}">
-                        <span th:text="${bill.billDescription}"></span> > $<span th:text="${bill.billAmount}"></span> on day <span th:text="${bill.billDueDate}"></span>
+                        <span th:text="${bill.billDescription}"></span> | $<span th:text="${bill.billAmount}"></span> on day <span th:text="${bill.billDueDate}"></span>
                     </li>
                 </ul>
             </div>

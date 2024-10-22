@@ -20,7 +20,7 @@ import java.util.Date;
 public class BudgetBuddyController {
     @Autowired
     BillService billService;
-    //ExpenseService expenseService;
+    ExpenseService expenseService;
     @Autowired
     private WeekDayService weekDayService;
 
@@ -60,7 +60,22 @@ public class BudgetBuddyController {
     }
 
     //called when a bill is added on the entry form
-    @RequestMapping("/saveBill")
+    @RequestMapping("/save-exp")
+    public String saveExp(Expense expense, Model model) {
+        model.addAttribute("page", "entry");
+
+        try {
+            //expenseService.save(expense);
+        } catch (Exception e) {
+            //   throw new RuntimeException(e);
+            e.printStackTrace();
+            return "entryform";
+        }
+        return "entryform";
+    }
+
+    //called when a bill is added on the entry form
+    @RequestMapping("/save-bill")
     public String saveBill(Bill bill, Model model) {
         model.addAttribute("page", "entry");
 
