@@ -6,7 +6,7 @@ import com.budgetbuddy.dto.Category;
 import com.budgetbuddy.dto.Expense;
 import com.budgetbuddy.service.BillService;
 import com.budgetbuddy.service.ExpenseService;
-import com.budgetbuddy.dao.TempDataService;
+import com.budgetbuddy.service.TempDataService;
 import com.budgetbuddy.service.WeekDayService;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,14 +59,14 @@ public class BudgetBuddyController {
         return "entryform";
     }
 
-    //called when a expense is added on the entry form
+    //called when an expense is added on the entry form
     @RequestMapping("/save-exp")
     public String saveExp(Expense expense, Model model) {
         model.addAttribute("page", "entry");
 
         try {
             //access DAO
-            //expenseService.save(expense);
+            expenseService.save(expense);
         } catch (Exception e) {
             //   throw new RuntimeException(e);
             e.printStackTrace();
