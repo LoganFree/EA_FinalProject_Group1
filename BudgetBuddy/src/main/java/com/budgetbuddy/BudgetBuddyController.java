@@ -72,7 +72,7 @@ public class BudgetBuddyController {
 
     //called when an expense is added on the entry form
     @RequestMapping("/save-exp")
-    public String saveExp(@ModelAttribute("expense") Expense expense, Model model) {
+    public String saveExp(Expense expense, Model model) {
         model.addAttribute("page", "entry");
 
         try {
