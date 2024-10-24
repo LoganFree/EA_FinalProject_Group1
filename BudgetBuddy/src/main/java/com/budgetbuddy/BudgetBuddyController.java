@@ -84,8 +84,9 @@ public class BudgetBuddyController {
         return "entryform";
     }
 
+    //called when a bill is added on the entry form
     @RequestMapping("/save-bill")
-    public String saveBill(@ModelAttribute("bill") Bill bill, Model model) {
+    public String saveBill(Bill bill, Model model) {
         model.addAttribute("page", "entry");
 
         try {
@@ -94,7 +95,7 @@ public class BudgetBuddyController {
             e.printStackTrace();
             return "entryform";
         }
-        return "redirect:/entry-form";
+        return "/entryform";
     }
 
 
