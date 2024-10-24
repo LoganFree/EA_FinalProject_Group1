@@ -165,7 +165,7 @@
             <tfoot>
             <tr>
                 <td colspan="4">
-                    <form action="#" th:action="@{/save-bill}" th:object="${bill}" method="POST" onsubmit="return addBill();">
+                    <form action="#" th:action="@{/save-bill}" th:object="${bill}" method="POST">
                         <div class="row mb-3">
                             <div class="col">
                                 <input type="number" id="billAmount" name="billAmount" th:field="*{billAmount}" class="form-control" placeholder="Amount" required>

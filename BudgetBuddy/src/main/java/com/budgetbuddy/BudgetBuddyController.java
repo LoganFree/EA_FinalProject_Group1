@@ -11,6 +11,7 @@ import com.budgetbuddy.service.WeekDayService;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,11 +20,12 @@ import java.util.List;
 public class BudgetBuddyController {
     @Autowired
     BillService billService;
+    @Autowired
     ExpenseService expenseService;
     @Autowired
     private WeekDayService weekDayService;
     @Autowired
-    CategoryDAO categoryDAO = new CategoryDAO();
+    private CategoryDAO categoryDAO;
     @Autowired
     private TempDataService tempDataService;
 
@@ -52,7 +54,7 @@ public class BudgetBuddyController {
         bill.setBillDueDate(null);
         bill.setBillDescription("test");
 
-        model.addAttribute(bill);
+        model.addAttribute("bill",bill);
 
         //create default test values
         Expense expense = new Expense();
@@ -60,45 +62,41 @@ public class BudgetBuddyController {
         expense.setExpAmount(100.0);
         expense.setExpCategory(null);
         expense.setExpDescription("test");
+        model.addAttribute("expense",expense);
 
         //get categories for dropdown
         List<Category> categories = categoryDAO.getCategories();
         model.addAttribute("categories", categories);
-        model.addAttribute(expense);
         return "entryform";
     }
 
     //called when an expense is added on the entry form
     @RequestMapping("/save-exp")
-    public String saveExp(Expense expense, Model model) {
+    public String saveExp(@ModelAttribute("expense") Expense expense, Model model) {
         model.addAttribute("page", "entry");
 
         try {
-            //access DAO
             expenseService.save(expense);
         } catch (Exception e) {
-            //   throw new RuntimeException(e);
             e.printStackTrace();
             return "entryform";
         }
         return "entryform";
     }
 
-    //called when a bill is added on the entry form
     @RequestMapping("/save-bill")
-    public String saveBill(Bill bill, Model model) {
+    public String saveBill(@ModelAttribute("bill") Bill bill, Model model) {
         model.addAttribute("page", "entry");
 
         try {
-            //access DAO
             billService.save(bill);
         } catch (Exception e) {
-            //   throw new RuntimeException(e);
             e.printStackTrace();
             return "entryform";
         }
-        return "entryform";
+        return "redirect:/entry-form";
     }
+
 
     //DASHBOARD
     @RequestMapping("/dashboard")
