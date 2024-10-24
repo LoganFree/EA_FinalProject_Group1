@@ -57,12 +57,13 @@ public class BudgetBuddyController {
         model.addAttribute("bill",bill);
 
         //create default test values
-        Expense expense = new Expense();
+        //commented for demo
+        /*Expense expense = new Expense();
 
         expense.setExpAmount(100.0);
         expense.setExpCategory(null);
         expense.setExpDescription("test");
-        model.addAttribute("expense",expense);
+        model.addAttribute("expense",expense);*/
 
         //get categories for dropdown
         List<Category> categories = categoryDAO.getCategories();
