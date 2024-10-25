@@ -47,6 +47,34 @@ public class BudgetBuddyController {
     public String entryForm(Model model) {
         model.addAttribute("page", "entry");
 
+        return "entryform";
+    }
+
+    @RequestMapping("/entry-form/mng-exp")
+    public String mngExp(Model model)
+    {
+        model.addAttribute("page", "entry");
+
+        //create default test values
+        Expense expense = new Expense();
+
+        expense.setExpAmount(100.0);
+        expense.setExpCategory(null);
+        expense.setExpDescription("test");
+
+        model.addAttribute("expense",expense);
+
+        //get categories for dropdown
+        List<Category> categories = categoryDAO.getCategories();
+        model.addAttribute("categories", categories);
+
+        return "mngexp";
+    }
+    @RequestMapping("/entry-form/mng-bill")
+    public String mngBill(Model model)
+    {
+        model.addAttribute("page", "entry");
+
         //create default test values
         Bill bill = new Bill();
 
@@ -56,23 +84,11 @@ public class BudgetBuddyController {
 
         model.addAttribute("bill",bill);
 
-        //create default test values
-        //commented for demo
-        /*Expense expense = new Expense();
-
-        expense.setExpAmount(100.0);
-        expense.setExpCategory(null);
-        expense.setExpDescription("test");
-        model.addAttribute("expense",expense);*/
-
-        //get categories for dropdown
-        List<Category> categories = categoryDAO.getCategories();
-        model.addAttribute("categories", categories);
-        return "entryform";
+        return "mngbill";
     }
 
     //called when an expense is added on the entry form
-    @RequestMapping("/save-exp")
+    @RequestMapping("/entry-form/save-exp")
     public String saveExp(Expense expense, Model model) {
         model.addAttribute("page", "entry");
 
@@ -80,13 +96,13 @@ public class BudgetBuddyController {
             expenseService.save(expense);
         } catch (Exception e) {
             e.printStackTrace();
-            return "entryform";
+            return "mngexp";
         }
-        return "entryform";
+        return "redirect:/ mngexp";
     }
 
     //called when a bill is added on the entry form
-    @RequestMapping("/save-bill")
+    @RequestMapping("/entry-form/save-bill")
     public String saveBill(Bill bill, Model model) {
         model.addAttribute("page", "entry");
 
@@ -94,11 +110,10 @@ public class BudgetBuddyController {
             billService.save(bill);
         } catch (Exception e) {
             e.printStackTrace();
-            return "entryform";
+            return "mngbill";
         }
-        return "/entryform";
+        return "mngbill";
     }
-
 
     //DASHBOARD
     @RequestMapping("/dashboard")
