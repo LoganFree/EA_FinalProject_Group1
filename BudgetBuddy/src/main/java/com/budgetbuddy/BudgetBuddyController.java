@@ -70,6 +70,7 @@ public class BudgetBuddyController {
 
         return "mngexp";
     }
+
     @RequestMapping("/entry-form/mng-bill")
     public String mngBill(Model model)
     {
@@ -98,7 +99,7 @@ public class BudgetBuddyController {
             e.printStackTrace();
             return "mngexp";
         }
-        return "redirect:/ mngexp";
+        return "mngexp";
     }
 
     //called when a bill is added on the entry form
