@@ -6,13 +6,306 @@
     <title>Entry Form</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/fragments/styles.css}">
 </head>
 <body>
 
+<!-- Top Nav -->
 <div th:replace="fragments/topnav :: navbar">
 </div>
 
-ENTRY FORM
+<!-- Page Title -->
+<div class="divider d-flex justify-content-center align-items-center">
+    <a class="navbar-brand"><b>Entry Form</b></a>
+</div>
+
+<!-- Wrapper for body content-->
+<div class="body-content">
+
+    <!-- Question #1 for Wage -->
+    <div class="question-content divider">
+        <p><b>Please select your wage:</b></p>
+        <div class="flex-container">
+            <div class="box-content">
+                <input type="radio" id="Hourly" name="options" value="1" onclick="toggleElement()">
+                <label for="Hourly">Hourly</label><br>
+                <input type="radio" id="Yearly" name="options" value="2" onclick="toggleElement()">
+                <label for="Yearly">Yearly</label>
+            </div>
+            <div class="box-content text-inputs">
+                <label for="wage">Wage:</label><br>
+                $ <input type="text" id="wage" name="wage" placeholder="Enter your wage">
+            </div>
+            <div class="box-content text-inputs" id="toggleTarget" style="display: none;">
+                <label for="wage">Hours a Week:</label><br>
+                <input type="number" id="weeklyHours" name="weeklyHours" placeholder="hours" style="width: 100px">
+            </div>
+            <script>
+                document.getElementById('wage').addEventListener('input', function (e) {
+                    this.value = this.value.replace(/[^0-9.,]/g, '');
+                });
+
+                function toggleElement() {
+                    var element = document.getElementById('toggleTarget');
+                    var hourlyRadio = document.getElementById('Hourly');
+
+                    if (hourlyRadio.checked) {
+                        element.style.display = 'block';
+                    } else {
+                        element.style.display = 'none';
+                    }
+                }
+            </script>
+        </div>
+        <span style="padding:20px; align-content: center;" class="divider">
+                &nbsp;&nbsp;<b>OR</b>&nbsp;&nbsp;
+            </span>
+        <div class="box-content text-inputs">
+            <label for="wage">Account ID:</label><br>
+            ID <input type="number" id="accountID" name="accountID" placeholder="Enter your Account ID">
+        </div>
+        <script>
+            document.getElementById('accountID').addEventListener('input', function (e) {
+                this.value = this.value.replace(/[^0-9]/g, '');
+            });
+        </script>
+    </div>
+
+    <!-- Entry for adding a Weekly Expense -->
+    <!--
+    <div class="container mt-5">
+        <h2>Add Weekly Expense:</h2>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Expense Amount</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="expenseTable">
+
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="4">
+                    <form action="#" th:action="@{/save-exp}" th:object="${expense}" method="POST" onsubmit="return addExpense();">
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="number" id="expAmount" name="expAmount" th:field="*{expAmount}" class="form-control" placeholder="Amount" required>
+                            </div>
+                            <div class="col">
+                                <select id="expCategory" name="expCategory" th:field="*{expCategory}" class="form-control" >
+                                    <option value="" disabled selected>Select a category</option>
+                                    <option th:each="category : ${categories}" th:value="${category.categoryName}" th:text="${category.categoryName}"></option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <input type="text" id="expDescription" name="expDescription" th:field="*{expDescription}" class="form-control" placeholder="Description" >
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn slim-btn-content mx-2">Add</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script>
+        function addExpense() {
+            var table = document.getElementById("expenseTable");
+            var row = table.insertRow(0); // Insert new row at the top
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+
+            var expenseAmount = document.getElementById("expAmount").value;
+            var expenseCategory = document.getElementById("expCategory").value;
+            var expenseDescription = document.getElementById("expDescription").value;
+
+            cell1.textContent = expenseAmount;
+            cell2.textContent = expenseCategory;
+            cell3.textContent = expenseDescription;
+            cell4.innerHTML = '<button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button>';
+
+            // Clear input fields
+            document.getElementById("expenseAmount").value = "";
+            document.getElementById("expenseCategory").value = "";
+            document.getElementById("expenseDescription").value = "";
+
+            // Prevent the form from submitting
+            return false;
+        }
+
+        function deleteRow(button) {
+            var row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+    </script>
+    -->
+    <!-- FOR DEMO PURPOSE, we are demonstrating how the table will change when a item is saved
+    this will change when a database is added -->
+    <div class="container mt-5">
+        <h2>Add Weekly Expense:</h2>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Expense Amount</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="expenseTable">
+
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="4">
+
+                    <form onsubmit="return false;">
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="number" id="expAmount" class="form-control" placeholder="Amount" required>
+                            </div>
+                            <div class="col">
+                                <select id="expCategory" class="form-control">
+                                    <option value="" disabled selected>Select a category</option>
+                                    <option th:each="category : ${categories}" th:value="${category.categoryName}" th:text="${category.categoryName}"></option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <input type="text" id="expDescription" class="form-control" placeholder="Description">
+                            </div>
+                            <div class="col">
+                                <button type="button" onclick="addExpense();" class="btn slim-btn-content mx-2">Add</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script>
+        function addExpense() {
+            var table = document.getElementById("expenseTable");
+            var row = table.insertRow(0); // Insert new row at the top
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+
+            var expenseAmount = document.getElementById("expAmount").value;
+            var expenseCategory = document.getElementById("expCategory").value;
+            var expenseDescription = document.getElementById("expDescription").value;
+
+            cell1.textContent = expenseAmount;
+            cell2.textContent = expenseCategory;
+            cell3.textContent = expenseDescription;
+            cell4.innerHTML = '<button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button>';
+
+            // Clear input fields
+            document.getElementById("expenseAmount").value = "";
+            document.getElementById("expenseCategory").value = "";
+            document.getElementById("expenseDescription").value = "";
+
+            // Prevent the form from submitting
+            return false;
+        }
+
+        function deleteRow(button) {
+            var row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+    </script>
+    <!-- Entry for adding a Monthly Bill  -->
+    <div class="container mt-5">
+        <h2>Add Monthly Bill:</h2>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Bill Amount</th>
+                <th>Due Date</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="billTable">
+
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="4">
+                    <form action="#" th:action="@{/save-bill}" th:object="${bill}" method="POST">
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="number" id="billAmount" name="billAmount" th:field="*{billAmount}" class="form-control" placeholder="Amount" required>
+                            </div>
+                            <div class="col">
+                                <input type="date" id="billDueDate" name="billDueDate" th:field="*{billDueDate}" class="form-control" placeholder="Due Date">
+                            </div>
+                            <div class="col">
+                                <input type="text" id="billDescription" name="billDescription" th:field="*{billDescription}" class="form-control" placeholder="Description">
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn slim-btn-content mx-2">Add</button>
+                            </div>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script>
+        function addBill() {
+            var table = document.getElementById("billTable");
+            var row = table.insertRow(0); // Insert new row at the top
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+
+            var billAmount = document.getElementById("billAmount").value;
+            var billDueDate = document.getElementById("billDueDate").value;
+            var billDescription = document.getElementById("billDescription").value;
+
+            cell1.textContent = billAmount;
+            cell2.textContent = billDueDate;
+            cell3.textContent = billDescription;
+            cell4.innerHTML = '<button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button>';
+
+            // Clear input fields
+            document.getElementById("billAmount").value = "";
+            document.getElementById("billDueDate").value = "";
+            document.getElementById("billDescription").value = "";
+
+            // Prevent the form from submitting
+            return false;
+        }
+
+        function deleteRow(button) {
+            var row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+    </script>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+</div>
+
 
 </body>
 </html>

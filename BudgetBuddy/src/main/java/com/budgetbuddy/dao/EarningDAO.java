@@ -1,4 +1,5 @@
 package com.budgetbuddy.dao;
 
-public class EarningDAO {
+public class EarningDAO{
+
 }

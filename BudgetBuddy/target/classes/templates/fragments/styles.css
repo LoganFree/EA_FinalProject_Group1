@@ -1,0 +1,133 @@
+.navbar{
+    background: linear-gradient(to right, #f5ccc9, lightgray, lightgray);
+    border: 4px solid;
+    border-image: linear-gradient(to right, lightgray, lightgray, #f5ccc9) 1;
+}
+.nav-item{
+    background-color: white;
+    border: 2px solid lightgray;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.nav-item:hover{
+    background-color: #f08d86;
+}
+.nav-item.active {
+    box-shadow: none !important;
+}
+.nav-item.active .nav-link {
+    box-shadow: none !important;
+    background-color: #ededed;
+}
+.navbar-brand{
+    color: #450202;
+    text-shadow:
+            -1px -1px 0 white,
+            1px -1px 0 white,
+            -1px  1px 0 white,
+            1px  1px 0 white;
+    font-size: 30px;
+}
+
+.body-content{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.flex-container {
+    display: flex;
+    justify-content: flex-start;
+}
+input[type="radio"] {
+    transform: scale(1.4);
+    margin-right: 10px;
+}
+
+.btn-content {
+    padding: 20px 20px;
+    background-color: #f5ccc9;
+    border: 2px solid white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.slim-btn-content {
+    padding: 5px 20px;
+    text-align: center;
+    background-color: #f5ccc9;
+    border: 2px solid white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.box-content {
+    display: inline-block;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: #ededed;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    padding: 15px 30px;
+    margin: 5px;
+}
+.input-pair {
+    display: flex;
+    align-items: center; /* Aligns the label and input vertically */
+    margin-bottom: 10px; /* Adds space between pairs */
+}
+.input-pair label {
+    margin-right: 10px; /* Space between label and input */
+}
+.text-inputs input[type="text"] {
+    flex: 1; /* Ensures input takes remaining space */
+    margin-left: 10px; /* Keeps the input from crowding the label */
+}
+
+.question-content {
+    display: inline-block;
+    font-size: 20px;
+    padding: 10px;
+    padding-right: 200px;
+    padding-bottom: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.divider{
+    border-bottom: 4px solid;
+    border-image: linear-gradient(to right, white, #f5ccc9, white) 1;
+}
+
+table { /*Formatted like the forms above it*/
+    background-color: #ededed;
+    border: 2px solid white !important;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+th, td { /*Formatted like the forms above it*/
+    text-align: center;
+    padding: 10px;
+    background-color: #ededed !important;
+    border: 1px solid white;
+}
+.table td, .table th {
+    width: 25%; /* Ensure all columns have equal width */
+}
+
+.row {
+    margin: 0 !important; /* Remove extra margins in the grid */
+}
+
+.col {
+    padding: 0 !important; /* Remove padding in the grid layout */
+}
+tfoot input {
+    width: 100%; /* Input takes full width of the table cell */
+    text-align: center;
+    padding: 5px;
+}
+
+tfoot button {
+    width: 100%; /* Button takes full width of the table cell */
+    padding: 10px; /* Ensure the button has a good size without overflow */
+    text-align: center;
+}

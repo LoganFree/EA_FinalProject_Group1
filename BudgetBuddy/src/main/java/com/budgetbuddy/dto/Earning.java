@@ -1,4 +1,9 @@
 package com.budgetbuddy.dto;
 
-public class Earning {
+import lombok.Data;
+
+public @Data class Earning {
+    private boolean earnIsYearly;
+    private double earnAmount;
+    private double weeklyHours;
 }
