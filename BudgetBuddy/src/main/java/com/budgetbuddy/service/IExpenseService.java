@@ -1,5 +1,6 @@
 package com.budgetbuddy.service;
 
+import com.budgetbuddy.dto.Category;
 import com.budgetbuddy.dto.Expense;
 
 import java.util.List;
@@ -13,5 +14,5 @@ public interface IExpenseService {
     void deleteExpense(long id);
     List<Expense> getAllExpenses();
     Double calculateTotalExpense();
-
+    List<Category> getCategories() throws Exception;
 }

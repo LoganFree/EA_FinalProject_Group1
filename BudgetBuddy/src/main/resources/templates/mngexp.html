@@ -44,9 +44,9 @@
                 <input type="number" id="expAmount" name="expAmount" th:field="*{expAmount}" class="form-control" placeholder="Amount" required>
               </div>
               <div class="col">
-                <select id="expCategory" name="expCategory" th:field="*{expCategory}" class="form-control" >
+                <select id="expCategory" name="expCategory" th:field="*{expCategory}" class="form-control">
                   <option value="" disabled selected>Select a category</option>
-                  <option th:each="category : ${categories}" th:value="${category.categoryName}" th:text="${category.categoryName}"></option>
+                  <option th:each="category : ${categories}" th:value="${category.category_names}" th:text="${category.category_names}"></option>
                 </select>
               </div>
               <div class="col">

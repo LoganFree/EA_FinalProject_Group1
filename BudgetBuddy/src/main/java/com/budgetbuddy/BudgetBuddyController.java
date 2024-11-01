@@ -13,7 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import retrofit2.Call;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -51,21 +53,18 @@ public class BudgetBuddyController {
     }
 
     @RequestMapping("/entry-form/mng-exp")
-    public String mngExp(Model model)
-    {
+    public String mngExp(Model model) throws Exception {
         model.addAttribute("page", "entry");
 
-        //create default test values
+        // Create default test values
         Expense expense = new Expense();
-
         expense.setExpAmount(100.0);
         expense.setExpCategory(null);
         expense.setExpDescription("test");
+        model.addAttribute("expense", expense);
 
-        model.addAttribute("expense",expense);
-
-        //get categories for dropdown
-        List<Category> categories = categoryDAO.getCategories();
+        // Get categories for dropdown
+        List<Category> categories = expenseService.getCategories(); // No parameters
         model.addAttribute("categories", categories);
 
         return "mngexp";
