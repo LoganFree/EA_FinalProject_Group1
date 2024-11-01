@@ -24,12 +24,13 @@ public class CategoryDAO implements ICategoryDAO {
 
         if (response.body() != null) {
             for (Map.Entry<String, List<String>> entry : response.body().entrySet()) {
+                int categoryId = Integer.parseInt(entry.getKey());
                 List<String> names = entry.getValue();
                 String categoryName = names.get(0);
 
                 // Check if category name already exists
                 if (uniqueNames.add(categoryName)) {
-                    categories.add(new Category(categoryName));
+                    categories.add(new Category(categoryId,categoryName));
                 }
             }
         }
