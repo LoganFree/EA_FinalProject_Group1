@@ -70,7 +70,7 @@ public class BudgetBuddyController {
         //add new bill to expense
         model.addAttribute("expense",expense);
 
-        // Get categories for dropdown
+        // Get categories for dropdown using retrofit API, see RetrofitClientInstance.java
         List<Category> categories = expenseService.getCategories();
         model.addAttribute("categories", categories);
 
