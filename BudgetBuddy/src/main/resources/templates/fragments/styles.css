@@ -70,15 +70,15 @@ input[type="radio"] {
 }
 .input-pair {
     display: flex;
-    align-items: center; /* Aligns the label and input vertically */
-    margin-bottom: 10px; /* Adds space between pairs */
+    align-items: center;
+    margin-bottom: 10px;
 }
 .input-pair label {
-    margin-right: 10px; /* Space between label and input */
+    margin-right: 10px;
 }
 .text-inputs input[type="text"] {
-    flex: 1; /* Ensures input takes remaining space */
-    margin-left: 10px; /* Keeps the input from crowding the label */
+    flex: 1;
+    margin-left: 10px;
 }
 
 .question-content {
