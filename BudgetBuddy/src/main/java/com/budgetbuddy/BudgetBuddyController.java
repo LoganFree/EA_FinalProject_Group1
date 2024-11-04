@@ -105,6 +105,7 @@ public class BudgetBuddyController {
 
         try {
             //save expense
+            //ADD BREAK POINT HERE TO SEE SAVED DATA
             expenseService.save(expense);
         } catch (Exception e) {
             e.printStackTrace();
@@ -121,6 +122,7 @@ public class BudgetBuddyController {
 
         try {
             //save bill
+            //ADD BREAK POINT HERE TO SEE SAVED DATA
             billService.save(bill);
         } catch (Exception e) {
             e.printStackTrace();

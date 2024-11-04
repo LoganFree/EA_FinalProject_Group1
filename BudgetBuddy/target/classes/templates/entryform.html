@@ -38,11 +38,12 @@
                     <label for="wage">Wage:</label><br>
                     $ <input type="text" id="wage" name="wage" placeholder="Enter your wage">
                 </div>
-                <!--input for hours -->
+                <!--input for weekly hours when Weekly radio button is selected-->
                 <div class="box-content text-inputs" id="toggleTarget" style="display: none;">
                     <label for="wage">Hours a Week:</label><br>
                     <input type="number" id="weeklyHours" name="weeklyHours" placeholder="hours" style="width: 100px">
                 </div>
+                <!--script for only allowing numbers in wage and to show weekly hours input-->
                 <script>
                     document.getElementById('wage').addEventListener('input', function (e) {
                         this.value = this.value.replace(/[^0-9.,]/g, '');
@@ -62,7 +63,8 @@
             </div>
             <span style="padding:20px; align-content: center;" class="divider">
                     &nbsp;&nbsp;<b>OR</b>&nbsp;&nbsp;
-                </span>
+            </span>
+            <!--input for self designed API, will put in an account number and retrieve salary information-->
             <div class="box-content text-inputs">
                 <label for="wage">Account ID:</label><br>
                 ID <input type="number" id="accountID" name="accountID" placeholder="Enter your Account ID">
