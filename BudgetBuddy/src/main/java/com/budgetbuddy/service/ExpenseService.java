@@ -14,6 +14,7 @@ import java.util.List;
 public class ExpenseService implements IExpenseService {
     @Autowired
     private IExpenseDAO expenseDAO;
+
     @Autowired
     private ICategoryDAO categoryDAO;
 

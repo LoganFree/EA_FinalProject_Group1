@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 @Repository("BillDAO")
 public class BillSQLDAO implements IBillDAO{
 
@@ -13,8 +14,7 @@ public class BillSQLDAO implements IBillDAO{
 
     @Override
     public Bill save(Bill bill) {
-        Bill createdBill = billRepo.save(bill);
-        return createdBill;
+        return billRepo.save(bill);
     }
 
     @Override

@@ -1,14 +1,19 @@
 package com.budgetbuddy.dao;
 
 import com.budgetbuddy.dto.Expense;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class ExpenseSQLDAO implements IExpenseDAO {
+    @Autowired
+    ExpenseRepository expenseRepo;
 
     @Override
     public Expense save(Expense expense) {
-        return null;
+        return expenseRepo.save(expense);
     }
 
     @Override
