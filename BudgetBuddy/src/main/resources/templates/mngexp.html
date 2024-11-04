@@ -34,42 +34,42 @@
                 </thead>
                 <tbody id="expenseTable">
 
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="4">
-                            <form action="#" th:action="@{/entry-form/save-exp}" th:object="${expense}" method="POST" onsubmit="return addExpense();">
-                                <div class="row mb-3">
-                                    <div class="col">
-                                        <input type="number" id="expAmount" name="expAmount" th:field="*{expAmount}" class="form-control" placeholder="Amount" required>
-                                    </div>
-                                    <div class="col">
-                                        <select id="expCategory" name="expCategory" th:field="*{expCategory}" class="form-control" >
-                                            <option value="" disabled selected>Select a category</option>
-                                            <option th:each="category : ${categories}" th:value="${category.categoryName}" th:text="${category.categoryName}"></option>
-                                        </select>
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" id="expDescription" name="expDescription" th:field="*{expDescription}" class="form-control" placeholder="Description" >
-                                    </div>
-                                    <div class="col">
-                                        <button type="submit" class="btn slim-btn-content mx-2">Add</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-        <script>
-          function addExpense() {
-            var table = document.getElementById("expenseTable");
-            var row = table.insertRow(0); // Insert new row at the top
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2);
-            var cell4 = row.insertCell(3);
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="4">
+          <form action="#" th:action="@{/entry-form/save-exp}" th:object="${expense}" method="POST" onsubmit="return addExpense();">
+            <div class="row mb-3">
+              <div class="col">
+                <input type="number" id="expAmount" name="expAmount" th:field="*{expAmount}" class="form-control" placeholder="Amount" required>
+              </div>
+              <div class="col">
+                <select id="expCategory" name="expCategory" th:field="*{expCategory}" class="form-control">
+                  <option value="" disabled selected>Select a category</option>
+                  <option th:each="category : ${categories}" th:value="${category.category_names}" th:text="${category.category_names}"></option>
+                </select>
+              </div>
+              <div class="col">
+                <input type="text" id="expDescription" name="expDescription" th:field="*{expDescription}" class="form-control" placeholder="Description" >
+              </div>
+              <div class="col">
+                <button type="submit" class="btn slim-btn-content mx-2">Add</button>
+              </div>
+            </div>
+          </form>
+        </td>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+  <script>
+    function addExpense() {
+      var table = document.getElementById("expenseTable");
+      var row = table.insertRow(0); // Insert new row at the top
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      var cell4 = row.insertCell(3);
 
             var expenseAmount = document.getElementById("expAmount").value;
             var expenseCategory = document.getElementById("expCategory").value;

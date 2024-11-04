@@ -8,7 +8,7 @@ public class CalculationService {
 
     private double weeklyExpensesTotal;
 
-    private double montlyBill;
+    private double monthlyBill;
 
     public double weeklyBudget;
 
