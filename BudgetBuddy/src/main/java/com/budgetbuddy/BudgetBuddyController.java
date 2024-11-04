@@ -37,14 +37,19 @@ public class BudgetBuddyController {
 
     //START PAGE
     @RequestMapping("/")
-    public String index(Model model) {
+    public String index(Model model)
+    {
+        //set page to active
         model.addAttribute("page", "home");
+
         return "startpage";
     }
 
     //ENTRY FORM
     @RequestMapping("/entry-form")
-    public String entryForm(Model model) {
+    public String entryForm(Model model)
+    {
+        //set page to active
         model.addAttribute("page", "entry");
 
         return "entryform";
@@ -53,6 +58,7 @@ public class BudgetBuddyController {
     @RequestMapping("/entry-form/mng-exp")
     public String mngExp(Model model)
     {
+        //set page to active
         model.addAttribute("page", "entry");
 
         //create default test values
@@ -62,6 +68,7 @@ public class BudgetBuddyController {
         expense.setExpCategory(null);
         expense.setExpDescription("test");
 
+        //add new bill to expense
         model.addAttribute("expense",expense);
 
         //get categories for dropdown
@@ -74,6 +81,7 @@ public class BudgetBuddyController {
     @RequestMapping("/entry-form/mng-bill")
     public String mngBill(Model model)
     {
+        //set page to active
         model.addAttribute("page", "entry");
 
         //create default test values
@@ -83,6 +91,7 @@ public class BudgetBuddyController {
         bill.setBillDueDate(null);
         bill.setBillDescription("test");
 
+        //add new bill to model
         model.addAttribute("bill",bill);
 
         return "mngbill";
@@ -91,9 +100,11 @@ public class BudgetBuddyController {
     //called when an expense is added on the entry form
     @RequestMapping("/entry-form/save-exp")
     public String saveExp(Expense expense, Model model) {
+        //set page to active
         model.addAttribute("page", "entry");
 
         try {
+            //save expense
             expenseService.save(expense);
         } catch (Exception e) {
             e.printStackTrace();
@@ -105,9 +116,11 @@ public class BudgetBuddyController {
     //called when a bill is added on the entry form
     @RequestMapping("/entry-form/save-bill")
     public String saveBill(Bill bill, Model model) {
+        //set page to active
         model.addAttribute("page", "entry");
 
         try {
+            //save bill
             billService.save(bill);
         } catch (Exception e) {
             e.printStackTrace();
@@ -119,9 +132,10 @@ public class BudgetBuddyController {
     //DASHBOARD
     @RequestMapping("/dashboard")
     public String dashboard(Model model) {
+        //set page to active
         model.addAttribute("page", "dashboard");
 
-        //get temp data from DAO
+        //get temp data from TempDataService
         model.addAttribute("expenses", tempDataService.getExpenses());
         model.addAttribute("bills", tempDataService.getBills());
 
@@ -139,7 +153,7 @@ public class BudgetBuddyController {
         model.addAttribute("weekDays", formattedWeek);
         model.addAttribute("selectedWeek", week);
 
-        //get temp data from DAO
+        //get temp data from TempDataService
         model.addAttribute("expenses", tempDataService.getExpenses());
         model.addAttribute("bills", tempDataService.getBills());
 
