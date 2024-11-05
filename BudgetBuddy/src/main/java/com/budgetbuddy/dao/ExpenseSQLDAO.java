@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+@Repository("expenseDAO")
 public class ExpenseSQLDAO implements IExpenseDAO {
     @Autowired
     ExpenseRepository expenseRepo;

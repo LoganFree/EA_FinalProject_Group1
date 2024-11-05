@@ -102,7 +102,7 @@ public class BudgetBuddyController {
     }
 
     //called when a bill is added on the entry form
-    @RequestMapping("/entry-form/save-bill")
+    @PostMapping(value = "/entry-form/save-bill")
     public String saveBill(Bill bill, Model model) {
         model.addAttribute("page", "entry");
 

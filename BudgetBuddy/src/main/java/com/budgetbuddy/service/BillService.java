@@ -2,6 +2,7 @@ package com.budgetbuddy.service;
 
 import com.budgetbuddy.dao.IBillDAO;
 import com.budgetbuddy.dto.Bill;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 @Service
 public class BillService implements IBillService {
 
+    @Autowired
     private IBillDAO billDAO;
 
     public BillService(IBillDAO billDAO) {
