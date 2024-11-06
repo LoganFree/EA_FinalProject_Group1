@@ -6,12 +6,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Entity
 public @Data class Bill {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int billID;
     private double billAmount;
-    private String billDueDate;
+    private LocalDate billDueDate;
     private String billDescription;
 }
