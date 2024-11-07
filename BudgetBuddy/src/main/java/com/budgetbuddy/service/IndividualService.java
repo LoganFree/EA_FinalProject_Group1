@@ -2,10 +2,15 @@ package com.budgetbuddy.service;
 
 import com.budgetbuddy.dao.IIndividualDAO;
 import com.budgetbuddy.dto.Individual;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class IndividualService implements IIndividualService {
+
+    @Autowired
     private IIndividualDAO individualDAO;
 
     public IndividualService(IIndividualDAO individualDAO) {
