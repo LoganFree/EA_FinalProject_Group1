@@ -1,6 +1,8 @@
 package com.budgetbuddy.dto;
 
-public class Individual {
+import lombok.Data;
+
+public @Data class Individual {
     private int individualID;
     private double individualAmount;
     private String individualDueDate;
