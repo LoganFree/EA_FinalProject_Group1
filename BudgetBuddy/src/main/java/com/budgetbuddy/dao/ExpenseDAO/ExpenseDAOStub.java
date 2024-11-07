@@ -1,4 +1,4 @@
-package com.budgetbuddy.dao;
+package com.budgetbuddy.dao.ExpenseDAO;
 
 import com.budgetbuddy.dto.Expense;
 import org.springframework.stereotype.Repository;

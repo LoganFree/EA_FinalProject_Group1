@@ -1,4 +1,4 @@
-package com.budgetbuddy.service;
+package com.budgetbuddy.service.BillService;
 
 import com.budgetbuddy.dto.Bill;
 

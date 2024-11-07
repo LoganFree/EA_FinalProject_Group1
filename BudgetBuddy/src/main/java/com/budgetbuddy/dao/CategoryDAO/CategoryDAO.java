@@ -1,4 +1,4 @@
-package com.budgetbuddy.dao;
+package com.budgetbuddy.dao.CategoryDAO;
 
 import com.budgetbuddy.dto.Category;
 import org.springframework.cache.annotation.Cacheable;
