@@ -1,8 +1,7 @@
-package com.budgetbuddy.service;
+package com.budgetbuddy.service.ExpenseService;
 
-import com.budgetbuddy.dao.CategoryDAO;
-import com.budgetbuddy.dao.ICategoryDAO;
-import com.budgetbuddy.dao.IExpenseDAO;
+import com.budgetbuddy.dao.CategoryDAO.ICategoryDAO;
+import com.budgetbuddy.dao.ExpenseDAO.IExpenseDAO;
 import com.budgetbuddy.dto.Category;
 import com.budgetbuddy.dto.Expense;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.budgetbuddy.dao;
+package com.budgetbuddy.dao.CategoryDAO;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

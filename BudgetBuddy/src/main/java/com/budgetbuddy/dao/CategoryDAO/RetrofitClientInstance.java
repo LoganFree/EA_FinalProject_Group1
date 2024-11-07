@@ -1,4 +1,4 @@
-package com.budgetbuddy.dao;
+package com.budgetbuddy.dao.CategoryDAO;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

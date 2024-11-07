@@ -1,4 +1,4 @@
-package com.budgetbuddy.dao;
+package com.budgetbuddy.dao.BillDAO;
 
 import com.budgetbuddy.dto.Bill;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository("billDAO")
-public class BillSQLDAO implements IBillDAO{
+public class BillSQLDAO implements IBillDAO {
 
     @Autowired
     BillRepository billRepo;

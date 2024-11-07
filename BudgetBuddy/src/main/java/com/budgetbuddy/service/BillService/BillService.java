@@ -1,6 +1,6 @@
-package com.budgetbuddy.service;
+package com.budgetbuddy.service.BillService;
 
-import com.budgetbuddy.dao.IBillDAO;
+import com.budgetbuddy.dao.BillDAO.IBillDAO;
 import com.budgetbuddy.dto.Bill;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
