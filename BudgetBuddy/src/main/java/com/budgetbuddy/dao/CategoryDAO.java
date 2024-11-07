@@ -1,6 +1,7 @@
 package com.budgetbuddy.dao;
 
 import com.budgetbuddy.dto.Category;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 import retrofit2.Call;
 import retrofit2.Response;

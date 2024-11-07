@@ -6,6 +6,7 @@ import com.budgetbuddy.dao.IExpenseDAO;
 import com.budgetbuddy.dto.Category;
 import com.budgetbuddy.dto.Expense;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,6 +25,8 @@ public class ExpenseService implements IExpenseService {
         return expenseDAO.getExpenseByCategory(category);
     }
 
+    @Cacheable("category")
+    @Override
     public List<Category> getCategories() throws Exception{
         return categoryDAO.getCategories();
     }
