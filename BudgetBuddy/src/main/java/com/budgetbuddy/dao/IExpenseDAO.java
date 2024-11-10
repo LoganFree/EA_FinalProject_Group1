@@ -7,6 +7,7 @@ import java.util.List;
 public interface IExpenseDAO {
 
         //Expense management
+        void validateExpense(Expense expense);
         Expense save(Expense expense);
         Expense updateExpense(Expense expense);
         List<Expense> getExpenseByCategory(String category);
