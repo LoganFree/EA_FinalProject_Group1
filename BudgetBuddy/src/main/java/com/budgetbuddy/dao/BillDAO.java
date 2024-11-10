@@ -7,11 +7,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Repository
 public class BillDAO implements IBillDAO {
 
-    Map<Integer, Bill> bills = new HashMap<>();
+    Map<Integer, Bill> bills = new ConcurrentHashMap<>();
 
     @Override
     public void validateBill(Bill bill) {
