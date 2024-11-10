@@ -14,18 +14,22 @@ public class BillDAO implements IBillDAO {
     Map<Integer, Bill> bills = new HashMap<>();
 
     @Override
-    public Bill save(Bill bill) {
-        //validate the input
+    public void validateBill(Bill bill) {
         if (bill == null || bill.getBillAmount() <= 0 || bill.getBillDueDate() == null) {
             throw new IllegalArgumentException("Invalid bill details");
         }
-        Integer billId = bill.getBillID();
-        bills.put(billId, bill);
+    }
+
+    @Override
+    public Bill save(Bill bill) {
+        validateBill(bill);
+        bills.put(bill.getBillID(), bill);
         return bill;
     }
 
     @Override
     public Bill updateBill(Bill bill) {
+        validateBill(bill);
         if (bills.containsKey(bill.getBillID())) {
             bills.put(bill.getBillID(), bill);
             return bill;
