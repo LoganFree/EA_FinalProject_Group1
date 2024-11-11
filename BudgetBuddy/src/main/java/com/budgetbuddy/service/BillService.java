@@ -50,4 +50,14 @@ public class BillService implements IBillService {
         // Calculate the total amount of all bills
         return billDAO.calculateTotalBill();
     }
+
+    // New method to create a default Bill with preset values
+    public Bill createDefaultBill() {
+        Bill bill = new Bill();
+        bill.setBillAmount(100.0);          // Default amount
+        bill.setBillDueDate(null);           // Default due date (set a date if desired)
+        bill.setBillDescription("test");    // Default description
+        return bill;
+    }
+
 }
