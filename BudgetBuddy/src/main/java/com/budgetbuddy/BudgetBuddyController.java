@@ -61,37 +61,30 @@ public class BudgetBuddyController {
     public String mngExp(Model model) throws Exception {
         model.addAttribute("page", "entry");
 
-        // Create default test values
+        // Create default test values for Expense
         Expense expense = new Expense();
         expense.setExpAmount(100.0);
         expense.setExpCategory(null);
         expense.setExpDescription("test");
 
-        //add new bill to expense
-        model.addAttribute("expense",expense);
+        model.addAttribute("expense", expense);
 
-        // Get categories for dropdown using retrofit API, see RetrofitClientInstance.java
+        // Get categories for dropdown using ExpenseService
         List<Category> categories = expenseService.getCategories();
         model.addAttribute("categories", categories);
 
         return "mngexp";
     }
 
+    // ENTRY FORM - Bill Management
     @RequestMapping("/entry-form/mng-bill")
-    public String mngBill(Model model)
-    {
-        //set page to active
+    public String mngBill(Model model) {
+        // Set the page to active
         model.addAttribute("page", "entry");
 
-        //create default test values
-        Bill bill = new Bill();
-
-        bill.setBillAmount(100.0);
-        bill.setBillDueDate(null);
-        bill.setBillDescription("test");
-
-        //add new bill to model
-        model.addAttribute("bill",bill);
+        // Use BillService to create a default Bill and add it to the model
+        Bill defaultBill = billService.createDefaultBill();
+        model.addAttribute("bill", defaultBill);
 
         return "mngbill";
     }
