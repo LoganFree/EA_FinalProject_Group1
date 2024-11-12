@@ -1,11 +1,11 @@
 package com.budgetbuddy;
 
-import com.budgetbuddy.dao.CategoryDAO;
+import com.budgetbuddy.dao.CategoryDAO.CategoryDAO;
 import com.budgetbuddy.dto.Bill;
 import com.budgetbuddy.dto.Category;
 import com.budgetbuddy.dto.Expense;
-import com.budgetbuddy.service.BillService;
-import com.budgetbuddy.service.ExpenseService;
+import com.budgetbuddy.service.BillService.BillService;
+import com.budgetbuddy.service.ExpenseService.ExpenseService;
 import com.budgetbuddy.service.TempDataService;
 import com.budgetbuddy.service.WeekDayService;
 import org.springframework.ui.Model;
