@@ -1,7 +1,3 @@
-For code review: 
-Clone from main for the primary working version.
-Run BudgetBuddyApplication.java and navigate to localhost:8080. 
-
 ---
 ## 1. Title
 
