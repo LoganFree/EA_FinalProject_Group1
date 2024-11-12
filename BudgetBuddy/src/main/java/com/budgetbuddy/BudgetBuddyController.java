@@ -53,12 +53,13 @@ public class BudgetBuddyController {
     public String entryForm(Model model) {
         model.addAttribute("page", "entry");
 
+        /*
         Double earnAmount = earningService.getEarning();
 
         if (earnAmount != null) {
             model.addAttribute("earning", earnAmount);
         }
-
+        */
         return "entryform";
     }
 

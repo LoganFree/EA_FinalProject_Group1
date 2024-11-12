@@ -36,8 +36,9 @@
                     <input type="hidden" id="earnIsYearly" name="earnIsYearly" value="false">
 
                     <div class="box-content text-inputs">
-                            <label for="earnAmount">Wage:</label><br>
-                            $ <input type="text" id="earnAmount" name="earnAmount" th:field="${earnAmount}" th:value="${earning.getEarnAmount()}" placeholder="Enter your wage">
+                        <label for="earnAmount">Wage:</label><br>
+                        $ <input type="text" id="earnAmount" name="earnAmount" placeholder="Enter your wage">
+                        <!--th:field="${earnAmount}" th:value="${earning.getEarnAmount()}"-->
                     </div>
 
                     <div class="box-content text-inputs" id="toggleTarget" style="display: none;">
