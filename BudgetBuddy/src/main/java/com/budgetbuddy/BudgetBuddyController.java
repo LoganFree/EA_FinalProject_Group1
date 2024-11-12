@@ -1,9 +1,11 @@
 package com.budgetbuddy;
 
 import com.budgetbuddy.dao.CategoryDAO.CategoryDAO;
+import com.budgetbuddy.dto.Earning;
 import com.budgetbuddy.dto.Bill;
-import com.budgetbuddy.dto.Category;
 import com.budgetbuddy.dto.Expense;
+import com.budgetbuddy.dto.Category;
+import com.budgetbuddy.service.EarningService.EarningService;
 import com.budgetbuddy.service.BillService.BillService;
 import com.budgetbuddy.service.ExpenseService.ExpenseService;
 import com.budgetbuddy.service.TempDataService;
@@ -20,6 +22,8 @@ import java.util.List;
 
 @Controller
 public class BudgetBuddyController {
+    @Autowired
+    EarningService earningService;
     @Autowired
     BillService billService;
     @Autowired
@@ -87,7 +91,22 @@ public class BudgetBuddyController {
         return "mngbill";
     }
 
-    //called when an expense is added on the entry form
+    //called when an earning is added on the entry form
+    @RequestMapping("/entry-form/save-earning")
+    public String saveEarn(Earning earning, Model model) {
+        model.addAttribute("page", "entry");
+
+        try {
+            earningService.save(earning);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "entryform";
+        }
+        return "entryform";
+    }
+
+
+            //called when an expense is added on the entry form
     @RequestMapping("/entry-form/save-exp")
     public String saveExp(Expense expense, Model model) {
         model.addAttribute("page", "entry");

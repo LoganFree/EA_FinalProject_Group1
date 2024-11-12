@@ -32,14 +32,17 @@
                     <input type="radio" id="Yearly" name="options" value="2" onclick="toggleElement()">
                     <label for="Yearly">Yearly</label>
                 </div>
-                <div class="box-content text-inputs">
-                    <label for="wage">Wage:</label><br>
-                    $ <input type="text" id="wage" name="wage" placeholder="Enter your wage">
-                </div>
-                <div class="box-content text-inputs" id="toggleTarget" style="display: none;">
-                    <label for="wage">Hours a Week:</label><br>
-                    <input type="number" id="weeklyHours" name="weeklyHours" placeholder="hours" style="width: 100px">
-                </div>
+                <form action="#" th:action="@{/entry-form/save-earning}" th:object="${earning}" method="POST">
+                    <div class="box-content text-inputs">
+                            <label for="earnAmount">Wage:</label><br>
+                            $ <input type="text" id="earnAmount" name="earnAmount" placeholder="Enter your wage">
+                    </div>
+                    <div class="box-content text-inputs" id="toggleTarget" style="display: none;">
+                        <label for="weeklyHours">Hours a Week:</label><br>
+                        <input type="number" id="weeklyHours" name="weeklyHours" placeholder="hours" style="width: 100px">
+                    </div>
+                    <button type="submit" class="btn slim-btn-content mx-2">Add</button>
+                </form>
                 <script>
                     document.getElementById('wage').addEventListener('input', function (e) {
                         this.value = this.value.replace(/[^0-9.,]/g, '');
@@ -57,11 +60,12 @@
                     }
                 </script>
             </div>
+            <!--
             <span style="padding:20px; align-content: center;" class="divider">
                     &nbsp;&nbsp;<b>OR</b>&nbsp;&nbsp;
                 </span>
             <div class="box-content text-inputs">
-                <label for="wage">Account ID:</label><br>
+                <label for="accountID">Account ID:</label><br>
                 ID <input type="number" id="accountID" name="accountID" placeholder="Enter your Account ID">
             </div>
             <script>
@@ -69,6 +73,7 @@
                     this.value = this.value.replace(/[^0-9]/g, '');
                 });
             </script>
+            -->
         </div>
 
         <!--buttons to access management forms-->
