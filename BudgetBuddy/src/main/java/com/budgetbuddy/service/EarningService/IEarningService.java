@@ -1,4 +1,4 @@
-package com.budgetbuddy.service.ExpenseService;
+package com.budgetbuddy.service.EarningService;
 
 import com.budgetbuddy.dto.Earning;
 
@@ -9,6 +9,6 @@ public interface IEarningService {
     //Earning management
     Earning save(Earning earning);
     void deleteEarning(long id);
-    List<Earning> getEarning();
+    Double getEarning();
 
 }

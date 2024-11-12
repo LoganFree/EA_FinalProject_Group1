@@ -53,6 +53,12 @@ public class BudgetBuddyController {
     public String entryForm(Model model) {
         model.addAttribute("page", "entry");
 
+        Double earnAmount = earningService.getEarning();
+
+        if (earnAmount != null) {
+            model.addAttribute("earning", earnAmount);
+        }
+
         return "entryform";
     }
 
@@ -105,8 +111,7 @@ public class BudgetBuddyController {
         return "entryform";
     }
 
-
-            //called when an expense is added on the entry form
+    //called when an expense is added on the entry form
     @RequestMapping("/entry-form/save-exp")
     public String saveExp(Expense expense, Model model) {
         model.addAttribute("page", "entry");

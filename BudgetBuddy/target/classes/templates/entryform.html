@@ -33,19 +33,24 @@
                     <label for="Yearly">Yearly</label>
                 </div>
                 <form action="#" th:action="@{/entry-form/save-earning}" th:object="${earning}" method="POST">
+                    <input type="hidden" id="earnIsYearly" name="earnIsYearly" value="false">
+
                     <div class="box-content text-inputs">
                             <label for="earnAmount">Wage:</label><br>
-                            $ <input type="text" id="earnAmount" name="earnAmount" placeholder="Enter your wage">
+                            $ <input type="text" id="earnAmount" name="earnAmount" th:field="${earnAmount}" th:value="${earning.getEarnAmount()}" placeholder="Enter your wage">
                     </div>
+
                     <div class="box-content text-inputs" id="toggleTarget" style="display: none;">
                         <label for="weeklyHours">Hours a Week:</label><br>
                         <input type="number" id="weeklyHours" name="weeklyHours" placeholder="hours" style="width: 100px">
                     </div>
+
                     <button type="submit" class="btn slim-btn-content mx-2">Add</button>
+
                 </form>
                 <script>
                     document.getElementById('wage').addEventListener('input', function (e) {
-                        this.value = this.value.replace(/[^0-9.,]/g, '');
+                    this.value = this.value.replace(/[^0-9.,]/g, '');
                     });
 
                     function toggleElement() {
@@ -57,6 +62,18 @@
                         } else {
                             element.style.display = 'none';
                         }
+
+                        var hourly = document.getElementById('Hourly').checked;
+                        var isYearlyField = document.getElementById('earnIsYearly');
+                        if (hourly) {
+                            isYearlyField.value = false;
+                        }
+                        else {
+                            isYearlyField.value = true;
+                        }
+                        var toggleTarget = document.getElementById('toggleTarget');
+
+                        toggleTarget.style.display = hourly ? 'block' : 'none';
                     }
                 </script>
             </div>
