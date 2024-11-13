@@ -50,7 +50,8 @@
 
                 </form>
                 <script>
-                    document.getElementById('wage').addEventListener('input', function (e) {
+                    // Only allow for numbers in earnAmount input
+                    document.getElementById('earnAmount').addEventListener('input', function (e) {
                     this.value = this.value.replace(/[^0-9.,]/g, '');
                     });
 
@@ -76,6 +77,11 @@
 
                         toggleTarget.style.display = hourly ? 'block' : 'none';
                     }
+
+                    function simulateAsyncOperation() {
+                        return new Promise(resolve => setTimeout(resolve, 2000));
+                    }
+
                 </script>
             </div>
             <!--
@@ -100,12 +106,20 @@
 
             <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
                 <div>
-                    <a href="/entry-form/mng-exp" class="btn box-content mx-2" style="font-size: 20px">Manage <b>Weekly Expenses</b></a>
-                    <a href="/entry-form/mng-bill" class="btn box-content mx-2" style="font-size: 20px">Manage <b>Monthly Bills</b></a>
+                    <a href="/entry-form/mng-exp" class="btn box-content async-btn mx-2" style="font-size: 20px">Manage <b>Weekly Expenses</b></a>
+                    <a href="/entry-form/mng-bill" class="btn box-content async-btn mx-2" style="font-size: 20px">Manage <b>Monthly Bills</b></a>
                 </div>
             </div>
         </div>
+        <script>
+            document.querySelector('.async-btn').addEventListener('click', function(event) {
+                this.classList.add('loading');
 
+                window.location.href = this.href;
+
+                event.preventDefault();
+           });
+        </script>
         <br>
         <br>
         <br>

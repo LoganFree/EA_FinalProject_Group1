@@ -58,6 +58,23 @@ input[type="radio"] {
     border-radius: 10px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
+.async-btn.loading {
+    box-shadow: none;
+    background-color: white;
+    border: 3px solid #f5ccc9;
+    animation: pulse 1s infinite;
+}
+@keyframes pulse {
+    0% {
+        border-color: White;
+    }
+    50% {
+        border-color: #f5ccc9;
+    }
+    100% {
+        border-color: White;
+    }
+}
 
 .box-content {
     display: inline-block;
