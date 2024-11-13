@@ -59,8 +59,7 @@ input[type="radio"] {
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 .async-btn.loading {
-    box-shadow: none;
-    background-color: white;
+    box-shadow: none !important;
     border: 3px solid #f5ccc9;
     animation: pulse 1s infinite;
 }
