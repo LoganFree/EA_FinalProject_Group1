@@ -68,7 +68,9 @@
             <p><b>Individual:</b></p>
             <div class="flex-container">
                 <ul>
-                    <span th:text="${Individual.expDescription}"></span> | $<span th:text="${Individual.expAmount}"></span>
+                    <li class="box-content" style="display: block" th:each="individual: ${individuals}">
+                    <span th:text="${Individual.individualDescription}"></span> | $<span th:text="${Individual.individualAmount}"></span>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -4,6 +4,8 @@ import com.budgetbuddy.dao.CategoryDAO;
 import com.budgetbuddy.dto.Bill;
 import com.budgetbuddy.dto.Category;
 import com.budgetbuddy.dto.Expense;
+import com.budgetbuddy.dto.Individual;
+import com.budgetbuddy.service.IndividualService;
 import com.budgetbuddy.service.BillService;
 import com.budgetbuddy.service.ExpenseService;
 import com.budgetbuddy.service.TempDataService;
@@ -28,6 +30,8 @@ public class BudgetBuddyController {
     private CategoryDAO categoryDAO;
     @Autowired
     private TempDataService tempDataService;
+    @Autowired
+    private IndividualService individualService;
 
     //call for CSS
     @RequestMapping("/fragments/styles.css")
@@ -114,6 +118,35 @@ public class BudgetBuddyController {
             return "mngbill";
         }
         return "mngbill";
+    }
+
+    @RequestMapping("/entry-form/mng-indv")
+    public String mngIndv(Model model)
+    {
+        model.addAttribute("page", "entry");
+
+        //create default test values
+        Individual individual = new Individual();
+
+        individual.setIndividualAmount(100.0);
+        individual.setIndividualDescription("test");
+
+        model.addAttribute("Individual",individual);
+
+        return "mngindv";
+    }
+
+    @RequestMapping("/entry-form/save-individual")
+    public String saveIndividual(Individual individual, Model model) {
+        model.addAttribute("page", "entry");
+
+        try {
+            individualService.save(individual);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "mngindv";
+        }
+        return "mngindv";
     }
 
     //DASHBOARD

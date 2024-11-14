@@ -16,7 +16,7 @@ import java.util.Map;
         @Override
         public Individual save(Individual individual) {
             //validate the input
-            if (individual == null || individual.getIndividualAmount() <= 0 || individual.getIndividualDueDate() == null) {
+            if (individual == null || individual.getIndividualAmount() <= 0 || individual.getIndividualWeekDate() == null) {
                 throw new IllegalArgumentException("Invalid individual purchase details");
             }
             Integer individualId = individual.getIndividualID();
