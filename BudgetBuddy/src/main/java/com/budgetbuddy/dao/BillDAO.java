@@ -36,12 +36,24 @@ public class BillDAO implements IBillDAO {
 
     @Override
     public Bill getBillById(long id) {
-        return bills.get((int) id);
+        Bill bill = bills.get((int)id);
+        // Handle cases where the bill is not found
+        if (bill == null) {
+
+            throw new IllegalArgumentException("Bill not found");
+        }
+        return bill;
     }
 
     @Override
     public void deleteBill(long id) {
-        bills.remove((int) id);
+        // Handle cases where the bill is not found
+        if (!bills.containsKey(id)) {
+
+            throw new IllegalArgumentException("Bill not found");
+        }
+        bills.remove(id);
+
     }
 
     @Override

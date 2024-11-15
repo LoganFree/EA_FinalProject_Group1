@@ -14,7 +14,7 @@ public class CalculationService {
 
 
 
-    public CalculationService(boolean earnIsSalary, double earnAmount, double weeklyHours) {
+    public CalculationService(boolean earnIsYearly, double earnAmount, double weeklyHours) {
 
         //get base weekly budget
         if (earnIsYearly == true){
