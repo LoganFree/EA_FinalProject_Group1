@@ -11,27 +11,22 @@ import java.util.Map;
 @Repository
 public class BillDAO implements IBillDAO {
 
-    Map<Integer, Bill> bills = new HashMap<>();
+    private final Map<Integer, Bill> bills = new HashMap<>();
 
     @Override
     public Bill save(Bill bill) {
-        //validate the input
-        if (bill == null || bill.getBillAmount() <= 0 || bill.getBillDueDate() == null) {
-            throw new IllegalArgumentException("Invalid bill details");
-        }
-        Integer billId = bill.getBillID();
-        bills.put(billId, bill);
+        validateBill(bill);
+        bills.computeIfAbsent(bill.getBillID(), id -> bill);
         return bill;
     }
 
     @Override
     public Bill updateBill(Bill bill) {
-        if (bills.containsKey(bill.getBillID())) {
-            bills.put(bill.getBillID(), bill);
-            return bill;
-        } else {
+        if (!bills.containsKey(bill.getBillID())) {
             throw new IllegalArgumentException("Bill not found");
         }
+        bills.put(bill.getBillID(), bill);
+        return bill;
     }
 
     @Override
@@ -41,7 +36,9 @@ public class BillDAO implements IBillDAO {
 
     @Override
     public void deleteBill(long id) {
-        bills.remove((int) id);
+        if (bills.remove((int) id) == null) {
+            throw new IllegalArgumentException("Bill not found to delete");
+        }
     }
 
     @Override
@@ -52,5 +49,11 @@ public class BillDAO implements IBillDAO {
     @Override
     public double calculateTotalBill() {
         return bills.values().stream().mapToDouble(Bill::getBillAmount).sum();
+    }
+
+    private void validateBill(Bill bill) {
+        if (bill == null || bill.getBillAmount() <= 0 || bill.getBillDueDate() == null) {
+            throw new IllegalArgumentException("Invalid bill details");
+        }
     }
 }

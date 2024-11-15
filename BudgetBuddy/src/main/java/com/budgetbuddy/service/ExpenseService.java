@@ -31,6 +31,14 @@ public class ExpenseService implements IExpenseService {
     public Expense save(Expense expense) {
         return expenseDAO.save(expense);
     }
+//
+    public Expense createDefaultExpense() {
+        Expense expense = new Expense();
+        expense.setExpAmount(100.0);
+        expense.setExpCategory(null);
+        expense.setExpDescription("test");
+        return expense;
+    }
 
     @Override
     public Expense updateExpense(Expense expense) {
