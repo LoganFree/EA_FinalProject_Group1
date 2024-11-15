@@ -14,13 +14,15 @@ public class ExpenseDAO implements IExpenseDAO {
 
 
     @Override
-    public Expense save(Expense expense) {
-        //validate the input
-        if (expense == null || expense.getExpAmount() <= 0)
-        {
-            throw new IllegalArgumentException("Invalid expense");
+    public void validateExpense(Expense expense) {
+        if (expense == null || expense.getExpAmount() <= 0 || expense.getExpCategory() == null || expense.getExpCategory().isEmpty()) {
+            throw new IllegalArgumentException("Invalid expense details");
         }
-        //save the input
+    }
+
+    @Override
+    public Expense save(Expense expense) {
+        validateExpense(expense);
         Integer expId = expense.getExpID();
         expenses.put(expId, expense);
         return expense;

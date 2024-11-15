@@ -9,6 +9,7 @@ import java.util.List;
 public interface IBillDAO {
 
         //Bill management
+        void validateBill(Bill bill);
         Bill save(Bill bill);
         Bill updateBill(Bill bill);
         Bill getBillById(long id);
