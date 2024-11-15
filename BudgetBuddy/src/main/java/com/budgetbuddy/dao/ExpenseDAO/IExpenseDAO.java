@@ -10,7 +10,7 @@ public interface IExpenseDAO {
         Expense save(Expense expense);
         Expense updateExpense(Expense expense);
         List<Expense> getExpenseByCategory(String category);
-        void deleteExpense(long id);
+        void deleteExpense(int id);
         List<Expense> getAllExpenses();
         double calculateTotalExpense();
 

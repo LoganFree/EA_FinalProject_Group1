@@ -53,31 +53,6 @@ public class BudgetBuddyController {
         return "entryform";
     }
 
-    @RequestMapping("/entry-form/mng-exp")
-    public String mngExp(Model model) throws Exception {
-        model.addAttribute("page", "entry");
-
-        // Create default test values
-        Expense expense = new Expense();
-        expense.setExpAmount(100.0);
-        expense.setExpCategory(null);
-        expense.setExpDescription("test");
-        model.addAttribute("expense", expense);
-
-        // Get categories for dropdown
-        List<Category> categories = expenseService.getCategories(); // No parameters
-        model.addAttribute("categories", categories);
-
-        return "mngexp";
-    }
-
-    @GetMapping("/bills")
-    @ResponseBody
-    public List<Bill> fetchBill()
-    {
-        return billService.getAllBills();
-    }
-
     @RequestMapping("/entry-form/mng-bill")
     public String mngBill(Model model)
     {
@@ -94,10 +69,42 @@ public class BudgetBuddyController {
         return "mngbill";
     }
 
+    //called when a bill is added on the entry form
+    @RequestMapping(value = "/entry-form/save-bill")
+    public String saveBill(Bill bill, Model model) {
+        model.addAttribute("page", "entry");
+
+        try {
+            billService.save(bill);
+            return "mngbill";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "mngbill";
+        }
+    }
+
     @DeleteMapping("/entry-form/mng-bill/delete/bill")
     public ResponseEntity<String> deleteBill(@RequestParam("id") int id) {
         billService.deleteBill(id);
         return ResponseEntity.ok("Task deleted successfully!");
+    }
+
+    @RequestMapping("/entry-form/mng-exp")
+    public String mngExp(Model model) throws Exception {
+        model.addAttribute("page", "entry");
+
+        Expense expense = new Expense();
+        model.addAttribute("expense", expense);
+
+        //pull out expense from database
+        List<Expense> expenses = expenseService.getAllExpenses();
+        model.addAttribute("expenses", expenses);
+
+        // Get categories for dropdown
+        List<Category> categories = expenseService.getCategories(); // No parameters
+        model.addAttribute("categories", categories);
+
+        return "mngexp";
     }
 
     //called when an expense is added on the entry form
@@ -114,25 +121,14 @@ public class BudgetBuddyController {
         return "mngexp";
     }
 
-    //called when a bill is added on the entry form
-    @RequestMapping(value = "/entry-form/save-bill")
-    public String saveBill(Bill bill, Model model) {
-        model.addAttribute("page", "entry");
-
+    @DeleteMapping("/entry-form/mng-exp/delete/exp")
+    public ResponseEntity<String> deleteExpense(@RequestParam("id") int id) {
         try {
-            billService.save(bill);
-            return "mngbill";
+            expenseService.deleteExpense(id);
         } catch (Exception e) {
             e.printStackTrace();
-            return "mngbill";
         }
-    }
-
-    //
-    @GetMapping(value="/getallbills")
-    public List<Bill> getAllBills()
-    {
-        return billService.getAllBills();
+        return ResponseEntity.ok("Task deleted successfully!");
     }
 
     //DASHBOARD
@@ -165,4 +161,17 @@ public class BudgetBuddyController {
         return "dashboard";
     }
 
+    @GetMapping("/allbills")
+    @ResponseBody
+    public List<Bill> fetchBill()
+    {
+        return billService.getAllBills();
+    }
+
+    @GetMapping("/allexpenses")
+    @ResponseBody
+    public List<Expense> fetchExpense()
+    {
+        return expenseService.getAllExpenses();
+    }
 }

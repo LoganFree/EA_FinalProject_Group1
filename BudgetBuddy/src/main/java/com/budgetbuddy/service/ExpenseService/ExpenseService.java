@@ -42,12 +42,13 @@ public class ExpenseService implements IExpenseService {
 
 
     @Override
-    public void deleteExpense(long id) {
+    public void deleteExpense(int id) {
+        expenseDAO.deleteExpense(id);
     }
 
     @Override
     public List<Expense> getAllExpenses() {
-        return List.of();
+        return expenseDAO.getAllExpenses();
     }
 
     @Override

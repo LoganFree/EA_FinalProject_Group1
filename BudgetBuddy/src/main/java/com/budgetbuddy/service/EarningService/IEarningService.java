@@ -1,4 +1,4 @@
-package com.budgetbuddy.service.ExpenseService;
+package com.budgetbuddy.service.EarningService;
 
 import com.budgetbuddy.dto.Earning;
 
