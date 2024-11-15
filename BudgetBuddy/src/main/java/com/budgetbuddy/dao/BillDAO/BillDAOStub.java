@@ -35,13 +35,13 @@ public class BillDAOStub implements IBillDAO {
     }
 
     @Override
-    public Bill getBillById(long id) {
-        return bills.get((int) id);
+    public Bill getBillById(int id) {
+        return bills.get(id);
     }
 
     @Override
-    public void deleteBill(long id) {
-        bills.remove((int) id);
+    public void deleteBill(int id) {
+        bills.remove(id);
     }
 
     @Override

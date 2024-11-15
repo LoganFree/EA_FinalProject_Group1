@@ -11,8 +11,8 @@ public interface IBillDAO {
         //Bill management
         Bill save(Bill bill);
         Bill updateBill(Bill bill);
-        Bill getBillById(long id);
-        void deleteBill(long id);
+        Bill getBillById(int id);
+        void deleteBill(int id);
         List<Bill> getAllBills();
         double calculateTotalBill();
     }

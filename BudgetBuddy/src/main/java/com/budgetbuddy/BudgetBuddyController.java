@@ -8,6 +8,7 @@ import com.budgetbuddy.service.BillService.BillService;
 import com.budgetbuddy.service.ExpenseService.ExpenseService;
 import com.budgetbuddy.service.TempDataService;
 import com.budgetbuddy.service.WeekDayService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -70,6 +71,13 @@ public class BudgetBuddyController {
         return "mngexp";
     }
 
+    @GetMapping("/bills")
+    @ResponseBody
+    public List<Bill> fetchBill()
+    {
+        return billService.getAllBills();
+    }
+
     @RequestMapping("/entry-form/mng-bill")
     public String mngBill(Model model)
     {
@@ -78,13 +86,18 @@ public class BudgetBuddyController {
         //create default test values
         Bill bill = new Bill();
 
-        bill.setBillAmount(100.0);
-        bill.setBillDueDate(null);
-        bill.setBillDescription("test");
+        List<Bill> bills = billService.getAllBills();
 
+        model.addAttribute("bills", bills);
         model.addAttribute("bill",bill);
 
         return "mngbill";
+    }
+
+    @DeleteMapping("/entry-form/mng-bill/delete/bill")
+    public ResponseEntity<String> deleteBill(@RequestParam("id") int id) {
+        billService.deleteBill(id);
+        return ResponseEntity.ok("Task deleted successfully!");
     }
 
     //called when an expense is added on the entry form
@@ -102,17 +115,24 @@ public class BudgetBuddyController {
     }
 
     //called when a bill is added on the entry form
-    @PostMapping(value = "/entry-form/save-bill")
+    @RequestMapping(value = "/entry-form/save-bill")
     public String saveBill(Bill bill, Model model) {
         model.addAttribute("page", "entry");
 
         try {
             billService.save(bill);
+            return "mngbill";
         } catch (Exception e) {
             e.printStackTrace();
             return "mngbill";
         }
-        return "mngbill";
+    }
+
+    //
+    @GetMapping(value="/getallbills")
+    public List<Bill> getAllBills()
+    {
+        return billService.getAllBills();
     }
 
     //DASHBOARD
