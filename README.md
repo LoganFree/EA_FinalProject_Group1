@@ -34,10 +34,10 @@ Keeping track of your budget can be a difficult task. Budget Buddy is a web-app 
    - When: The user inputs the amount spent, the category for the expense, a description, and other optional information.
    - Then: The system validates the inputs, insuring the amount is greater than 0 and that both the category and description are valid, then stores the information in the database. If the validation fails, an error message is displayed, prompting the user to correct the input.
   
-2. User Edit Entry Form Service - I want to update expense information in my budget.
-   - Given: A user needs to update their expense information, such as the category of expenses, amount spent, or description of the expense.
-   - When: The user modifies the personal and financial information in the edit form.
-   - Then: The system validates the inputs, insuring the amount is greater than 0 and that both the category and description are valid, then stores the information in the database. If the validation fails, an error message is displayed, prompting the user to correct the input.
+2. User Edit Entry Form Service - I want to delte expense information in my budget.
+   - Given: A user needs to delete their expense information, such as food, grocery,etc.
+   - When: The user delete personal expenese, bills in the manage page.
+   - Then: The system validates and ensure the expense and bill that user wants to delete is existing. If the validation fails, an error message is displayed, prompting the user to try again.
 
 3. Budget Calculation Service - I want to see how much my expenses are.
    - Given: A user has entered or adjusted their financial information.
