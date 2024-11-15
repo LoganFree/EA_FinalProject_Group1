@@ -4,6 +4,7 @@ import com.budgetbuddy.dto.BillItem;
 import com.budgetbuddy.dto.ExpenseItem;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,8 +21,8 @@ public class TempDataService {
         expenses.add(new ExpenseItem(28,"Movies" ));
         expenses.add(new ExpenseItem(20,"Game"));
 
-        bills.add(new BillItem(28, "Car Bill", "23"));
-        bills.add(new BillItem(20, "Car Insurance", "23"));
+        bills.add(new BillItem(28, "Car Bill", LocalDate.of(2024, 11, 23)));
+        bills.add(new BillItem(20, "Car Insurance", LocalDate.of(2024, 11, 23)));
     }
 
     public List<ExpenseItem> getExpenses() {

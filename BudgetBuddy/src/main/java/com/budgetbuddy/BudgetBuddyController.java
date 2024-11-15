@@ -100,34 +100,38 @@ public class BudgetBuddyController {
     @RequestMapping("/entry-form/save-exp")
     public String saveExp(Expense expense, Model model) {
         //set page to active
+        String returnValue;
         model.addAttribute("page", "entry");
 
         try {
             //save expense
             //ADD BREAK POINT HERE TO SEE SAVED DATA
             expenseService.save(expense);
+            returnValue = "mngexp";
         } catch (Exception e) {
             e.printStackTrace();
-            return "mngexp";
+            returnValue = "mngexp";
         }
-        return "mngexp";
+        return returnValue;
     }
 
     //called when a bill is added on the entry form
     @RequestMapping("/entry-form/save-bill")
     public String saveBill(Bill bill, Model model) {
         //set page to active
+        String returnValue;
         model.addAttribute("page", "entry");
 
         try {
             //save bill
             //ADD BREAK POINT HERE TO SEE SAVED DATA
             billService.save(bill);
+            returnValue = "mngbill";
         } catch (Exception e) {
             e.printStackTrace();
-            return "mngbill";
+            returnValue = "mngbill";
         }
-        return "mngbill";
+        return returnValue;
     }
 
     //DASHBOARD
