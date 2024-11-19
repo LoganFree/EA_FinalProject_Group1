@@ -76,11 +76,11 @@ public class BudgetBuddyController {
 
         try {
             billService.save(bill);
-            return "mngbill";
         } catch (Exception e) {
             e.printStackTrace();
-            return "mngbill";
+            return "redirect:/entry-form/mng-bill";
         }
+        return "redirect:/entry-form/mng-bill";
     }
 
     @DeleteMapping("/entry-form/mng-bill/delete/bill")
@@ -116,9 +116,9 @@ public class BudgetBuddyController {
             expenseService.save(expense);
         } catch (Exception e) {
             e.printStackTrace();
-            return "mngexp";
+            return "redirect:/entry-form/mng-exp";
         }
-        return "mngexp";
+        return "redirect:/entry-form/mng-exp";
     }
 
     @DeleteMapping("/entry-form/mng-exp/delete/exp")
@@ -154,13 +154,10 @@ public class BudgetBuddyController {
         model.addAttribute("weekDays", formattedWeek);
         model.addAttribute("selectedWeek", week);
 
-        //get temp data from DAO
-        model.addAttribute("expenses", tempDataService.getExpenses());
-        model.addAttribute("bills", tempDataService.getBills());
-
         return "dashboard";
     }
 
+    //List all Bills from database
     @GetMapping("/allbills")
     @ResponseBody
     public List<Bill> fetchBill()
@@ -168,7 +165,8 @@ public class BudgetBuddyController {
         return billService.getAllBills();
     }
 
-    @GetMapping("/allexpenses")
+    //List all Expenses from database
+    @GetMapping("/allexps")
     @ResponseBody
     public List<Expense> fetchExpense()
     {
