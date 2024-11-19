@@ -10,11 +10,16 @@ import com.budgetbuddy.service.BillService.BillService;
 import com.budgetbuddy.service.ExpenseService.ExpenseService;
 import com.budgetbuddy.service.TempDataService;
 import com.budgetbuddy.service.WeekDayService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.servlet.View;
 import retrofit2.Call;
 
 import java.io.IOException;
@@ -34,6 +39,10 @@ public class BudgetBuddyController {
     private CategoryDAO categoryDAO;
     @Autowired
     private TempDataService tempDataService;
+
+    Logger log = LoggerFactory.getLogger(this.getClass());
+    @Autowired
+    private View error;
 
     //call for CSS
     @RequestMapping("/fragments/styles.css")
@@ -63,24 +72,6 @@ public class BudgetBuddyController {
         return "entryform";
     }
 
-    @RequestMapping("/entry-form/mng-exp")
-    public String mngExp(Model model) throws Exception {
-        model.addAttribute("page", "entry");
-
-        // Create default test values
-        Expense expense = new Expense();
-        expense.setExpAmount(100.0);
-        expense.setExpCategory(null);
-        expense.setExpDescription("test");
-        model.addAttribute("expense", expense);
-
-        // Get categories for dropdown
-        List<Category> categories = expenseService.getCategories(); // No parameters
-        model.addAttribute("categories", categories);
-
-        return "mngexp";
-    }
-
     @RequestMapping("/entry-form/mng-bill")
     public String mngBill(Model model)
     {
@@ -89,27 +80,59 @@ public class BudgetBuddyController {
         //create default test values
         Bill bill = new Bill();
 
-        bill.setBillAmount(100.0);
-        bill.setBillDueDate(null);
-        bill.setBillDescription("test");
+        List<Bill> bills = billService.getAllBills();
 
+        model.addAttribute("bills", bills);
         model.addAttribute("bill",bill);
 
         return "mngbill";
     }
 
-    //called when an earning is added on the entry form
-    @RequestMapping("/entry-form/save-earning")
-    public String saveEarn(Earning earning, Model model) {
+    //called when a bill is added on the entry form
+    @RequestMapping(value = "/entry-form/save-bill")
+    public String saveBill(Bill bill, Model model) {
         model.addAttribute("page", "entry");
 
         try {
-            earningService.save(earning);
+            billService.save(bill);
         } catch (Exception e) {
             e.printStackTrace();
-            return "entryform";
+            return "redirect:/entry-form/mng-bill";
         }
-        return "entryform";
+        return "redirect:/entry-form/mng-bill";
+    }
+
+    @DeleteMapping("/entry-form/mng-bill/delete/bill")
+    public ResponseEntity<String> deleteBill(@RequestParam("id") int id) {
+        log.debug("Entering delete Bill endpoint");
+        try {
+            billService.deleteBill(id);
+            log.info("Bill with ID " + id + " was deleted successfully!");
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            log.error("Unable to delete Bill with ID " + id + ", message:" + e.getMessage(), e);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @RequestMapping("/entry-form/mng-exp")
+    public String mngExp(Model model) throws Exception {
+        model.addAttribute("page", "entry");
+
+        Expense expense = new Expense();
+        model.addAttribute("expense", expense);
+
+        //pull out expense from database
+        List<Expense> expenses = expenseService.getAllExpenses();
+        model.addAttribute("expenses", expenses);
+
+        // Get categories for dropdown
+        List<Category> categories = expenseService.getCategories(); // No parameters
+        model.addAttribute("categories", categories);
+
+        return "mngexp";
     }
 
     //called when an expense is added on the entry form
@@ -121,23 +144,24 @@ public class BudgetBuddyController {
             expenseService.save(expense);
         } catch (Exception e) {
             e.printStackTrace();
-            return "mngexp";
+            return "redirect:/entry-form/mng-exp";
         }
-        return "mngexp";
+        return "redirect:/entry-form/mng-exp";
     }
 
-    //called when a bill is added on the entry form
-    @PostMapping(value = "/entry-form/save-bill")
-    public String saveBill(Bill bill, Model model) {
-        model.addAttribute("page", "entry");
-
+    @DeleteMapping("/entry-form/mng-exp/delete/exp")
+    public ResponseEntity<String> deleteExpense(@RequestParam("id") int id) {
+        log.debug("Entering delete Expense endpoint");
         try {
-            billService.save(bill);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "mngbill";
+            expenseService.deleteExpense(id);
+            log.info("Expense with ID " + id + " was deleted successfully!");
+            return new ResponseEntity<>(HttpStatus.OK);
         }
-        return "mngbill";
+        catch (Exception e) {
+            e.printStackTrace();
+            log.error("Unable to delete Expense with ID " + id + ", message:" + e.getMessage(), e);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     //DASHBOARD
@@ -163,11 +187,22 @@ public class BudgetBuddyController {
         model.addAttribute("weekDays", formattedWeek);
         model.addAttribute("selectedWeek", week);
 
-        //get temp data from DAO
-        model.addAttribute("expenses", tempDataService.getExpenses());
-        model.addAttribute("bills", tempDataService.getBills());
-
         return "dashboard";
     }
 
+    //List all Bills from database
+    @GetMapping("/allbills")
+    @ResponseBody
+    public List<Bill> fetchBill()
+    {
+        return billService.getAllBills();
+    }
+
+    //List all Expenses from database
+    @GetMapping("/allexps")
+    @ResponseBody
+    public List<Expense> fetchExpense()
+    {
+        return expenseService.getAllExpenses();
+    }
 }

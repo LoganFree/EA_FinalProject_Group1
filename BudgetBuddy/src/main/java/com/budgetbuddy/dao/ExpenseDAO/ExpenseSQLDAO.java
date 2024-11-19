@@ -1,15 +1,19 @@
 package com.budgetbuddy.dao.ExpenseDAO;
 
+import com.budgetbuddy.dao.BillDAO.BillRepository;
 import com.budgetbuddy.dto.Expense;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository("expenseDAO")
 public class ExpenseSQLDAO implements IExpenseDAO {
     @Autowired
     ExpenseRepository expenseRepo;
+    @Autowired
+    private BillRepository billRepository;
 
     @Override
     public Expense save(Expense expense) {
@@ -27,13 +31,15 @@ public class ExpenseSQLDAO implements IExpenseDAO {
     }
 
     @Override
-    public void deleteExpense(long id) {
-
+    public void deleteExpense(int id) {
+        expenseRepo.deleteById(id);
     }
 
     @Override
     public List<Expense> getAllExpenses() {
-        return List.of();
+        List<Expense> expenses = new ArrayList<>();
+        expenseRepo.findAll().forEach(expenses::add);
+        return expenses;
     }
 
     @Override

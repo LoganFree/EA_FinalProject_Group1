@@ -52,8 +52,8 @@ public class ExpenseDAOStub implements IExpenseDAO {
     }
 
     @Override
-    public void deleteExpense(long id) {
-        expenses.remove((int) id);
+    public void deleteExpense(int id) {
+        expenses.remove(id);
     }
 
     @Override

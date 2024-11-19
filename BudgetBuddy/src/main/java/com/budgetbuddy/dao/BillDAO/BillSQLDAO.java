@@ -4,6 +4,7 @@ import com.budgetbuddy.dto.Bill;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository("billDAO")
@@ -23,18 +24,20 @@ public class BillSQLDAO implements IBillDAO {
     }
 
     @Override
-    public Bill getBillById(long id) {
-        return null;
+    public Bill getBillById(int id) {
+        return billRepo.findById(id).get();
     }
 
     @Override
-    public void deleteBill(long id) {
-
+    public void deleteBill(int id) {
+        billRepo.deleteById(id);
     }
 
     @Override
     public List<Bill> getAllBills() {
-        return List.of();
+        List<Bill> bills = new ArrayList<Bill>();
+        billRepo.findAll().forEach(bills::add);
+        return bills;
     }
 
     @Override

@@ -30,13 +30,13 @@ public class BillService implements IBillService {
     }
 
     @Override
-    public Bill getBillById(long id) {
+    public Bill getBillById(int id) {
         // Retrieve a bill by its ID from the DAO
         return billDAO.getBillById(id);
     }
 
     @Override
-    public void deleteBill(long id) {
+    public void deleteBill(int id) {
         // Delete the bill by its ID using the DAO
         billDAO.deleteBill(id);
     }
