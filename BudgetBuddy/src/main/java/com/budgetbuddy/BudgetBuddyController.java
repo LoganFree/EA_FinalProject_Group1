@@ -8,12 +8,16 @@ import com.budgetbuddy.service.BillService.BillService;
 import com.budgetbuddy.service.ExpenseService.ExpenseService;
 import com.budgetbuddy.service.TempDataService;
 import com.budgetbuddy.service.WeekDayService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.servlet.View;
 import retrofit2.Call;
 
 import java.io.IOException;
@@ -31,6 +35,10 @@ public class BudgetBuddyController {
     private CategoryDAO categoryDAO;
     @Autowired
     private TempDataService tempDataService;
+
+    Logger log = LoggerFactory.getLogger(this.getClass());
+    @Autowired
+    private View error;
 
     //call for CSS
     @RequestMapping("/fragments/styles.css")
@@ -85,8 +93,17 @@ public class BudgetBuddyController {
 
     @DeleteMapping("/entry-form/mng-bill/delete/bill")
     public ResponseEntity<String> deleteBill(@RequestParam("id") int id) {
-        billService.deleteBill(id);
-        return ResponseEntity.ok("Task deleted successfully!");
+        log.debug("Entering delete Bill endpoint");
+        try {
+            billService.deleteBill(id);
+            log.info("Bill with ID " + id + " was deleted successfully!");
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            log.error("Unable to delete Bill with ID " + id + ", message:" + e.getMessage(), e);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @RequestMapping("/entry-form/mng-exp")
@@ -123,12 +140,17 @@ public class BudgetBuddyController {
 
     @DeleteMapping("/entry-form/mng-exp/delete/exp")
     public ResponseEntity<String> deleteExpense(@RequestParam("id") int id) {
+        log.debug("Entering delete Expense endpoint");
         try {
             expenseService.deleteExpense(id);
-        } catch (Exception e) {
-            e.printStackTrace();
+            log.info("Expense with ID " + id + " was deleted successfully!");
+            return new ResponseEntity<>(HttpStatus.OK);
         }
-        return ResponseEntity.ok("Task deleted successfully!");
+        catch (Exception e) {
+            e.printStackTrace();
+            log.error("Unable to delete Expense with ID " + id + ", message:" + e.getMessage(), e);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     //DASHBOARD
