@@ -41,8 +41,6 @@ public class BudgetBuddyController {
     private TempDataService tempDataService;
 
     Logger log = LoggerFactory.getLogger(this.getClass());
-    @Autowired
-    private View error;
 
     //call for CSS
     @RequestMapping("/fragments/styles.css")
@@ -62,14 +60,21 @@ public class BudgetBuddyController {
     public String entryForm(Model model) {
         model.addAttribute("page", "entry");
 
-        /*
-        Double earnAmount = earningService.getEarning();
-
-        if (earnAmount != null) {
-            model.addAttribute("earning", earnAmount);
-        }
-        */
         return "entryform";
+    }
+
+    //called when an earning is added on the entry form
+    @RequestMapping(value = "/entry-form/save-earning")
+    public String saveEarning(Earning earning, Model model) {
+        model.addAttribute("page", "entry");
+
+        try {
+            earningService.save(earning);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "redirect:/entry-form";
+        }
+        return "redirect:/entry-form";
     }
 
     @RequestMapping("/entry-form/mng-bill")
@@ -191,7 +196,7 @@ public class BudgetBuddyController {
     }
 
     //List all Bills from database
-    @GetMapping("/allbills")
+    @GetMapping("/all-bill")
     @ResponseBody
     public List<Bill> fetchBill()
     {
@@ -199,7 +204,7 @@ public class BudgetBuddyController {
     }
 
     //List all Expenses from database
-    @GetMapping("/allexps")
+    @GetMapping("/all-exp")
     @ResponseBody
     public List<Expense> fetchExpense()
     {

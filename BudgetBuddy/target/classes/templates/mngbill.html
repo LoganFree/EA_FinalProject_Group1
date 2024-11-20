@@ -26,47 +26,54 @@
         <thead>
         <tr>
             <th>Amount</th>
-            <th>Due Date</th>
+            <th>Day of Month Due</th>
             <th>Description</th>
             <th>Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="bill : ${bills}" th:id="'bill-row-' + ${bill.billID}">
-            <td th:text="${bill.billAmount}"></td>
-            <td th:text="${bill.billDueDate}"></td>
-            <td th:text="${bill.billDescription}"></td>
-            <td>
-                <!-- Dynamically generate the onclick with the bill ID -->
-                <button class="btn btn-danger btn-sm"
-                        th:onclick="'deleteBill(' + ${bill.billID} + ')'" >
-                    Delete
-                </button>
-            </td>
-        </tr>
+            <!-- Add a new Bill -->
+            <tr>
+                <td colspan="4">
+                    <form th:action="@{/entry-form/save-bill}" th:object="${bill}" method="POST">
+                        <div class="row mb-3">
+                            <div class="col">
+                                <input type="number" th:field="*{billAmount}" class="form-control" placeholder="Amount" required>
+                            </div>
+                            <div class="col">
+                                <input type="number" th:field="*{billDueDate}" class="form-control" placeholder="Day Due">
+                            </div>
+                            <div class="col">
+                                <input type="text" th:field="*{billDescription}" class="form-control" placeholder="Description">
+                            </div>
+                            <div class="col">
+                                <button type="submit" class="btn slim-btn-content mx-2">Add</button>
+                            </div>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td style="background-color: white !important;"></td>
+                <td style="background-color: white !important;"></td>
+                <td style="background-color: white !important;"></td>
+                <td style="background-color: white !important;"></td>
+            </tr>
         </tbody>
         <tfoot>
-        <!-- Add a new bill -->
-        <tr>
-            <td colspan="4">
-                <form th:action="@{/entry-form/save-bill}" th:object="${bill}" method="POST">
-                    <div class="row mb-3">
-                        <div class="col">
-                            <input type="number" th:field="*{billAmount}" class="form-control" placeholder="Amount" required>
-                        </div>
-                        <div class="col">
-                            <input type="date" th:field="*{billDueDate}" class="form-control" placeholder="Due Date">
-                        </div>
-                        <div class="col">
-                            <input type="text" th:field="*{billDescription}" class="form-control" placeholder="Description">
-                        </div>
-                        <div class="col">
-                            <button type="submit" class="btn slim-btn-content mx-2">Add</button>
-                        </div>
-                    </div>
-                </form>
-            </td>
-        </tr>
+            <!-- Bills from database -->
+            <tr th:each="bill : ${bills}" th:id="'bill-row-' + ${bill.billID}">
+                <td th:text="${bill.billAmount}"></td>
+                <td th:text="${bill.billDueDate}"></td>
+                <td th:text="${bill.billDescription}"></td>
+                <td>
+                    <!-- Dynamically generate the onclick with the Bill ID -->
+                    <button class="btn slim-btn-content delete-btn mx-2" th:onclick="'deleteBill(' + ${bill.billID} + ')'" >Delete
+                    </button>
+                </td>
+            </tr>
         </tfoot>
     </table>
 </div>

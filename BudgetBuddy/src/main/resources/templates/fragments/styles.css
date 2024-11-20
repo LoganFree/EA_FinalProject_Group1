@@ -136,14 +136,19 @@ th, td { /*Formatted like the forms above it*/
 .col {
     padding: 0 !important; /* Remove padding in the grid layout */
 }
-tfoot input {
+tbody input {
     width: 100%; /* Input takes full width of the table cell */
     text-align: center;
     padding: 5px;
 }
 
-tfoot button {
-    width: 100%; /* Button takes full width of the table cell */
+tfoot button, tbody button {
+    width: 45%; /* Button takes most of the width of the table cell */
     padding: 10px; /* Ensure the button has a good size without overflow */
     text-align: center;
+}
+
+.delete-btn {
+    color: white; !important;
+    background-color: #fa7373 !important;
 }

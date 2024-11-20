@@ -24,7 +24,7 @@
 
         <!-- Question #1 for Wage -->
         <div class="question-content divider">
-            <p><b>Please select your wage:</b></p>
+            <p><b>Manage your wage:</b></p>
             <div class="flex-container">
                 <div class="box-content">
                     <input type="radio" id="Hourly" name="options" value="1" onclick="toggleElement()">
@@ -33,7 +33,11 @@
                     <label for="Yearly">Yearly</label>
                 </div>
                 <form action="#" th:action="@{/entry-form/save-earning}" th:object="${earning}" method="POST">
+                    <!-- determine if earning is yearly or hourly -->
                     <input type="hidden" id="earnIsYearly" name="earnIsYearly" value="false">
+
+                    <!-- get current date -->
+                    <input type="hidden" id="earnDate" name="earnDate">
 
                     <div class="box-content text-inputs">
                         <label for="earnAmount">Wage:</label><br>
@@ -50,11 +54,17 @@
 
                 </form>
                 <script>
+                    // Set the current date in the hidden input field when the page loads
+                    window.onload = function() {
+                        document.getElementById('earnDate').value = new Date().toISOString().slice(0, 10);;
+                    };
+
                     // Only allow for numbers in earnAmount input
                     document.getElementById('earnAmount').addEventListener('input', function (e) {
                     this.value = this.value.replace(/[^0-9.,]/g, '');
                     });
 
+                    //Toggle between Yearly and Hourly
                     function toggleElement() {
                         var element = document.getElementById('toggleTarget');
                         var hourlyRadio = document.getElementById('Hourly');
@@ -65,6 +75,7 @@
                             element.style.display = 'none';
                         }
 
+                        //Submit boolean for
                         var hourly = document.getElementById('Hourly').checked;
                         var isYearlyField = document.getElementById('earnIsYearly');
                         if (hourly) {
@@ -102,7 +113,7 @@
 
         <!--buttons to access management forms-->
         <div class="question-content divider">
-            <p><b>Please select Expenses and Bills:</b></p>
+            <p><b>Manage Expenses and Bills:</b></p>
 
             <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
                 <div>

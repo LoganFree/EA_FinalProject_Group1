@@ -14,4 +14,6 @@ public @Data class Earning {
     private boolean earnIsYearly;
     private Double earnAmount;
     private double weeklyHours;
+    private String earnDate;
+
 }
