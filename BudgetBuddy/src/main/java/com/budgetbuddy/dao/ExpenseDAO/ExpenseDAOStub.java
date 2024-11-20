@@ -10,6 +10,7 @@ import java.util.Map;
 
 @Repository
 public class ExpenseDAOStub implements IExpenseDAO {
+
     Map<Integer, Expense> expenses = new HashMap<>();
 
 

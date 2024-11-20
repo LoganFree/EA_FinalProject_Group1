@@ -95,20 +95,19 @@
 
                 </script>
             </div>
-            <!--
-            <span style="padding:20px; align-content: center;" class="divider">
-                    &nbsp;&nbsp;<b>OR</b>&nbsp;&nbsp;
-                </span>
-            <div class="box-content text-inputs">
-                <label for="accountID">Account ID:</label><br>
-                ID <input type="number" id="accountID" name="accountID" placeholder="Enter your Account ID">
-            </div>
-            <script>
-                document.getElementById('accountID').addEventListener('input', function (e) {
-                    this.value = this.value.replace(/[^0-9]/g, '');
-                });
-            </script>
-            -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Earning from database -->
+                    <tr th:each="earning : ${earnings}">
+                        <td th:text="${earning.earnAmount}"></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <!--buttons to access management forms-->
