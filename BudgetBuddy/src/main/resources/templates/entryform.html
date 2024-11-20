@@ -47,7 +47,7 @@
 
                     <div class="box-content text-inputs" id="toggleTarget" style="display: none;">
                         <label for="weeklyHours">Hours a Week:</label><br>
-                        <input type="number" id="weeklyHours" name="weeklyHours" placeholder="hours" style="width: 100px">
+                        <input type="number" id="weeklyHours" name="weeklyHours" placeholder="hours" style="width: 100px" value="0">
                     </div>
 
                     <button type="submit" class="btn slim-btn-content mx-2">Add</button>
@@ -98,12 +98,17 @@
             <table>
                 <thead>
                     <tr>
+                        <th>Type</th>
                         <th>Amount</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- Earning from database -->
                     <tr th:each="earning : ${earnings}">
+                        <!-- Type -->
+                        <td th:text="${earning.earnIsYearly ? 'Yearly' : 'Hourly'}"></td>
+
+                        <!-- Amount -->
                         <td th:text="${earning.earnAmount}"></td>
                     </tr>
                 </tbody>
