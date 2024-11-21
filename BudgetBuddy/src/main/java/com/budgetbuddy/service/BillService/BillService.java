@@ -7,6 +7,20 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Service class for managing and processing bills in the Budget Buddy application.
+ * <p>
+ * This service acts as an intermediary between the controller and the DAO, providing higher-level
+ * methods for saving, updating, deleting, and retrieving bills.
+ * </p>
+ *
+ * <p>
+ * The {@link BillService} class is annotated with {@link org.springframework.stereotype.Service},
+ * indicating that it is a service component in the Spring context.
+ * </p>
+ *
+ * @author Mckelvin Ofosu-Frimpong
+ */
 @Service
 public class BillService implements IBillService {
 

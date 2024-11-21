@@ -7,6 +7,15 @@ import java.time.temporal.TemporalAdjusters;
 import java.time.temporal.WeekFields;
 import java.util.Locale;
 
+/**
+ * Service class for handling operations related to weekdays and weeks.
+ * <p>
+ * This service provides methods to retrieve specific week dates based on the given week number and year.
+ * It can return the start and end date of the week in a formatted string.
+ * </p>
+ *
+ * @author Mckelvin Ofosu-Frimpong
+ */
 @Service
 public class WeekDayService {
 

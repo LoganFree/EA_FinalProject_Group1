@@ -9,6 +9,20 @@ import lombok.Data;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents an earning in the Budget Buddy application.
+ * <p>
+ * This class is used to store information about an individual's earnings, including the amount,
+ * whether it is a yearly earning, the number of weekly hours worked, and the date of the earning.
+ * </p>
+ *
+ * <p>
+ * The class uses {@link lombok.Data} to automatically generate getters, setters, equals, hashCode,
+ * and toString methods.
+ * </p>
+ *
+ * @author Mckelvin Ofosu-Frimpong
+ */
 @Entity
 public @Data class Earning {
     @Id

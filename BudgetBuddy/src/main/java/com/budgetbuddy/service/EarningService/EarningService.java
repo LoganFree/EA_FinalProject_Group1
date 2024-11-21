@@ -9,6 +9,20 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Service class for managing earnings in the Budget Buddy application.
+ * <p>
+ * This service acts as an intermediary between the controller and the DAO, providing higher-level
+ * methods for saving, deleting, and retrieving earnings.
+ * </p>
+ *
+ * <p>
+ * The {@link EarningService} class is annotated with {@link org.springframework.stereotype.Service},
+ * indicating that it is a service component in the Spring context.
+ * </p>
+ *
+ * @author Mckelvin Ofosu-Frimpong
+ */
 @Service
 public class EarningService implements IEarningService {
 

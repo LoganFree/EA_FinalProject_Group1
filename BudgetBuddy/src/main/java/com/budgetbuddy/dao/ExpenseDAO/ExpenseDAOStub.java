@@ -8,6 +8,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Stub implementation of the {@link IExpenseDAO} interface for managing expenses.
+ * <p>
+ * This class provides a simple in-memory storage mechanism for {@link Expense} objects, primarily for testing purposes.
+ * It uses a {@link HashMap} to simulate a database.
+ * </p>
+ *
+ * <p>
+ * The class is annotated with {@link Repository} to indicate its role in the persistence layer, although it does not interact with an actual database.
+ * </p>
+ *
+ * @author Mckelvin Ofosu-Frimpong
+ */
 @Repository
 public class ExpenseDAOStub implements IExpenseDAO {
 

@@ -1,5 +1,14 @@
 package com.budgetbuddy.service;
 
+/**
+ * This is a Service class for calculating the budget based on earnings and expenses.
+ * <p>
+ * This service provides methods for calculating a weekly budget, which can be based on either
+ * yearly salary or weekly earnings, as well as handling the impact of weekly expenses and monthly bills.
+ * </p>
+ *
+ * @author Mckelvin Ofosu-Frimpong
+ */
 public class CalculationService {
 
     private boolean earnIsYearly;

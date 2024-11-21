@@ -7,6 +7,19 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The Data Access Object (DAO) implementation for managing {@link Bill} entities in the database.
+ * <p>
+ * This class provides methods for CRUD operations on {@link Bill} using the Spring Data JPA repository.
+ * It interacts with the database to save, retrieve, update, and delete bill records.
+ * </p>
+ *
+ * <p>
+ * This implementation uses the {@link BillRepository} interface to delegate database interactions.
+ * </p>
+ *
+ * @author Mckelvin Ofosu-Frimpong
+ */
 @Repository("billDAO")
 public class BillSQLDAO implements IBillDAO {
 

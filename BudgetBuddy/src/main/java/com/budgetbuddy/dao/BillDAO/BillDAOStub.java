@@ -8,6 +8,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * A stub implementation of the {IBillDAO} interface for managing bill data.
+ *
+ * <p>
+ * This class provides in-memory storage for bills using a {@link HashMap}. It is intended for
+ * testing purposes and simulates CRUD operations on bill data.
+ * </p>
+ *
+ * <p>
+ * Features include saving, updating, retrieving, deleting bills, and calculating the total
+ * bill amount.
+ * </p>
+ *
+ * @author Mckelvin Ofosu-Frimpong
+ */
 @Repository
 public class BillDAOStub implements IBillDAO {
 

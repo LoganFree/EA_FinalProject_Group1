@@ -25,6 +25,15 @@ import retrofit2.Call;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * Controller class for handling web requests related to the BudgetBuddy application.
+ * <p>
+ * This class manages user interactions for adding, managing, and deleting earnings, bills, and expenses.
+ * It also provides functionality for viewing the dashboard, selecting weeks, and fetching data from the database.
+ * </p>
+ *
+ * @author Mckelvin Ofosu-Frimpong
+ */
 @Controller
 public class BudgetBuddyController {
     @Autowired
