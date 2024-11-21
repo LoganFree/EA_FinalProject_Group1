@@ -40,7 +40,6 @@
                     <div class="box-content text-inputs">
                         <label for="earnAmount">Wage:</label><br>
                         $ <input type="text" id="earnAmount" name="earnAmount" placeholder="Enter your earning">
-                        <!--th:field="${earnAmount}" th:value="${earning.getEarnAmount()}"-->
                     </div>
 
                     <div class="box-content text-inputs" id="toggleTarget" style="display: none;">
@@ -102,6 +101,7 @@
                 <tr>
                     <th>Type</th>
                     <th>Amount</th>
+                    <th>Weekly Hours</th>
                     <th>Date</th>
                 </tr>
             </thead>
@@ -114,6 +114,9 @@
                     <!-- Amount -->
                     <td th:text="'$' + ${earning.earnAmount}"></td>
 
+                    <!-- Weekly Hours -->
+                    <td th:text="'$' + ${earning.weeklyHours}"></td>
+                    
                     <!-- Date -->
                     <td th:text="${earning.earnDate}"></td>
 

@@ -58,6 +58,7 @@
                     </td>
                 </tr>
             </tbody>
+            <!-- Divider -->
             <tbody>
                 <tr>
                     <td style="background-color: white !important;"></td>
@@ -69,9 +70,16 @@
             <tfoot>
                 <!-- Expenses from database -->
                 <tr th:each="expense : ${expenses}" th:id="'expense-row-' + ${expense.expID}">
+                    <!-- Expense Amount -->
                     <td th:text="${expense.expAmount}"></td>
+
+                    <!-- Expense Category -->
                     <td th:text="${expense.expCategory}"></td>
+
+                    <!-- Expense Description -->
                     <td th:text="${expense.expDescription}"></td>
+
+                    <!-- Delete Button -->
                     <td>
                         <!-- Dynamically generate the onclick with the Expense ID -->
                         <button class="btn slim-btn-content delete-btn mx-2" th:onclick="'deleteExpense(' + ${expense.expID} + ')'" >Delete

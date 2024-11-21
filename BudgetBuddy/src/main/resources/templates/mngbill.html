@@ -65,9 +65,16 @@
         <tfoot>
             <!-- Bills from database -->
             <tr th:each="bill : ${bills}" th:id="'bill-row-' + ${bill.billID}">
+                <!-- Bill Amount -->
                 <td th:text="${bill.billAmount}"></td>
+
+                <!-- Bill Due Date -->
                 <td th:text="${bill.billDueDate}"></td>
+
+                <!-- Bill Description -->
                 <td th:text="${bill.billDescription}"></td>
+
+                <!-- Delete Button -->
                 <td>
                     <!-- Dynamically generate the onclick with the Bill ID -->
                     <button class="btn slim-btn-content delete-btn mx-2" th:onclick="'deleteBill(' + ${bill.billID} + ')'" >Delete
