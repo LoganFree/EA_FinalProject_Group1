@@ -20,7 +20,8 @@ public class EarningSQLDAO implements IEarningDAO {
     }
 
     @Override
-    public void deleteEarning(long id) {
+    public void deleteEarning(int id) {
+        earningRepo.deleteById(id);
     }
 
     @Override

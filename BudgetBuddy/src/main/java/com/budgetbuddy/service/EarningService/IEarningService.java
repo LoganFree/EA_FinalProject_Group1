@@ -9,7 +9,7 @@ public interface IEarningService {
 
     //Earning management
     Earning save(Earning earning);
-    void deleteEarning(long id);
+    void deleteEarning(int id);
     List<Earning> getAllEarnings();
 
 }

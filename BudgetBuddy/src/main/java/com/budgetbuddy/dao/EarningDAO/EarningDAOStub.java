@@ -20,8 +20,8 @@ public class EarningDAOStub implements IEarningDAO {
     }
 
     @Override
-    public void deleteEarning(long id) {
-
+    public void deleteEarning(int id) {
+        earnings.remove(id);
     }
 
     @Override

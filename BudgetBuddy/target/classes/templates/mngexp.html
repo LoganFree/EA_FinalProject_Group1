@@ -22,7 +22,7 @@
 
     <!-- Entry for adding a Weekly Expense -->
     <div class="container mt-5">
-        <h2>Edit Weekly Expenses:</h2>
+        <h3>Edit Weekly Expenses:</h3>
         <table class="table table-bordered">
             <thead>
             <tr>
@@ -74,7 +74,7 @@
                     <td th:text="${expense.expDescription}"></td>
                     <td>
                         <!-- Dynamically generate the onclick with the Expense ID -->
-                        <button class="btn slim-btn-content delete-btn mx-2" th:onclick="'deleteBill(' + ${expense.expID} + ')'" >Delete
+                        <button class="btn slim-btn-content delete-btn mx-2" th:onclick="'deleteExpense(' + ${expense.expID} + ')'" >Delete
                         </button>
                     </td>
                 </tr>

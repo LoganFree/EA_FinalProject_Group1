@@ -26,7 +26,7 @@ public class EarningService implements IEarningService {
     }
 
     @Override
-    public void deleteEarning(long id) {
+    public void deleteEarning(int id) {
         // Delete the bill by its ID using the DAO
         earningDAO.deleteEarning(id);
     }

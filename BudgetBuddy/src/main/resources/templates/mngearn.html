@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Manage Earning - Budget Buddy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/fragments/styles.css}">
+</head>
+<body>
+
+    <!-- Top Nav -->
+    <div th:replace="fragments/topnav :: navbar">
+    </div>
+
+    <!-- Page Title -->
+    <div class="divider d-flex justify-content-center align-items-center">
+        <a href="/entry-form" class="btn slim-btn-content mx-2">< Back</a>
+        <a class="navbar-brand"><b>Manage Earning</b></a>
+    </div>
+
+    <div class="container mt-5">
+        <h3>Add a new Earning:</h3>
+        <div class="question-content">
+            <div class="flex-container">
+                <div class="box-content">
+                    <input type="radio" id="Hourly" name="options" value="1" onclick="toggleElement()">
+                    <label for="Hourly">Hourly</label><br>
+                    <input type="radio" id="Yearly" name="options" value="2" onclick="toggleElement()">
+                    <label for="Yearly">Yearly</label>
+                </div>
+                <form action="#" th:action="@{/entry-form/mng-earn/save-earning}" th:object="${earning}" method="POST">
+                    <!-- determine if earning is yearly or hourly -->
+                    <input type="hidden" id="earnIsYearly" name="earnIsYearly" value="false">
+
+                    <!-- get current date -->
+                    <input type="hidden" id="earnDate" name="earnDate">
+
+                    <div class="box-content text-inputs">
+                        <label for="earnAmount">Wage:</label><br>
+                        $ <input type="text" id="earnAmount" name="earnAmount" placeholder="Enter your earning">
+                        <!--th:field="${earnAmount}" th:value="${earning.getEarnAmount()}"-->
+                    </div>
+
+                    <div class="box-content text-inputs" id="toggleTarget" style="display: none;">
+                        <label for="weeklyHours">Hours a Week:</label><br>
+                        <input type="number" id="weeklyHours" name="weeklyHours" placeholder="hours" style="width: 100px" value="0">
+                    </div>
+
+                    <button type="submit" class="btn slim-btn-content mx-2">Add</button>
+
+                </form>
+                <script>
+                    // Set the current date in the hidden input field when the page loads
+                    window.onload = function() {
+                        document.getElementById('earnDate').value = new Date().toISOString().slice(0, 10);;
+                    };
+
+                    // Only allow for numbers in earnAmount input
+                    document.getElementById('earnAmount').addEventListener('input', function (e) {
+                        this.value = this.value.replace(/[^0-9.,]/g, '');
+                    });
+
+                    //Toggle between Yearly and Hourly
+                    function toggleElement() {
+                        var element = document.getElementById('toggleTarget');
+                        var hourlyRadio = document.getElementById('Hourly');
+
+                        if (hourlyRadio.checked) {
+                            element.style.display = 'block';
+                        } else {
+                            element.style.display = 'none';
+                        }
+
+                        //Submit boolean for
+                        var hourly = document.getElementById('Hourly').checked;
+                        var isYearlyField = document.getElementById('earnIsYearly');
+                        if (hourly) {
+                            isYearlyField.value = false;
+                        }
+                        else {
+                            isYearlyField.value = true;
+                        }
+                        var toggleTarget = document.getElementById('toggleTarget');
+
+                        toggleTarget.style.display = hourly ? 'block' : 'none';
+                    }
+
+                    function simulateAsyncOperation() {
+                        return new Promise(resolve => setTimeout(resolve, 2000));
+                    }
+
+                </script>
+            </div>
+        </div>
+    </div>
+    <!-- Entry for adding a Weekly Expense -->
+    <div class="container mt-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <!-- Earning from database -->
+                <tr th:each="earning : ${earnings}" th:id="'earning-row-' + ${earning.earnID}">
+                    <!-- Type -->
+                    <td th:text="${earning.earnIsYearly ? 'Yearly' : 'Hourly'}"></td>
+
+                    <!-- Amount -->
+                    <td th:text="'$' + ${earning.earnAmount}"></td>
+
+                    <!-- Date -->
+                    <td th:text="${earning.earnDate}"></td>
+
+                    <td>
+                        <button class="btn slim-btn-content delete-btn mx-2" th:onclick="'deleteEarning(' + ${earning.earnID} + ')'" >Delete
+                        </button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script>
+        function deleteEarning(earnID) {
+            fetch(`/entry-form/mng-earn/delete/earn?id=${earnID}`, {
+                    method: 'DELETE',
+                    headers: {
+                      'Content-Type': 'application/json'
+                    }
+                })
+                .then(response =>{
+                        console.log(response.status);
+                if (response.ok) {
+                    document.getElementById(`earning-row-${earnID}`).remove();
+                } else {
+                alert("Failed to delete earning" + response.statusText);
+                }
+              })
+              .catch(error =>
+            {
+            console.error('Error deleting earning:' + error);
+            alert('An error occurred when deleting earning')
+            })
+        }
+    </script>
+
+</body>
+</html>

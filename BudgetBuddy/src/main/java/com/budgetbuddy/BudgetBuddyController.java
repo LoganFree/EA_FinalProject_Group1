@@ -59,16 +59,11 @@ public class BudgetBuddyController {
     @RequestMapping("/entry-form")
     public String entryForm(Model model) {
         model.addAttribute("page", "entry");
-
-        // pull out Earning from database
-        List<Earning> earnings = earningService.getAllEarnings();
-        model.addAttribute("earnings", earnings);
-
         return "entryform";
     }
 
     // called when an earning is added on the entry form
-    @RequestMapping(value = "/entry-form/save-earning")
+    @RequestMapping(value = "/entry-form/mng-earn/save-earning")
     public String saveEarning(Earning earning, Model model) {
         model.addAttribute("page", "entry");
         try {
@@ -77,7 +72,36 @@ public class BudgetBuddyController {
             e.printStackTrace();
             return "redirect:/entry-form";
         }
-        return "redirect:/entry-form";
+        return "redirect:/entry-form/mng-earn";
+    }
+
+    // called when managing Earning
+    @RequestMapping("/entry-form/mng-earn")
+    public String mngEarn(Model model)
+    {
+        model.addAttribute("page", "entry");
+
+        // pull out Earning from database
+        List<Earning> earnings = earningService.getAllEarnings();
+        model.addAttribute("earnings", earnings);
+
+        return "mngearn";
+    }
+
+    // called when an Earning is deleted
+    @DeleteMapping("/entry-form/mng-earn/delete/earn")
+    public ResponseEntity<String> deleteEarn(@RequestParam("id") int id) {
+        log.debug("Entering delete Earning endpoint");
+        try {
+            earningService.deleteEarning(id);
+            log.info("Earning with ID " + id + " was deleted successfully!");
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            log.error("Unable to delete Earning with ID " + id + ", message:" + e.getMessage(), e);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     // called when managing Bill

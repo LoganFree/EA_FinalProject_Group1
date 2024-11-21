@@ -22,119 +22,45 @@
     <!-- Wrapper for body content-->
     <div class="body-content">
 
-        <!-- Question #1 for Wage -->
+        <!--buttons to access Earning management-->
         <div class="question-content divider">
-            <p><b>Manage your wage:</b></p>
-            <div class="flex-container">
-                <div class="box-content">
-                    <input type="radio" id="Hourly" name="options" value="1" onclick="toggleElement()">
-                    <label for="Hourly">Hourly</label><br>
-                    <input type="radio" id="Yearly" name="options" value="2" onclick="toggleElement()">
-                    <label for="Yearly">Yearly</label>
+            <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
+                <div>
+                    <a href="/entry-form/mng-earn" class="btn box-content async-btn mx-2" style="font-size: 20px">Manage <b>Earning</b></a>
                 </div>
-                <form action="#" th:action="@{/entry-form/save-earning}" th:object="${earning}" method="POST">
-                    <!-- determine if earning is yearly or hourly -->
-                    <input type="hidden" id="earnIsYearly" name="earnIsYearly" value="false">
-
-                    <!-- get current date -->
-                    <input type="hidden" id="earnDate" name="earnDate">
-
-                    <div class="box-content text-inputs">
-                        <label for="earnAmount">Wage:</label><br>
-                        $ <input type="text" id="earnAmount" name="earnAmount" placeholder="Enter your wage">
-                        <!--th:field="${earnAmount}" th:value="${earning.getEarnAmount()}"-->
-                    </div>
-
-                    <div class="box-content text-inputs" id="toggleTarget" style="display: none;">
-                        <label for="weeklyHours">Hours a Week:</label><br>
-                        <input type="number" id="weeklyHours" name="weeklyHours" placeholder="hours" style="width: 100px" value="0">
-                    </div>
-
-                    <button type="submit" class="btn slim-btn-content mx-2">Add</button>
-
-                </form>
-                <script>
-                    // Set the current date in the hidden input field when the page loads
-                    window.onload = function() {
-                        document.getElementById('earnDate').value = new Date().toISOString().slice(0, 10);;
-                    };
-
-                    // Only allow for numbers in earnAmount input
-                    document.getElementById('earnAmount').addEventListener('input', function (e) {
-                    this.value = this.value.replace(/[^0-9.,]/g, '');
-                    });
-
-                    //Toggle between Yearly and Hourly
-                    function toggleElement() {
-                        var element = document.getElementById('toggleTarget');
-                        var hourlyRadio = document.getElementById('Hourly');
-
-                        if (hourlyRadio.checked) {
-                            element.style.display = 'block';
-                        } else {
-                            element.style.display = 'none';
-                        }
-
-                        //Submit boolean for
-                        var hourly = document.getElementById('Hourly').checked;
-                        var isYearlyField = document.getElementById('earnIsYearly');
-                        if (hourly) {
-                            isYearlyField.value = false;
-                        }
-                        else {
-                            isYearlyField.value = true;
-                        }
-                        var toggleTarget = document.getElementById('toggleTarget');
-
-                        toggleTarget.style.display = hourly ? 'block' : 'none';
-                    }
-
-                    function simulateAsyncOperation() {
-                        return new Promise(resolve => setTimeout(resolve, 2000));
-                    }
-
-                </script>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Type</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Earning from database -->
-                    <tr th:each="earning : ${earnings}">
-                        <!-- Type -->
-                        <td th:text="${earning.earnIsYearly ? 'Yearly' : 'Hourly'}"></td>
-
-                        <!-- Amount -->
-                        <td th:text="${earning.earnAmount}"></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
 
-        <!--buttons to access management forms-->
+        <!--buttons to access Expenses management-->
         <div class="question-content divider">
-            <p><b>Manage Expenses and Bills:</b></p>
-
             <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
                 <div>
                     <a href="/entry-form/mng-exp" class="btn box-content async-btn mx-2" style="font-size: 20px">Manage <b>Weekly Expenses</b></a>
+                </div>
+            </div>
+        </div>
+
+        <!--buttons to access Bills management-->
+        <div class="question-content divider">
+            <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
+                <div>
                     <a href="/entry-form/mng-bill" class="btn box-content async-btn mx-2" style="font-size: 20px">Manage <b>Monthly Bills</b></a>
                 </div>
             </div>
         </div>
+
         <script>
-            document.querySelector('.async-btn').addEventListener('click', function(event) {
-                this.classList.add('loading');
+            document.querySelectorAll('.async-btn').forEach(function(button) {
+                button.addEventListener('click', function(event) {
+                    this.classList.add('loading');
 
-                window.location.href = this.href;
+                    window.location.href = this.href;
 
-                event.preventDefault();
-           });
+                    event.preventDefault();
+                });
+            });
         </script>
+
         <br>
         <br>
         <br>
