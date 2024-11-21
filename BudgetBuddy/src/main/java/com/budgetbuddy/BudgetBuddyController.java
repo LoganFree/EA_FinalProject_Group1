@@ -62,7 +62,7 @@ public class BudgetBuddyController {
         return "entryform";
     }
 
-    // called when an earning is added on the entry form
+    // called when an Earning is added
     @RequestMapping(value = "/entry-form/mng-earn/save-earning")
     public String saveEarning(Earning earning, Model model) {
         model.addAttribute("page", "entry");
@@ -121,7 +121,7 @@ public class BudgetBuddyController {
         return "mngbill";
     }
 
-    // called when a bill is added on the entry form
+    // called when a Bill is added
     @RequestMapping(value = "/entry-form/save-bill")
     public String saveBill(Bill bill, Model model) {
         model.addAttribute("page", "entry");
@@ -170,7 +170,7 @@ public class BudgetBuddyController {
         return "mngexp";
     }
 
-    // called when an expense is added on the entry form
+    // called when an Expense is added
     @RequestMapping("/entry-form/save-exp")
     public String saveExp(Expense expense, Model model) {
         model.addAttribute("page", "entry");
@@ -227,7 +227,15 @@ public class BudgetBuddyController {
     }
 
     // List all Bills from database
-    @GetMapping("/all-bill")
+    @GetMapping("/all/earn")
+    @ResponseBody
+    public List<Earning> fetchEarning()
+    {
+        return earningService.getAllEarnings();
+    }
+
+    // List all Bills from database
+    @GetMapping("/all/bill")
     @ResponseBody
     public List<Bill> fetchBill()
     {
@@ -235,7 +243,7 @@ public class BudgetBuddyController {
     }
 
     // List all Expenses from database
-    @GetMapping("/all-exp")
+    @GetMapping("/all/exp")
     @ResponseBody
     public List<Expense> fetchExpense()
     {
