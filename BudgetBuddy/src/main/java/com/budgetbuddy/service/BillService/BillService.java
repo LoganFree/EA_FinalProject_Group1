@@ -5,6 +5,8 @@ import com.budgetbuddy.dto.Bill;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,37 +21,64 @@ public class BillService implements IBillService {
 
     @Override
     public Bill save(Bill bill) {
-        // Save the bill to the DAO
         return billDAO.save(bill);
     }
 
     @Override
     public Bill updateBill(Bill bill) {
-        // Call the DAO to update the bill
         return billDAO.updateBill(bill);
     }
 
     @Override
     public Bill getBillById(int id) {
-        // Retrieve a bill by its ID from the DAO
         return billDAO.getBillById(id);
     }
 
     @Override
     public void deleteBill(int id) {
-        // Delete the bill by its ID using the DAO
         billDAO.deleteBill(id);
     }
 
     @Override
     public List<Bill> getAllBills() {
-        // Retrieve all bills from the DAO
         return billDAO.getAllBills();
     }
 
     @Override
     public double calculateTotalBill() {
-        // Calculate the total amount of all bills
         return billDAO.calculateTotalBill();
+    }
+
+    @Override
+    public List<Bill> getWeeklyBills(LocalDate startDate, LocalDate endDate) {
+        List<Bill> allBills = billDAO.getAllBills();
+        List<Bill> weeklyBills = new ArrayList<>();
+
+        for (Bill bill : allBills) {
+            LocalDate dueDate = LocalDate.parse(bill.getBillDueDate());
+
+            LocalDate billDueDateCurrentMonth = getValidBillDueDate(startDate, dueDate.getDayOfMonth());
+            LocalDate billDueDateNextMonth = getValidBillDueDate(startDate.plusMonths(1), dueDate.getDayOfMonth());
+
+            if (isDateWithinRange(billDueDateCurrentMonth, startDate, endDate)
+                    || isDateWithinRange(billDueDateNextMonth, startDate, endDate.plusDays(1))) {
+                Bill weeklyBill = new Bill();
+                weeklyBill.setBillID(bill.getBillID());
+                weeklyBill.setBillDescription(bill.getBillDescription());
+                weeklyBill.setBillAmount(bill.getBillAmount());
+                weeklyBill.setBillDueDate(billDueDateCurrentMonth.isBefore(startDate) ? billDueDateNextMonth.toString() : billDueDateCurrentMonth.toString());
+                weeklyBills.add(weeklyBill);
+            }
+        }
+        return weeklyBills;
+    }
+
+    private LocalDate getValidBillDueDate(LocalDate monthDate, int dayOfMonth) {
+        int lastDayOfMonth = monthDate.lengthOfMonth();
+        return LocalDate.of(monthDate.getYear(), monthDate.getMonthValue(), Math.min(dayOfMonth, lastDayOfMonth));
+    }
+
+    private boolean isDateWithinRange(LocalDate date, LocalDate startDate, LocalDate endDate) {
+        return (date.isEqual(startDate) || date.isAfter(startDate)) && date.isBefore(endDate.plusDays(1));
     }
 }

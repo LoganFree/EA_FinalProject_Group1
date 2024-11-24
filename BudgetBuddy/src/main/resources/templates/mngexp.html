@@ -28,6 +28,7 @@
             <tr>
                 <th>Expense Amount</th>
                 <th>Category</th>
+                <th>Date</th>
                 <th>Description</th>
                 <th>Action</th>
             </tr>
@@ -75,6 +76,9 @@
 
                     <!-- Expense Category -->
                     <td th:text="${expense.expCategory}"></td>
+
+                    <!-- Expense Date-->
+                    <td th:text="${expense.expDate}"></td>
 
                     <!-- Expense Description -->
                     <td th:text="${expense.expDescription}"></td>
