@@ -41,13 +41,13 @@
 
                     <div class="box-content text-inputs">
                         <label for="earnAmount">Wage:</label><br>
-                        $ <input type="text" id="earnAmount" name="earnAmount" placeholder="Enter your wage">
+                        $ <input type="text" id="earnAmount" name="earnAmount" placeholder="Enter your wage" required>
                         <!--th:field="${earnAmount}" th:value="${earning.getEarnAmount()}"-->
                     </div>
 
                     <div class="box-content text-inputs" id="toggleTarget" style="display: none;">
                         <label for="weeklyHours">Hours a Week:</label><br>
-                        <input type="number" id="weeklyHours" name="weeklyHours" placeholder="hours" style="width: 100px" value="0">
+                        <input type="number" id="weeklyHours" name="weeklyHours" placeholder="hours" style="width: 100px" value="0" required>
                     </div>
 
                     <button type="submit" class="btn slim-btn-content mx-2">Add</button>
