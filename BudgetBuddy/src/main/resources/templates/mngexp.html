@@ -42,19 +42,20 @@
                                     <input type="number" id="expAmount" name="expAmount" th:field="*{expAmount}" class="form-control" placeholder="Amount" required>
                                 </div>
                                 <div class="col">
-                                    <select id="expCategory" name="expCategory" th:field="*{expCategory}" class="form-control">
+                                    <select id="expCategory" name="expCategory" th:field="*{expCategory}" class="form-control" required>
                                         <option value="" disabled selected>Select a category</option>
                                         <option th:each="category : ${categories}" th:value="${category.category_names}" th:text="${category.category_names}"></option>
                                     </select>
                                 </div>
                                 <div class="col">
-                                    <input type="text" id="expDescription" name="expDescription" th:field="*{expDescription}" class="form-control" placeholder="Description" >
+                                    <input type="text" id="expDescription" name="expDescription" th:field="*{expDescription}" class="form-control" placeholder="Description" required>
                                 </div>
                                 <div class="col">
                                     <button type="submit" class="btn slim-btn-content mx-2">Add</button>
                                 </div>
                             </div>
                         </form>
+
                     </td>
                 </tr>
             </tbody>

@@ -41,16 +41,17 @@
                                 <input type="number" th:field="*{billAmount}" class="form-control" placeholder="Amount" required>
                             </div>
                             <div class="col">
-                                <input type="number" th:field="*{billDueDate}" class="form-control" placeholder="Day Due">
+                                <input type="number" th:field="*{billDueDate}" class="form-control" placeholder="Day of Month Due" required>
                             </div>
                             <div class="col">
-                                <input type="text" th:field="*{billDescription}" class="form-control" placeholder="Description">
+                                <input type="text" th:field="*{billDescription}" class="form-control" placeholder="Description" required>
                             </div>
                             <div class="col">
                                 <button type="submit" class="btn slim-btn-content mx-2">Add</button>
                             </div>
                         </div>
                     </form>
+
                 </td>
             </tr>
         </tbody>

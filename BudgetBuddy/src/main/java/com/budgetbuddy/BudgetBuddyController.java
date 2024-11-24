@@ -12,6 +12,7 @@ import com.budgetbuddy.service.TempDataService;
 import com.budgetbuddy.service.WeekDayService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -23,6 +24,7 @@ import org.springframework.web.servlet.View;
 import retrofit2.Call;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -81,13 +83,17 @@ public class BudgetBuddyController {
     public String saveEarning(Earning earning, Model model) {
         model.addAttribute("page", "entry");
         try {
+            // Save the earning using the earningService
             earningService.save(earning);
         } catch (Exception e) {
-            e.printStackTrace();
-            return "redirect:/entry-form";
+            // Catch any exception, including potential database or general errors
+            log.error("An error occurred while saving the earning: ", e);
+            model.addAttribute("errorMessage", "An unexpected error occurred. Please try again.");
+            return "entryform";  // Redirect back to the entry form with an error message
         }
-        return "redirect:/entry-form";
+        return "redirect:/entry-form";  // Redirect to the entry form after successfully saving the earning
     }
+
 
     // called when managing Bill
     @RequestMapping("/entry-form/mng-bill")
@@ -125,17 +131,21 @@ public class BudgetBuddyController {
     public ResponseEntity<String> deleteBill(@RequestParam("id") int id) {
         log.debug("Entering delete Bill endpoint");
         try {
+            // Attempt to delete the bill
             billService.deleteBill(id);
             log.info("Bill with ID " + id + " was deleted successfully!");
             return new ResponseEntity<>(HttpStatus.OK);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            log.error("Unable to delete Bill with ID " + id + ", message:" + e.getMessage(), e);
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (DataIntegrityViolationException e) {
+            // Handle specific exception for data integrity violation (e.g., foreign key constraints)
+            log.error("Error: Bill ID " + id + " is referenced elsewhere and cannot be deleted.", e);
+            return new ResponseEntity<>("Bill cannot be deleted due to integrity constraints.", HttpStatus.CONFLICT);
+        } catch (Exception e) {
+            // Catch all other exceptions
+            log.error("Unexpected error while deleting Bill ID " + id + ": " + e.getMessage(), e);
+            return new ResponseEntity<>("An unexpected error occurred. Please try again.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+    
     // called when managing Expense
     @RequestMapping("/entry-form/mng-exp")
     public String mngExp(Model model) throws Exception {
