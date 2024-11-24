@@ -28,6 +28,7 @@
       <tr>
         <th>Expense Amount</th>
         <th>Category</th>
+        <th>Date</th>
         <th>Description</th>
         <th>Action</th>
       </tr>
@@ -36,6 +37,7 @@
         <tr th:each="expense : ${expenses}" th:id="'expense-row-' + ${expense.expID}">
             <td th:text="${expense.expAmount}"></td>
             <td th:text="${expense.expCategory}"></td>
+            <td th:text="${expense.expDate}"></td>
             <td th:text="${expense.expDescription}"></td>
             <td>
               <button class="btn btn-danger btn-sm"
@@ -58,6 +60,9 @@
                   <option value="" disabled selected>Select a category</option>
                   <option th:each="category : ${categories}" th:value="${category.category_names}" th:text="${category.category_names}"></option>
                 </select>
+              </div>
+              <div class="col">
+                <input type="date" th:field="*{expDate}" class="form-control" placeholder="Date">
               </div>
               <div class="col">
                 <input type="text" id="expDescription" name="expDescription" th:field="*{expDescription}" class="form-control" placeholder="Description" >
