@@ -67,36 +67,6 @@
 
     </div>
 
-    <!--buttons to access Expenses management-->
-    <div class="question-content divider">
-        <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
-            <div>
-                <a href="/entry-form/mng-exp" class="btn box-content async-btn mx-2" style="font-size: 20px">Manage <b>Weekly Expenses</b></a>
-            </div>
-        </div>
-    </div>
-
-    <!--buttons to access Bills management-->
-    <div class="question-content divider">
-        <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
-            <div>
-                <a href="/entry-form/mng-bill" class="btn box-content async-btn mx-2" style="font-size: 20px">Manage <b>Monthly Bills</b></a>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        document.querySelectorAll('.async-btn').forEach(function(button) {
-            button.addEventListener('click', function(event) {
-                this.classList.add('loading');
-
-                window.location.href = this.href;
-
-                event.preventDefault();
-            });
-        });
-    </script>
-
     <br>
     <br>
     <br>
