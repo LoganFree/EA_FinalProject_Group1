@@ -10,8 +10,7 @@
 </head>
 <body>
 
-<div th:replace="fragments/topnav :: navbar">
-</div>
+<div th:replace="fragments/topnav :: navbar"></div>
 
 <div class="body-content">
 
@@ -21,7 +20,8 @@
             <div class="flex-container">
                 <div class="box-content">
                     <form th:action="@{/week-selected}" method="post">
-                        <input type="week" id="Week" name="week" placeholder="Week" th:value="${selectedWeek}" oninput="this.form.submit()"></form>
+                        <input type="week" id="Week" name="week" placeholder="Week" th:value="${selectedWeek}" oninput="this.form.submit()">
+                    </form>
                     <div id="weekDays" th:utext="${weekDays != null ? 'Days of this week: <b>' + weekDays + '</b>.' : 'Please select a week.'}"></div>
                 </div>
             </div>
@@ -32,13 +32,12 @@
             <div class="flex-container">
                 <div class="box-content">
                     <span style="font-size: 30px; font-weight: bold;">
-                        $100.00
+                        $<span th:text="${weeklyBudget}"></span>
                     </span>
                 </div>
             </div>
         </div>
     </div>
-
 
     <div class="flex-container">
 
@@ -46,18 +45,18 @@
             <p><b>Weekly Expenses:</b></p>
             <div class="flex-container">
                 <ul>
-                    <li class="box-content" style="display: block" th:each="expense : ${expenses}">
-                        <span th:text="${expense.expDescription}"></span> | $<span th:text="${expense.expAmount}"></span>
+                    <li class="box-content" style="display: block" th:each="expense : ${weeklyExpenses}">
+                        <span th:text="${expense.expCategory}"></span> | <span th:text="${expense.expDescription}"></span> | $<span th:text="${expense.expAmount}"></span>
                     </li>
                 </ul>
             </div>
         </div>
 
         <div class="question-content divider">
-            <p><b>Monthly Bill:</b></p>
+            <p><b>Weekly Bills:</b></p>
             <div class="flex-container">
                 <ul>
-                    <li class="box-content" style="display: block" th:each="bill : ${bills}">
+                    <li class="box-content" style="display: block" th:each="bill : ${weeklyBills}">
                         <span th:text="${bill.billDescription}"></span> | $<span th:text="${bill.billAmount}"></span> on day <span th:text="${bill.billDueDate}"></span>
                     </li>
                 </ul>
@@ -65,9 +64,6 @@
         </div>
 
     </div>
-
-
-
 
 </div>
 

@@ -6,7 +6,6 @@ import com.budgetbuddy.dto.Category;
 import com.budgetbuddy.dto.Expense;
 import com.budgetbuddy.service.BillService.BillService;
 import com.budgetbuddy.service.ExpenseService.ExpenseService;
-import com.budgetbuddy.service.TempDataService;
 import com.budgetbuddy.service.WeekDayService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,12 +15,12 @@ import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.View;
-import retrofit2.Call;
 
-import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 public class BudgetBuddyController {
@@ -33,8 +32,6 @@ public class BudgetBuddyController {
     private WeekDayService weekDayService;
     @Autowired
     private CategoryDAO categoryDAO;
-    @Autowired
-    private TempDataService tempDataService;
 
     Logger log = LoggerFactory.getLogger(this.getClass());
     @Autowired
@@ -153,28 +150,45 @@ public class BudgetBuddyController {
         }
     }
 
-    //DASHBOARD
+    // DASHBOARD
     @RequestMapping("/dashboard")
     public String dashboard(Model model) {
         model.addAttribute("page", "dashboard");
 
-        //get temp data from DAO
-        model.addAttribute("expenses", tempDataService.getExpenses());
-        model.addAttribute("bills", tempDataService.getBills());
+        // Get temp data from DAO
 
         return "dashboard";
     }
 
-    //called when a week is selected in the dashboard
-    @PostMapping("/week-selected")
-    public String getWeekDates(@RequestParam("week") String week, Model model) {
-        //set page to active
+    // Called when a week is selected in the dashboard
+    @RequestMapping("/week-selected")
+    public String getWeekData(@RequestParam("week") String week, Model model) {
         model.addAttribute("page", "dashboard");
 
-        //call weekService
-        String formattedWeek = weekDayService.getWeekDates(week);
-        model.addAttribute("weekDays", formattedWeek);
-        model.addAttribute("selectedWeek", week);
+        try {
+            // Get week start and end dates
+            LocalDate[] weekDates = weekDayService.getStartAndEndDates(week);
+            LocalDate startDate = weekDates[0];
+            LocalDate endDate = weekDates[1];
+
+            // Retrieve weekly bills
+            List<Bill> weeklyBills = billService.getWeeklyBills(startDate, endDate);
+
+            // Retrieve weekly expenses
+            List<Expense> weeklyExpenses = expenseService.getAllExpenses().stream()
+                    .filter(expense -> weekDayService.isDateWithinRange(expense.getExpDate(), startDate, endDate))
+                    .collect(Collectors.toList());
+
+            // Add data to the model
+            model.addAttribute("weekDays", weekDayService.getWeekDates(week)); // e.g., "10/1-10/7"
+            model.addAttribute("selectedWeek", week);
+            model.addAttribute("weeklyBills", weeklyBills);
+            model.addAttribute("weeklyExpenses", weeklyExpenses);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            model.addAttribute("error", "Invalid week format or data processing error.");
+        }
 
         return "dashboard";
     }

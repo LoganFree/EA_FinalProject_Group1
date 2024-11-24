@@ -12,6 +12,7 @@ public @Data class Expense {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int expID;
     private double expAmount;
+    private String expDate;
     private String expCategory;
     private String expDescription;
 }

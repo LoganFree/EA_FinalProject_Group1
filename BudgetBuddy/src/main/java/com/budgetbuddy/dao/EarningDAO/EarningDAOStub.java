@@ -16,7 +16,6 @@ public class EarningDAOStub implements IEarningDAO{
 
     @Override
     public void deleteEarning(long id) {
-
     }
 
     @Override
