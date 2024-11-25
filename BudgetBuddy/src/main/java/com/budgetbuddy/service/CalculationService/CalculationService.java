@@ -10,4 +10,10 @@ import java.util.List;
 @Service
 public class CalculationService {
 
+    /*public double calculateTotalBudgetForWeek(String week, List<Bill> bills, List<Expense> expenses, Earning recentEarning) {
+
+
+    }*/
+
+
 }

@@ -14,6 +14,8 @@ public class EarningService implements IEarningService {
 
     @Autowired
     private IEarningDAO earningDAO;
+    @Autowired private
+    EarningRepository earningRepository;
 
     public EarningService(IEarningDAO earningDAO) {
         this.earningDAO = earningDAO;
@@ -37,5 +39,9 @@ public class EarningService implements IEarningService {
         return earningDAO.getAllEarnings();
     }
 
+    public Earning getMostRecentEarning()
+    {
+        return earningRepository.findMostRecentEarning();
+    }
 }
 

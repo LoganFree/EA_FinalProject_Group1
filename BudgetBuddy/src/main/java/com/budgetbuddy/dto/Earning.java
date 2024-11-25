@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter;
 public @Data class Earning {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int earnID;
+    private long earnID;
     private boolean earnIsYearly;
     private Double earnAmount;
     private double weeklyHours;

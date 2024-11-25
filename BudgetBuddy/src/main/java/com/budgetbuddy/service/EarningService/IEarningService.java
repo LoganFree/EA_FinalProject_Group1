@@ -11,5 +11,5 @@ public interface IEarningService {
     Earning save(Earning earning);
     void deleteEarning(int id);
     List<Earning> getAllEarnings();
-
+    Earning getMostRecentEarning();
 }

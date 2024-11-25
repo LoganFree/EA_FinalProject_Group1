@@ -151,4 +151,5 @@ tfoot button, tbody button {
 .delete-btn {
     color: white; !important;
     background-color: #fa7373 !important;
+    width: 100%; !important;
 }

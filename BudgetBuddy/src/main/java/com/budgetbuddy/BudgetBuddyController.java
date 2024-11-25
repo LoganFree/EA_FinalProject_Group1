@@ -1,6 +1,5 @@
 package com.budgetbuddy;
 
-import com.budgetbuddy.dao.CategoryDAO.CategoryDAO;
 import com.budgetbuddy.dto.Earning;
 import com.budgetbuddy.dto.Bill;
 import com.budgetbuddy.dto.Expense;
@@ -9,6 +8,7 @@ import com.budgetbuddy.service.EarningService.EarningService;
 import com.budgetbuddy.service.BillService.BillService;
 import com.budgetbuddy.service.ExpenseService.ExpenseService;
 import com.budgetbuddy.service.WeekDayService;
+import com.budgetbuddy.service.CalculationService.CalculationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -35,7 +35,7 @@ public class BudgetBuddyController {
     @Autowired
     private WeekDayService weekDayService;
     @Autowired
-    private CategoryDAO categoryDAO;
+    private CalculationService calculationService;
 
     Logger log = LoggerFactory.getLogger(this.getClass());
 
@@ -81,6 +81,10 @@ public class BudgetBuddyController {
         // pull out Earning from database
         List<Earning> earnings = earningService.getAllEarnings();
         model.addAttribute("earnings", earnings);
+
+        Earning recentearning = earningService.getMostRecentEarning();
+        model.addAttribute("recentearning", recentearning);
+
 
         return "mngearn";
     }
@@ -202,8 +206,6 @@ public class BudgetBuddyController {
     public String dashboard(Model model) {
         model.addAttribute("page", "dashboard");
 
-        // Get temp data from DAO
-
         return "dashboard";
     }
 
@@ -231,6 +233,12 @@ public class BudgetBuddyController {
             model.addAttribute("selectedWeek", week);
             model.addAttribute("weeklyBills", weeklyBills);
             model.addAttribute("weeklyExpenses", weeklyExpenses);
+
+            /*
+            Earning recentEarning = earningService.getMostRecentEarning();
+
+            calculationService.calculateTotalBudgetForWeek(week, weeklyBills, weeklyExpenses, recentEarning);
+            */
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -263,4 +271,5 @@ public class BudgetBuddyController {
     {
         return expenseService.getAllExpenses();
     }
+
 }

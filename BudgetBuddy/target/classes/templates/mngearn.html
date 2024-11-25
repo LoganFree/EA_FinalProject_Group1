@@ -50,6 +50,11 @@
                     <button type="submit" class="btn slim-btn-content mx-2">Add</button>
 
                 </form>
+                <div th:each="earning : ${recentearning}">
+
+                     Most recent: $<span th:text="${earning.earnAmount}"></span> <span th:text="${earning.earnIsYearly ? 'yearly' : 'hourly'}"></span> on <span th:text="${earning.earnDate}"></span>
+
+                </div>
                 <script>
                     // Set the current date in the hidden input field when the page loads
                     window.onload = function() {
@@ -115,7 +120,7 @@
                     <td th:text="'$' + ${earning.earnAmount}"></td>
 
                     <!-- Weekly Hours -->
-                    <td th:text="'$' + ${earning.weeklyHours}"></td>
+                    <td th:text="${earning.weeklyHours}"></td>
                     
                     <!-- Date -->
                     <td th:text="${earning.earnDate}"></td>
@@ -151,6 +156,22 @@
             })
         }
     </script>
+
+    <!--<table>
+        <tfoot>
+        <tr th:each="earning : ${recentearning}">
+            <td th:text="${earning.earnIsYearly ? 'Yearly' : 'Hourly'}"></td>
+
+            <td th:text="'$' + ${earning.earnAmount}"></td>
+
+            <td th:text="${earning.weeklyHours}"></td>
+
+            <td th:text="${earning.earnDate}"></td>
+
+        </tr>
+        </tfoot>
+    </table>-->
+
 
 </body>
 </html>
