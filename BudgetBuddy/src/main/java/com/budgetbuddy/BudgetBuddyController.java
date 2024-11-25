@@ -82,9 +82,9 @@ public class BudgetBuddyController {
         List<Earning> earnings = earningService.getAllEarnings();
         model.addAttribute("earnings", earnings);
 
-        Earning recentearning = earningService.getMostRecentEarning();
-        model.addAttribute("recentearning", recentearning);
-
+        // pull out the most recent Earning
+        Earning recentEarning = earningService.getMostRecentEarning();
+        model.addAttribute("recentearning", recentEarning);
 
         return "mngearn";
     }
@@ -234,7 +234,15 @@ public class BudgetBuddyController {
             model.addAttribute("weeklyBills", weeklyBills);
             model.addAttribute("weeklyExpenses", weeklyExpenses);
 
+            //double totalExpenses = weekDayService.calculateTotalExpensesForWeek(week, weeklyExpenses);
+
+            //double totalBills = weekDayService.calculateTotalBillsForWeek(week, weeklyBills);
+
+            //model.addAttribute("totalBills", totalExpenses);
+            //model.addAttribute("totalExpenses", totalBills);
+
             /*
+            // pull out the most recent Earning
             Earning recentEarning = earningService.getMostRecentEarning();
 
             calculationService.calculateTotalBudgetForWeek(week, weeklyBills, weeklyExpenses, recentEarning);
