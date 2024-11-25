@@ -212,7 +212,7 @@ public class BudgetBuddyController {
     }
 
     // Called when a week is selected in the dashboard
-    @RequestMapping("/week-selected")
+    @RequestMapping("/dashboard/week-selected")
     public String getWeekData(@RequestParam("week") String week, Model model) {
         model.addAttribute("page", "dashboard");
 
