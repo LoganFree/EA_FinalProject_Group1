@@ -5,13 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="97698fac-cf73-4dc1-b86f-ce6b4e11d745" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/budgetbuddy/dao/BillDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/budgetbuddy/dao/BillDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/budgetbuddy/dao/IBillDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/budgetbuddy/dao/IBillDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/budgetbuddy/dao/IEarningDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/budgetbuddy/dao/IEarningDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/budgetbuddy/dao/IExpenseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/budgetbuddy/dao/IExpenseDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/budgetbuddy/service/WeekDayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/budgetbuddy/service/WeekDayService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/BudgetBuddyApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/BudgetBuddyApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/BudgetBuddyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/BudgetBuddyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/BillDAO/BillDAOStub.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/BillDAO/BillDAOStub.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/BillDAO/BillRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/BillDAO/BillRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/BillDAO/BillSQLDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/BillDAO/BillSQLDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/BillDAO/IBillDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/BillDAO/IBillDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/CategoryDAO/CategoryDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/CategoryDAO/CategoryDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/CategoryDAO/ICategoryDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/CategoryDAO/ICategoryDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/CategoryDAO/ICategoryRetrofitDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/CategoryDAO/ICategoryRetrofitDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/CategoryDAO/RetrofitClientInstance.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/CategoryDAO/RetrofitClientInstance.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/EarningDAO/EarningDAOStub.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/EarningDAO/EarningDAOStub.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/EarningDAO/EarningRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/EarningDAO/EarningRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/EarningDAO/EarningSQLDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/EarningDAO/EarningSQLDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/EarningDAO/IEarningDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/EarningDAO/IEarningDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/ExpenseDAO/ExpenseDAOStub.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/ExpenseDAO/ExpenseDAOStub.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/ExpenseDAO/ExpenseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/ExpenseDAO/ExpenseRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/ExpenseDAO/ExpenseSQLDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/ExpenseDAO/ExpenseSQLDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/ExpenseDAO/IExpenseDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/ExpenseDAO/IExpenseDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/IndividualDAO/IIndividualDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/IndividualDAO/IIndividualDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/IndividualDAO/IndividualDAOStub.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dao/IndividualDAO/IndividualDAOStub.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dto/Bill.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dto/Bill.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dto/BillItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dto/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dto/Category.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dto/Earning.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dto/Earning.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dto/Expense.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dto/Expense.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dto/ExpenseItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dto/Individual.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/dto/Individual.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/BillService/BillService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/BillService/BillService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/BillService/IBillService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/BillService/IBillService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/CalculationService/CalculationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/CalculationService/CalculationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/CalculationService/ICalculationService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/CalculationService/ICalculationService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/EarningService/EarningService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/EarningService/EarningService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/EarningService/IEarningService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/EarningService/IEarningService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/ExpenseService/ExpenseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/ExpenseService/ExpenseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/ExpenseService/IExpenseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/ExpenseService/IExpenseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/IndividualService/IIndividualService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/IndividualService/IIndividualService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/IndividualService/IndividualService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/IndividualService/IndividualService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/WeekDayService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/service/WeekDayService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/ui/BudgetBuddyDashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/ui/BudgetBuddyDashboard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/ui/BudgetBuddyFormEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/ui/BudgetBuddyFormEntry.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/budgetbuddy/ui/BudgetBuddyScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/budgetbuddy/ui/BudgetBuddyScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/budgetbuddy/BudgetBuddyApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/budgetbuddy/BudgetBuddyApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +86,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.BudgetBuddyApplication.executor": "Run",
-    "git-widget-placeholder": "#2 on BackEnd",
+    "git-widget-placeholder": "Primary-Branch",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/seter/Documents/Enterpise App Dev/EA_FinalProject_Group1/BudgetBuddy",
     "node.js.detected.package.eslint": "true",
