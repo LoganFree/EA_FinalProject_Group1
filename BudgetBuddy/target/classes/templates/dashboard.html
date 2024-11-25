@@ -63,7 +63,7 @@
             <div class="flex-container">
                 <ul>
                     <li class="box-content" style="display: block" th:each="bill : ${weeklyBills}">
-                        <span th:text="${bill.billDescription}"></span> | $<span th:text="${bill.billAmount}"></span> on day <span th:text="${bill.billDueDate}"></span>
+                        <span th:text="${bill.billDescription}"></span> | $<span th:text="${bill.billAmount}"></span> | due on <span th:text="${#strings.substring(bill.billDueDate, 8, 10)}"></span>
                     </li>
                 </ul>
             </div>
