@@ -8,7 +8,7 @@ import com.budgetbuddy.service.EarningService.EarningService;
 import com.budgetbuddy.service.BillService.BillService;
 import com.budgetbuddy.service.ExpenseService.ExpenseService;
 import com.budgetbuddy.service.WeekDayService;
-import com.budgetbuddy.service.CalculationService.CalculationService;
+import com.budgetbuddy.service.CalculationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -17,11 +17,9 @@ import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.View;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @Controller
@@ -206,6 +204,10 @@ public class BudgetBuddyController {
     public String dashboard(Model model) {
         model.addAttribute("page", "dashboard");
 
+        // pull out the most recent Earning
+        Earning recentEarning = earningService.getMostRecentEarning();
+        model.addAttribute("recentearning", recentEarning);
+
         return "dashboard";
     }
 
@@ -215,38 +217,44 @@ public class BudgetBuddyController {
         model.addAttribute("page", "dashboard");
 
         try {
-            // Get week start and end dates
+            // get week start and end dates
             LocalDate[] weekDates = weekDayService.getStartAndEndDates(week);
             LocalDate startDate = weekDates[0];
             LocalDate endDate = weekDates[1];
 
-            // Retrieve weekly bills
+            // retrieve weekly bills
             List<Bill> weeklyBills = billService.getWeeklyBills(startDate, endDate);
 
-            // Retrieve weekly expenses
+            // retrieve weekly expenses
             List<Expense> weeklyExpenses = expenseService.getAllExpenses().stream()
                     .filter(expense -> weekDayService.isDateWithinRange(expense.getExpDate(), startDate, endDate))
                     .collect(Collectors.toList());
 
-            // Add data to the model
+            // add data to the model
             model.addAttribute("weekDays", weekDayService.getWeekDates(week)); // e.g., "10/1-10/7"
             model.addAttribute("selectedWeek", week);
             model.addAttribute("weeklyBills", weeklyBills);
             model.addAttribute("weeklyExpenses", weeklyExpenses);
 
-            //double totalExpenses = weekDayService.calculateTotalExpensesForWeek(week, weeklyExpenses);
+            // get total Expenses
+            double totalExpenses = weekDayService.calculateTotalExpensesForWeek(week, weeklyExpenses);
 
-            //double totalBills = weekDayService.calculateTotalBillsForWeek(week, weeklyBills);
+            // get total Bills
+            double totalBills = weekDayService.calculateTotalBillsForWeek(week, weeklyBills);
 
-            //model.addAttribute("totalBills", totalExpenses);
-            //model.addAttribute("totalExpenses", totalBills);
+            // display Totals
+            model.addAttribute("totalBills", totalBills);
+            model.addAttribute("totalExpenses", totalExpenses);
 
-            /*
             // pull out the most recent Earning
             Earning recentEarning = earningService.getMostRecentEarning();
+            model.addAttribute("recentearning", recentEarning);
 
-            calculationService.calculateTotalBudgetForWeek(week, weeklyBills, weeklyExpenses, recentEarning);
-            */
+            // calculate Weekly Budget
+            double weeklyBudget = calculationService.calculateTotalBudgetForWeek(totalBills, totalExpenses, recentEarning);
+
+            // display Weekly Budget
+            model.addAttribute("weeklyBudget", weeklyBudget);
 
         } catch (Exception e) {
             e.printStackTrace();

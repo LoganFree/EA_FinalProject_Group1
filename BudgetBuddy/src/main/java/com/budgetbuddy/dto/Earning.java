@@ -23,4 +23,8 @@ public @Data class Earning {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return LocalDate.parse(earnDate, formatter);
     }
+
+    public double getWeeklyHours() {
+        return weeklyHours;
+    }
 }

@@ -28,13 +28,18 @@
         </div>
 
         <div class="question-content divider">
-            <p><b>Budget:</b></p>
+            <p><b> Weekly Budget:</b></p>
             <div class="flex-container">
                 <div class="box-content">
                     <span style="font-size: 30px; font-weight: bold;">
                         $<span th:text="${weeklyBudget}"></span>
                     </span>
                 </div>
+            </div>
+            <div th:each="earning : ${recentearning}">
+
+                Most recent earning: $<span th:text="${earning.earnAmount}"></span> <span th:text="${earning.earnIsYearly ? 'yearly' : 'hourly'}"></span> on <span th:text="${earning.earnDate}"></span>
+
             </div>
         </div>
     </div>
@@ -53,7 +58,7 @@
         </div>
 
         <div class="question-content divider">
-            <p><b>Weekly Bills:</b></p>
+            <p><b>Monthly Bills:</b></p>
             <div class="flex-container">
                 <ul>
                     <li class="box-content" style="display: block" th:each="bill : ${weeklyBills}">
@@ -65,11 +70,8 @@
 
     </div>
 
-    <div th:each="earning : ${totalBills}">
-
-        Total Bills: $<span th:text="${totalBills}"></span>
-
-    </div>
+    <div> Total Expenses: $<span th:text="${totalExpenses}"></span> </div>
+    <div> Total Bills: $<span th:text="${totalBills}"></span> </div>
 
 </div>
 
