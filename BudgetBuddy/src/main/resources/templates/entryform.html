@@ -22,34 +22,39 @@
 <!-- Wrapper for body content-->
 <div class="body-content">
 
-        <!--buttons to access Earning management-->
-        <div class="question-content divider">
-            <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
-                <div>
-                    <a href="/entry-form/mng-earn" class="btn box-content async-btn mx-2" style="font-size: 20px">Manage <b>Earning</b></a>
-                </div>
+    <div class="container">
+        <!-- Earning Management -->
+        <div class="row my-5">
+            <div class="col">
+                <a href="/entry-form/mng-earn" class="btn btn-primary box-content async-btn w-100 fs-5">
+                    Manage <b>Earning</b>
+                </a>
             </div>
         </div>
-
-        <!--buttons to access Expenses management-->
-        <div class="question-content divider">
-            <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
-                <div>
-                    <a href="/entry-form/mng-exp" class="btn box-content async-btn mx-2" style="font-size: 20px">Manage <b>Weekly Expenses</b></a>
-                </div>
+        <div class="divider"></div>
+        <!-- Expenses Management -->
+        <div class="row my-5">
+            <div class="col">
+                <a href="/entry-form/mng-exp" class="btn btn-primary box-content async-btn w-100 fs-5">
+                    Manage <b>Weekly Expenses</b>
+                </a>
             </div>
         </div>
-
-        <!--buttons to access Bills management-->
-        <div class="question-content divider">
-            <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
-                <div>
-                    <a href="/entry-form/mng-bill" class="btn box-content async-btn mx-2" style="font-size: 20px">Manage <b>Monthly Bills</b></a>
-                </div>
+        <div class="divider"></div>
+        <!-- Bills Management -->
+        <div class="row my-5">
+            <div class="col">
+                <a href="/entry-form/mng-bill" class="btn btn-primary box-content async-btn w-100 fs-5">
+                    Manage <b>Monthly Bills</b>
+                </a>
             </div>
         </div>
+        <div class="divider"></div>
+    </div>
 
-        <script>
+
+
+    <script>
             document.querySelectorAll('.async-btn').forEach(function(button) {
                 button.addEventListener('click', function(event) {
                     this.classList.add('loading');
@@ -70,9 +75,6 @@
     <br>
     <br>
     <br>
-
-</div>
-
 
 </body>
 </html>
