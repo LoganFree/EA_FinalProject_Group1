@@ -57,19 +57,6 @@ public class BudgetBuddyController {
         return "entryform";
     }
 
-    // called when an Earning is added
-    @RequestMapping(value = "/entry-form/mng-earn/save-earning")
-    public String saveEarning(Earning earning, Model model) {
-        model.addAttribute("page", "entry");
-        try {
-            earningService.save(earning);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "redirect:/entry-form";
-        }
-        return "redirect:/entry-form/mng-earn";
-    }
-
     // called when managing Earning
     @RequestMapping("/entry-form/mng-earn")
     public String mngEarn(Model model)
@@ -85,6 +72,19 @@ public class BudgetBuddyController {
         model.addAttribute("recentearning", recentEarning);
 
         return "mngearn";
+    }
+
+    // called when an Earning is added
+    @RequestMapping(value = "/entry-form/mng-earn/save-earning")
+    public String saveEarning(Earning earning, Model model) {
+        model.addAttribute("page", "entry");
+        try {
+            earningService.save(earning);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "redirect:/entry-form";
+        }
+        return "redirect:/entry-form/mng-earn";
     }
 
     // called when an Earning is deleted
