@@ -8,9 +8,9 @@ WAMP Server's phpMyAdmin
 ---
 User Account (see "application.properties" file)-
 
-username: Admin
+username: admin
 
-password: Admin
+password: admin
 
 ---
 Database Structure-
