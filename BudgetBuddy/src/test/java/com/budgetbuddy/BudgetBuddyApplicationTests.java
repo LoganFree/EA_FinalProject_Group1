@@ -10,4 +10,5 @@ class BudgetBuddyApplicationTests {
     void contextLoads() {
     }
 
+
 }

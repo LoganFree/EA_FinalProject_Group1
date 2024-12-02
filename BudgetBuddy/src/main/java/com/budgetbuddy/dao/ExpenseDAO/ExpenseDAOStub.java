@@ -42,11 +42,6 @@ public class ExpenseDAOStub implements IExpenseDAO {
     }
 
     @Override
-    public Expense updateExpense(Expense expense) {
-        return null;
-    }
-
-    @Override
     public List<Expense> getExpenseByCategory(String category) {
         List<Expense> expenseList = new ArrayList<>();
 
@@ -76,8 +71,4 @@ public class ExpenseDAOStub implements IExpenseDAO {
         return new ArrayList<>(expenses.values());
     }
 
-    @Override
-    public double calculateTotalExpense() {
-        return 0;
-    }
 }

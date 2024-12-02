@@ -33,11 +33,6 @@ public class BillSQLDAO implements IBillDAO {
     }
 
     @Override
-    public Bill updateBill(Bill bill) {
-        return null;
-    }
-
-    @Override
     public Bill getBillById(int id) {
         return billRepo.findById(id).get();
     }
@@ -54,8 +49,4 @@ public class BillSQLDAO implements IBillDAO {
         return bills;
     }
 
-    @Override
-    public double calculateTotalBill() {
-        return 0;
-    }
 }

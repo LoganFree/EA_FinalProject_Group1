@@ -40,11 +40,6 @@ public class BillService implements IBillService {
     }
 
     @Override
-    public Bill updateBill(Bill bill) {
-        return billDAO.updateBill(bill);
-    }
-
-    @Override
     public Bill getBillById(int id) {
         return billDAO.getBillById(id);
     }
@@ -57,11 +52,6 @@ public class BillService implements IBillService {
     @Override
     public List<Bill> getAllBills() {
         return billDAO.getAllBills();
-    }
-
-    @Override
-    public double calculateTotalBill() {
-        return billDAO.calculateTotalBill();
     }
 
     @Override

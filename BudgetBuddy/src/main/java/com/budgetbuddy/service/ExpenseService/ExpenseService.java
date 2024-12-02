@@ -53,15 +53,9 @@ public class ExpenseService implements IExpenseService {
         return expenseDAO.getAllExpenses();
     }
 
-    //@CachePut(value = "expenses", key = "#expense")
-    @Override
+    //@CachePut(value = "expenses", key = "#expense.expID")    @Override
     public Expense save(Expense expense) {
         return expenseDAO.save(expense);
-    }
-
-    @Override
-    public Expense updateExpense(Expense expense) {
-        return null;
     }
 
     //@CacheEvict(value = "expenses", key = "#id")
@@ -69,10 +63,4 @@ public class ExpenseService implements IExpenseService {
     public void deleteExpense(int id) {
         expenseDAO.deleteExpense(id);
     }
-
-    @Override
-    public Double calculateTotalExpense() {
-        return (double) 0;
-    }
-
 }

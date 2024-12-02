@@ -36,11 +36,6 @@ public class ExpenseSQLDAO implements IExpenseDAO {
     }
 
     @Override
-    public Expense updateExpense(Expense expense) {
-        return null;
-    }
-
-    @Override
     public List<Expense> getExpenseByCategory(String category) {
         return List.of();
     }
@@ -57,8 +52,4 @@ public class ExpenseSQLDAO implements IExpenseDAO {
         return expenses;
     }
 
-    @Override
-    public double calculateTotalExpense() {
-        return 0;
-    }
 }

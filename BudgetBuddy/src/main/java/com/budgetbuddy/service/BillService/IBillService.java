@@ -10,15 +10,11 @@ public interface IBillService {
     //Bill management
     Bill save(Bill bill);
 
-    Bill updateBill(Bill bill);
-
     Bill getBillById(int id);
 
     void deleteBill(int id);
 
     List<Bill> getAllBills();
-
-    double calculateTotalBill();
 
     List<Bill> getWeeklyBills(LocalDate startDate, LocalDate endDate);
 

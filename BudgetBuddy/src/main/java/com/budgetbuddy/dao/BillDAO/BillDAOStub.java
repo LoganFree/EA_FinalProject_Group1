@@ -41,16 +41,6 @@ public class BillDAOStub implements IBillDAO {
     }
 
     @Override
-    public Bill updateBill(Bill bill) {
-        if (bills.containsKey(bill.getBillID())) {
-            bills.put(bill.getBillID(), bill);
-            return bill;
-        } else {
-            throw new IllegalArgumentException("Bill not found");
-        }
-    }
-
-    @Override
     public Bill getBillById(int id) {
         return bills.get(id);
     }
@@ -65,8 +55,4 @@ public class BillDAOStub implements IBillDAO {
         return new ArrayList<>(bills.values());
     }
 
-    @Override
-    public double calculateTotalBill() {
-        return bills.values().stream().mapToDouble(Bill::getBillAmount).sum();
-    }
 }
