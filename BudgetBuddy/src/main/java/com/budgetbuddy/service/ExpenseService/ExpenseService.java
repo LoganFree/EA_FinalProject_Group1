@@ -31,7 +31,7 @@ public class ExpenseService implements IExpenseService {
     public List<Category> getCategories() throws Exception{
         return categoryDAO.getCategories();
     }
-    
+
     //@Cacheable("expenses")
     @Override
     public List<Expense> getAllExpenses() {
