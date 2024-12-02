@@ -8,6 +8,21 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementation of the {@link IEarningDAO} interface for managing earnings in the database.
+ * <p>
+ * This class utilizes Spring Data JPA to interact with the database for CRUD operations related to earnings.
+ * It serves as the SQL-based data access layer for the application.
+ * </p>
+ *
+ * <p>
+ * The class is annotated with {@link Repository} to indicate its role in the persistence layer.
+ * It uses the {@link EarningRepository} for database operations.
+ * </p>
+ *
+ * @author Logan Freeman, Loc Nguyen, Anthony, Alex Brooksbank, Mckelvin Ofosu-Frimpong
+ */
+
 @Repository("earningDAO")
 public class EarningSQLDAO implements IEarningDAO {
 

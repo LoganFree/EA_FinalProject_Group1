@@ -9,6 +9,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * A stub implementation of the {@link IEarningDAO} interface for managing earnings.
+ * <p>
+ * This class provides an in-memory data structure to simulate CRUD operations for earning records.
+ * It is primarily used for testing and development purposes where a database connection is not required.
+ * </p>
+ *
+ * <p>
+ * Earnings are stored in a {@link HashMap} with their IDs as keys and {@link Earning} objects as values.
+ * </p>
+ *
+ * @author Logan Freeman, Loc Nguyen, Anthony, Alex Brooksbank, Mckelvin Ofosu-Frimpong
+ */
+
 @Repository
 public class EarningDAOStub implements IEarningDAO {
 

@@ -3,6 +3,16 @@ package com.budgetbuddy.service;
 import com.budgetbuddy.dto.Earning;
 import org.springframework.stereotype.Service;
 
+/**
+ * This is a Service class for calculating the budget based on earnings and expenses.
+ * <p>
+ * This service provides methods for calculating a weekly budget, which can be based on either
+ * yearly salary or weekly earnings, as well as handling the impact of weekly expenses and monthly bills.
+ * </p>
+ *
+ * @author Logan Freeman, Loc Nguyen, Anthony, Alex Brooksbank, Mckelvin Ofosu-Frimpong
+ */
+
 @Service
 public class CalculationService {
 

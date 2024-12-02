@@ -22,6 +22,16 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Controller class for handling web requests related to the BudgetBuddy application.
+ * <p>
+ * This class manages user interactions for adding, managing, and deleting earnings, bills, and expenses.
+ * It also provides functionality for viewing the dashboard, selecting weeks, and fetching data from the database.
+ * </p>
+ *
+ * @author Logan Freeman, Loc Nguyen, Anthony, Alex Brooksbank, Mckelvin Ofosu-Frimpong
+ */
+
 @Controller
 public class BudgetBuddyController {
     @Autowired
