@@ -30,21 +30,24 @@
                     <input type="radio" id="Yearly" name="options" value="2" onclick="toggleElement()">
                     <label for="Yearly">Yearly</label>
                 </div>
-                <form action="#" th:action="@{/entry-form/mng-earn/save-earning}" th:object="${earning}" method="POST">
+                <form action="#" th:action="@{/entry-form/mng-earn/save-earning}" th:object="${earning}" method="POST" onsubmit="return validateForm()">
                     <!-- determine if earning is yearly or hourly -->
                     <input type="hidden" id="earnIsYearly" name="earnIsYearly" value="false">
+
 
                     <!-- get current date -->
                     <input type="hidden" id="earnDate" name="earnDate">
 
                     <div class="box-content text-inputs">
                         <label for="earnAmount">Wage:</label><br>
-                        $ <input type="text" id="earnAmount" name="earnAmount" placeholder="Enter your earning">
+                        $ <input type="text" id="earnAmount" name="earnAmount" placeholder="Enter your earning"
+                                 required pattern="^\d+(\.\d{1,2})?$" title="Please enter a valid number (e.g., 123 or 123.45)">
                     </div>
 
                     <div class="box-content text-inputs" id="toggleTarget" style="display: none;">
                         <label for="weeklyHours">Hours a Week:</label><br>
-                        <input type="number" id="weeklyHours" name="weeklyHours" placeholder="hours" style="width: 100px" value="0">
+                        <input type="number" id="weeklyHours" name="weeklyHours" placeholder="hours" style="width: 100px"
+                               value="0" min="0" max="168" title="Please enter a number between 0 and 168">
                     </div>
 
                     <button type="submit" class="btn slim-btn-content mx-2">Add</button>
@@ -95,6 +98,38 @@
                         return new Promise(resolve => setTimeout(resolve, 2000));
                     }
 
+
+                    function validateForm() {
+                        // Get form inputs
+                        const earnAmount = document.getElementById('earnAmount');
+                        const weeklyHours = document.getElementById('weeklyHours');
+                        const hourlyRadio = document.getElementById('Hourly');
+
+                        // Check if the wage is valid
+                        if (!earnAmount.checkValidity()) {
+                            alert(earnAmount.title);
+                            return false;
+                        }
+
+                        // If "Hourly" is selected, ensure weekly hours are valid
+                        if (hourlyRadio.checked && !weeklyHours.checkValidity()) {
+                            alert(weeklyHours.title);
+                            return false;
+                        }
+
+                        return true; // Allow form submission if all validations pass
+                    }
+
+                    // Automatically validate and show current date
+                    window.onload = function() {
+                        document.getElementById('earnDate').value = new Date().toISOString().slice(0, 10);
+
+                        // Restrict input for "earnAmount" to only valid numbers
+                        document.getElementById('earnAmount').addEventListener('input', function (e) {
+                            this.value = this.value.replace(/[^0-9.,]/g, '');
+                        });
+                    };
+
                 </script>
             </div>
         </div>
@@ -121,7 +156,7 @@
 
                     <!-- Weekly Hours -->
                     <td th:text="${earning.weeklyHours}"></td>
-                    
+
                     <!-- Date -->
                     <td th:text="${earning.earnDate}"></td>
 

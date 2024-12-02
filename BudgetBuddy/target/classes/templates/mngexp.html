@@ -10,116 +10,144 @@
 </head>
 <body>
 
-    <!-- Top Nav -->
-    <div th:replace="fragments/topnav :: navbar">
-    </div>
+<!-- Top Nav -->
+<div th:replace="fragments/topnav :: navbar">
+</div>
 
-    <!-- Page Title -->
-    <div class="divider d-flex justify-content-center align-items-center">
-        <a href="/entry-form" class="btn slim-btn-content mx-2">< Back</a>
-        <a class="navbar-brand"><b>Manage Weekly Expenses</b></a>
-    </div>
+<!-- Page Title -->
+<div class="divider d-flex justify-content-center align-items-center">
+    <a href="/entry-form" class="btn slim-btn-content mx-2">< Back</a>
+    <a class="navbar-brand"><b>Manage Weekly Expenses</b></a>
+</div>
 
-    <!-- Entry for adding a Weekly Expense -->
-    <div class="container mt-5">
-        <h4>Add a Weekly Expenses:</h4>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>Expense Amount</th>
-                <th>Category</th>
-                <th>Date</th>
-                <th>Description</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tbody>
-                <!-- Add a new Expense -->
-                <tr>
-                    <td colspan="5">
-                        <form action="#" th:action="@{/entry-form/save-exp}" th:object="${expense}" method="POST">
-                            <div class="row mb-3">
-                                <div class="col">
-                                    <input type="number" id="expAmount" name="expAmount" th:field="*{expAmount}" class="form-control" placeholder="Amount" required>
-                                </div>
-                                <div class="col">
-                                    <select id="expCategory" name="expCategory" th:field="*{expCategory}" class="form-control">
-                                        <option value="" disabled selected>Select a category</option>
-                                        <option th:each="category : ${categories}" th:value="${category.category_names}" th:text="${category.category_names}"></option>
-                                    </select>
-                                </div>
-                                <div class="col">
-                                    <input type="date" id="expDate" name="expDate" th:field="*{expDate}" class="form-control" >
-                                </div>
-                                <div class="col">
-                                    <input type="text" id="expDescription" name="expDescription" th:field="*{expDescription}" class="form-control" placeholder="Description" >
-                                </div>
-                                <div class="col">
-                                    <button type="submit" class="btn slim-btn-content mx-2">Add</button>
-                                </div>
-                            </div>
-                        </form>
-                    </td>
-                </tr>
-            </tbody>
-            <!-- Divider -->
-            <tbody>
-                <tr>
-                    <td style="background-color: white !important;"></td>
-                    <td style="background-color: white !important;"></td>
-                    <td style="background-color: white !important;"></td>
-                    <td style="background-color: white !important;"></td>
-                    <td style="background-color: white !important;"></td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <!-- Expenses from database -->
-                <tr th:each="expense : ${expenses}" th:id="'expense-row-' + ${expense.expID}">
-                    <!-- Expense Amount -->
-                    <td th:text="${expense.expAmount}"></td>
+<!-- Entry for adding a Weekly Expense -->
+<div class="container mt-5">
+    <h4>Add a Weekly Expenses:</h4>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Expense Amount</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Add a new Expense -->
+        <tr>
+            <td colspan="5">
+                <form action="#" th:action="@{/entry-form/save-exp}" th:object="${expense}" method="POST" onsubmit="return validateForm()">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <input type="number" id="expAmount" name="expAmount" th:field="*{expAmount}" class="form-control" placeholder="Amount" required>
+                        </div>
+                        <div class="col">
+                            <select id="expCategory" name="expCategory" th:field="*{expCategory}" class="form-control" required>
+                                <option value="" disabled selected>Select a category</option>
+                                <option th:each="category : ${categories}" th:value="${category.category_names}" th:text="${category.category_names}"></option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <input type="date" id="expDate" name="expDate" th:field="*{expDate}" class="form-control" required>
+                        </div>
+                        <div class="col">
+                            <input type="text" id="expDescription" name="expDescription" th:field="*{expDescription}" class="form-control" placeholder="Description" required>
+                        </div>
+                        <div class="col">
+                            <button type="submit" class="btn slim-btn-content mx-2">Add</button>
+                        </div>
+                    </div>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+        <!-- Divider -->
+        <tbody>
+        <tr>
+            <td style="background-color: white !important;"></td>
+            <td style="background-color: white !important;"></td>
+            <td style="background-color: white !important;"></td>
+            <td style="background-color: white !important;"></td>
+            <td style="background-color: white !important;"></td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <!-- Expenses from database -->
+        <tr th:each="expense : ${expenses}" th:id="'expense-row-' + ${expense.expID}">
+            <!-- Expense Amount -->
+            <td th:text="${expense.expAmount}"></td>
 
-                    <!-- Expense Category -->
-                    <td th:text="${expense.expCategory}"></td>
+            <!-- Expense Category -->
+            <td th:text="${expense.expCategory}"></td>
 
-                    <!-- Expense Date-->
-                    <td th:text="${expense.expDate}"></td>
+            <!-- Expense Date-->
+            <td th:text="${expense.expDate}"></td>
 
-                    <!-- Expense Description -->
-                    <td th:text="${expense.expDescription}"></td>
+            <!-- Expense Description -->
+            <td th:text="${expense.expDescription}"></td>
 
-                    <!-- Delete Button -->
-                    <td>
-                        <!-- Dynamically generate the onclick with the Expense ID -->
-                        <button class="btn slim-btn-content delete-btn mx-2" th:onclick="'deleteExpense(' + ${expense.expID} + ')'" >Delete
-                        </button>
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
-    <script>
-        function deleteExpense(expID) {
-            fetch(`/entry-form/mng-exp/delete/exp?id=${expID}`, {
-                    method: 'DELETE',
-                    headers: {
-                      'Content-Type': 'application/json'
-                    }
-                })
-                .then(response =>{
-                        console.log(response.status);
+            <!-- Delete Button -->
+            <td>
+                <!-- Dynamically generate the onclick with the Expense ID -->
+                <button class="btn slim-btn-content delete-btn mx-2" th:onclick="'deleteExpense(' + ${expense.expID} + ')'" >Delete
+                </button>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+<script>
+    function deleteExpense(expID) {
+        fetch(`/entry-form/mng-exp/delete/exp?id=${expID}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response =>{
+                console.log(response.status);
                 if (response.ok) {
                     document.getElementById(`expense-row-${expID}`).remove();
                 } else {
-                alert("Failed to delete expense" + response.statusText);
+                    alert("Failed to delete expense" + response.statusText);
                 }
-              })
-              .catch(error =>
-            {
-            console.error('Error deleting expense:' + error);
-            alert('An error occurred when deleting expense')
             })
+            .catch(error =>
+            {
+                console.error('Error deleting expense:' + error);
+                alert('An error occurred when deleting expense')
+            })
+    }
+
+    // Data validation function
+    function validateForm() {
+        var expAmount = document.getElementById("expAmount").value;
+        var expCategory = document.getElementById("expCategory").value;
+        var expDate = document.getElementById("expDate").value;
+        var expDescription = document.getElementById("expDescription").value;
+
+        // Check if all fields are filled
+        if (!expAmount || !expCategory || !expDate || !expDescription) {
+            alert("Please fill in all fields.");
+            return false; // Prevent form submission
         }
-    </script>
+
+        // Check if the amount is a valid number
+        if (isNaN(expAmount) || expAmount <= 0) {
+            alert("Please enter a valid positive amount.");
+            return false; // Prevent form submission
+        }
+
+        // Check if description is valid (optional)
+        if (expDescription.length > 100) {
+            alert("Description cannot exceed 100 characters.");
+            return false; // Prevent form submission
+        }
+
+        return true; // Allow form submission
+    }
+</script>
 
 </body>
 </html>
