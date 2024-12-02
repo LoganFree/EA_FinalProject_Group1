@@ -1,13 +1,22 @@
+---
+## 0. Guide for Setup 
 
-Database Implementation:
+Database Implementation-
+
 WAMP Server's phpMyAdmin
 
-User Account (see "application.properties" file)
+---
+User Account (see "application.properties" file)-
+
 username: Admin
+
 password: Admin
 
-Database Structure
+---
+Database Structure-
+
 name: budgetbuddy
+
 tables: see "SQL_Imports" folder on project to download tables.
 
 ---
