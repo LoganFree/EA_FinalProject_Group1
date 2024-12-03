@@ -33,11 +33,6 @@ public class BillSQLDAO implements IBillDAO {
     }
 
     @Override
-    public Bill getBillById(int id) {
-        return billRepo.findById(id).get();
-    }
-
-    @Override
     public void deleteBill(int id) {
         billRepo.deleteById(id);
     }
