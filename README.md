@@ -47,13 +47,13 @@ Keeping track of your budget can be a difficult task. Budget Buddy is a web-app 
 ---
 ## 3. Screenshots
 
-![Screenshot 2024-12-02 185705](https://github.com/user-attachments/assets/828b5acf-8a03-44a4-ac4b-50475e3067b2)
+![BudgetBuddy_EntryForm](https://github.com/user-attachments/assets/828b5acf-8a03-44a4-ac4b-50475e3067b2)
 
-![Screenshot 2024-12-02 185728](https://github.com/user-attachments/assets/bde9e8bc-68ca-4898-ae93-dc1827bd75f4)
+![BudgetBuddy_Earnings](https://github.com/user-attachments/assets/bde9e8bc-68ca-4898-ae93-dc1827bd75f4)
 
-![Screenshot 2024-12-02 185756](https://github.com/user-attachments/assets/f6840a80-6129-4291-a864-0d21736ef43a)
+![BudgetBuddy_Expenses](https://github.com/user-attachments/assets/f6840a80-6129-4291-a864-0d21736ef43a)
 
-![Screenshot 2024-12-02 185820](https://github.com/user-attachments/assets/be2dd393-6dd0-4f02-bd92-805a340977cf)
+![BudgetBuddy_Dashboard](https://github.com/user-attachments/assets/d77e73c7-483f-4e54-b6e4-2dc7b14d68a6)
 
 
 ---
