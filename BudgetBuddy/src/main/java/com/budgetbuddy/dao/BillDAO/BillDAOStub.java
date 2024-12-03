@@ -41,11 +41,6 @@ public class BillDAOStub implements IBillDAO {
     }
 
     @Override
-    public Bill getBillById(int id) {
-        return bills.get(id);
-    }
-
-    @Override
     public void deleteBill(int id) {
         bills.remove(id);
     }

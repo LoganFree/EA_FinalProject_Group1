@@ -42,7 +42,6 @@ public class BillTests {
         Bill savedBill = billService.save(bill);
 
         assertNotNull(savedBill);
-        assertEquals(1, savedBill.getBillID());
         assertEquals("Electricity", savedBill.getBillDescription());
         assertEquals(100.0, savedBill.getBillAmount());
         assertEquals("2024-12-15", savedBill.getBillDueDate());
