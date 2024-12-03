@@ -275,7 +275,7 @@ public class BudgetBuddyController {
         return "dashboard";
     }
 
-    // List all Bills from database
+    // List all Earnings from database
     @GetMapping("/all/earn")
     @ResponseBody
     public List<Earning> fetchEarning()

@@ -30,7 +30,7 @@
                     <form th:action="@{/dashboard/week-selected}" method="post">
                         <input type="week" id="Week" name="week" placeholder="Week" th:value="${selectedWeek}" oninput="this.form.submit()">
                     </form>
-                    <div id="weekDays" th:utext="${weekDays != null ? 'Days of this week: <b>' + weekDays + '</b>.' : 'Please select a week.'}"></div>
+                    <div id="weekDays" th:utext="${weekDays != null ? 'Days of this week: <b>' + weekDays + '</b>.' : '<b>Please select a week.</b>'}"></div>
                 </div>
             </div>
         </div>

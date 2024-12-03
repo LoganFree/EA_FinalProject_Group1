@@ -27,7 +27,6 @@ public class ExpenseDAOStub implements IExpenseDAO {
 
     Map<Integer, Expense> expenses = new HashMap<>();
 
-
     @Override
     public Expense save(Expense expense) {
         //validate the input
@@ -39,26 +38,6 @@ public class ExpenseDAOStub implements IExpenseDAO {
         Integer expId = expense.getExpID();
         expenses.put(expId, expense);
         return expense;
-    }
-
-    @Override
-    public List<Expense> getExpenseByCategory(String category) {
-        List<Expense> expenseList = new ArrayList<>();
-
-        //validate the category
-        if (category == null || category.isEmpty())
-        {
-            throw new IllegalArgumentException("Category cannot be null or empty");
-        }
-
-        for (Expense expense : expenses.values()) {
-            if (category.equals(expense.getExpCategory()))
-            {
-                expenseList.add(expense);
-            }
-        }
-
-        return expenseList;
     }
 
     @Override

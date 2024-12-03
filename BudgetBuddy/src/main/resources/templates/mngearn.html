@@ -34,7 +34,6 @@
                     <!-- determine if earning is yearly or hourly -->
                     <input type="hidden" id="earnIsYearly" name="earnIsYearly" value="false">
 
-
                     <!-- get current date -->
                     <input type="hidden" id="earnDate" name="earnDate">
 
@@ -83,11 +82,14 @@
                         //Submit boolean for
                         var hourly = document.getElementById('Hourly').checked;
                         var isYearlyField = document.getElementById('earnIsYearly');
+                        var weeklyHours = document.getElementById('weeklyHours');
+
                         if (hourly) {
                             isYearlyField.value = false;
                         }
                         else {
                             isYearlyField.value = true;
+                            weeklyHours.value = 0;
                         }
                         var toggleTarget = document.getElementById('toggleTarget');
 
@@ -97,7 +99,6 @@
                     function simulateAsyncOperation() {
                         return new Promise(resolve => setTimeout(resolve, 2000));
                     }
-
 
                     function validateForm() {
                         // Get form inputs
