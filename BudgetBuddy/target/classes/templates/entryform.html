@@ -10,85 +10,59 @@
 </head>
 <body>
 
-    <!-- Top Nav -->
-    <div th:replace="fragments/topnav :: navbar">
+<!-- Top Nav -->
+<div th:replace="fragments/topnav :: navbar">
+</div>
+
+<!-- Page Title -->
+<div class="divider d-flex justify-content-center align-items-center">
+    <a class="navbar-brand"><b>Entry Form</b></a>
+</div>
+
+<!-- Wrapper for body content-->
+<div class="body-content">
+
+    <div class="container">
+        <!-- Earning Management -->
+        <div class="row my-5">
+            <div class="col">
+                <a href="/entry-form/mng-earn" class="btn btn-primary box-content async-btn w-100 fs-5">
+                    Manage <b>Earning</b>
+                </a>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <!-- Expenses Management -->
+        <div class="row my-5">
+            <div class="col">
+                <a href="/entry-form/mng-exp" class="btn btn-primary box-content async-btn w-100 fs-5">
+                    Manage <b>Weekly Expenses</b>
+                </a>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <!-- Bills Management -->
+        <div class="row my-5">
+            <div class="col">
+                <a href="/entry-form/mng-bill" class="btn btn-primary box-content async-btn w-100 fs-5">
+                    Manage <b>Monthly Bills</b>
+                </a>
+            </div>
+        </div>
+        <div class="divider"></div>
     </div>
 
-    <!-- Page Title -->
-    <div class="divider d-flex justify-content-center align-items-center">
-        <a class="navbar-brand"><b>Entry Form</b></a>
-    </div>
+    <script>
+            document.querySelectorAll('.async-btn').forEach(function(button) {
+                button.addEventListener('click', function(event) {
+                    this.classList.add('loading');
 
-    <!-- Wrapper for body content-->
-    <div class="body-content">
+                    window.location.href = this.href;
 
-        <!-- Question #1 for Wage -->
-        <div class="question-content divider">
-            <p><b>Please select your wage:</b></p>
-            <div class="flex-container">
-                <!--radio buttons for Hourly or Yearly-->
-                <div class="box-content">
-                    <input type="radio" id="Hourly" name="options" value="1" onclick="toggleElement()">
-                    <label for="Hourly">Hourly</label><br>
-                    <input type="radio" id="Yearly" name="options" value="2" onclick="toggleElement()">
-                    <label for="Yearly">Yearly</label>
-                </div>
-                <!--input for wage-->
-                <div class="box-content text-inputs">
-                    <label for="wage">Wage:</label><br>
-                    $ <input type="text" id="wage" name="wage" placeholder="Enter your wage">
-                </div>
-                <!--input for weekly hours when Weekly radio button is selected-->
-                <div class="box-content text-inputs" id="toggleTarget" style="display: none;">
-                    <label for="wage">Hours a Week:</label><br>
-                    <input type="number" id="weeklyHours" name="weeklyHours" placeholder="hours" style="width: 100px">
-                </div>
-                <!--script for only allowing numbers in wage and to show weekly hours input-->
-                <script>
-                    document.getElementById('wage').addEventListener('input', function (e) {
-                        this.value = this.value.replace(/[^0-9.,]/g, '');
-                    });
-
-                    function toggleElement() {
-                        var element = document.getElementById('toggleTarget');
-                        var hourlyRadio = document.getElementById('Hourly');
-
-                        if (hourlyRadio.checked) {
-                            element.style.display = 'block';
-                        } else {
-                            element.style.display = 'none';
-                        }
-                    }
-                </script>
-            </div>
-            <span style="padding:20px; align-content: center;" class="divider">
-                    &nbsp;&nbsp;<b>OR</b>&nbsp;&nbsp;
-            </span>
-            <!--input for self designed API, will put in an account number and retrieve salary information-->
-            <div class="box-content text-inputs">
-                <label for="wage">Account ID:</label><br>
-                ID <input type="number" id="accountID" name="accountID" placeholder="Enter your Account ID">
-            </div>
-            <script>
-                document.getElementById('accountID').addEventListener('input', function (e) {
-                    this.value = this.value.replace(/[^0-9]/g, '');
+                    event.preventDefault();
                 });
-            </script>
-        </div>
-
-        <!--buttons to access management forms-->
-        <div class="question-content divider">
-            <p><b>Please select Expenses and Bills:</b></p>
-
-            <div class="d-flex justify-content-center align-items-center" style="height: 10vh;">
-                <div>
-                    <!--button for managing expenses -->
-                    <a href="/entry-form/mng-exp" class="btn box-content mx-2" style="font-size: 20px">Manage <b>Weekly Expenses</b></a>
-                    <!--button for managing bills -->
-                    <a href="/entry-form/mng-bill" class="btn box-content mx-2" style="font-size: 20px">Manage <b>Monthly Bills</b></a>
-                </div>
-            </div>
-        </div>
+            });
+        </script>
 
         <br>
         <br>
@@ -96,6 +70,9 @@
 
     </div>
 
+    <br>
+    <br>
+    <br>
 
 </body>
 </html>

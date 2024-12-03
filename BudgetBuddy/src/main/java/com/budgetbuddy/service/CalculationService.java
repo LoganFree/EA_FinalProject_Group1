@@ -1,44 +1,59 @@
 package com.budgetbuddy.service;
 
+import com.budgetbuddy.dto.Earning;
+import org.springframework.stereotype.Service;
+
+/**
+ * This is a Service class for calculating the budget based on earnings and expenses.
+ * <p>
+ * This service provides methods for calculating a weekly budget, which can be based on either
+ * yearly salary or weekly earnings, as well as handling the impact of weekly expenses and monthly bills.
+ * </p>
+ *
+ * @author Logan Freeman, Loc Nguyen, Anthony Johnson, Alex Brooksbank, Mckelvin Ofosu-Frimpong
+ */
+
+@Service
 public class CalculationService {
 
-    private boolean earnIsYearly;
-    private double earnAmount;
-    private double weeklyHours;
+    public double calculateTotalBudgetForWeek(double totalBill, double totalExpense, Earning recentEarning)
+    {
+        // get most recent Earning amount
+        double recentEarningAmount = recentEarning.getEarnAmount();
 
-    private double weeklyExpensesTotal;
+        // get most recent Earning type
+        boolean recentEarningType = recentEarning.isEarnIsYearly();
 
-    private double monthlyBill;
+        // is Yearly
+        if(recentEarningType)
+        {
+            // divide most recent Earning amount by 52 to get weekly Earning amount
+            double weeklyEarningAmount = recentEarningAmount / 52;
 
-    public double weeklyBudget;
+            // subtract bills and expenses from weekly Earning amount
+            double weeklyBudget = (weeklyEarningAmount - totalBill) - totalExpense;
 
-
-
-    public CalculationService(boolean earnIsSalary, double earnAmount, double weeklyHours) {
-
-        //get base weekly budget
-        if (earnIsYearly == true){
-            //divide salary wage by how many weeks there are in a year
-            //this yields the weekly budget
-            weeklyBudget = earnAmount/52;
+            // return weekly Budget
+            return Math.round(weeklyBudget * 100.0) / 100.0;
         }
-        else if (earnIsYearly == false){
-            //multiply weekly wage by how many hours are worked in a week
-            //this yields the weekly budget
-            weeklyBudget = earnAmount*weeklyHours;
+        // is Hourly
+        else if (!recentEarningType)
+        {
+            // get weekly Hours for most recent Earning
+            double weeklyHours = recentEarning.getWeeklyHours();
+
+            // multiply most recent Earning amount by most the Earning's weekly hours to get weekly Earning amount
+            double weeklyEarningAmount = recentEarningAmount * weeklyHours;
+
+            // subtract bills and expenses from weekly Earning amount
+            double weeklyBudget = (weeklyEarningAmount - totalBill) - totalExpense;
+
+            // return weekly Budget
+            return Math.round(weeklyBudget * 100.0) / 100.0;
+
         }
 
-
-        //subtract weekly expenses
-
-
-
-
-        //subtract monthly bill if it is due in the week
-        //get from WeekDayService?
-
-
-
+        return 0;
     }
 
 

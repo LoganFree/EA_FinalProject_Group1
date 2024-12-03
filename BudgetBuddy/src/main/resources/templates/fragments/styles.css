@@ -50,6 +50,20 @@ input[type="radio"] {
     border-radius: 10px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
+.btn.box-content {
+    background: radial-gradient(circle, #f5ccc9, #ededed, #ededed);
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    color: #450202;
+    margin: 25px 0;
+}
+.btn.box-content:hover {
+    background: radial-gradient(circle, #f5ccc9, #ededed);
+    text-decoration: underline;
+}
 .slim-btn-content {
     padding: 5px 20px;
     text-align: center;
@@ -57,6 +71,26 @@ input[type="radio"] {
     border: 2px solid white;
     border-radius: 10px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.async-btn.loading {
+    box-shadow: none !important;
+    background-color: #f5ccc9;
+    border: 3px solid #ededed;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+@keyframes pulse {
+    0% {
+        border: 3px solid #ededed;
+        background: radial-gradient(circle, #f5ccc9, #ededed, #ededed);
+    }
+    50% {
+        border: 3px solid #f5ccc9;
+        background: radial-gradient(circle, #f5ccc9, #ededed);
+    }
+    100% {
+        border: 3px solid #ededed;
+        background: radial-gradient(circle, #f5ccc9, #ededed, #ededed);
+    }
 }
 
 .box-content {
@@ -68,6 +102,7 @@ input[type="radio"] {
     padding: 15px 30px;
     margin: 5px;
 }
+
 .input-pair {
     display: flex;
     align-items: center;
@@ -110,7 +145,7 @@ th, td { /*Formatted like the forms above it*/
     border: 1px solid white;
 }
 .table td, .table th {
-    width: 25%; /* Ensure all columns have equal width */
+    width: 20%; /* Ensure all columns have equal width */
 }
 
 .row {
@@ -120,14 +155,20 @@ th, td { /*Formatted like the forms above it*/
 .col {
     padding: 0 !important; /* Remove padding in the grid layout */
 }
-tfoot input {
+tbody input {
     width: 100%; /* Input takes full width of the table cell */
     text-align: center;
     padding: 5px;
 }
 
-tfoot button {
-    width: 100%; /* Button takes full width of the table cell */
+tfoot button, tbody button {
+    width: 45%; /* Button takes most of the width of the table cell */
     padding: 10px; /* Ensure the button has a good size without overflow */
     text-align: center;
+}
+
+.delete-btn {
+    color: white; !important;
+    background-color: #fa7373 !important;
+    width: 100%; !important;
 }
