@@ -64,7 +64,7 @@ Keeping track of your budget can be a difficult task. Budget Buddy is a web-app 
    - When: The user inputs the amount spent, the category for the expense, a description, and other optional information.
    - Then: The system validates the inputs, insuring the amount is greater than 0 and that both the category and description are valid, then stores the information in the database. If the validation fails, an error message is displayed, prompting the user to correct the input.
   
-2. User Edit Entry Form Service - I want to delte expense information in my budget.
+2. User Delete Entry Form Service - I want to delete expense information in my budget.
    - Given: A user needs to delete their expense information, such as food, grocery,etc.
    - When: The user delete personal expenese, bills in the manage page.
    - Then: The system validates and ensure the expense and bill that user wants to delete is existing. If the validation fails, an error message is displayed, prompting the user to try again.
@@ -103,10 +103,14 @@ Keeping track of your budget can be a difficult task. Budget Buddy is a web-app 
                 },
                 "Expense": {
                     "$ref": "#/definitions/Expense"
+                },
+                "Category": {
+                    "$ref": "#/definitions/Category"
                 }
             },
             "required": [
                 "Bill",
+                "Category",
                 "Earning",
                 "Expense"
             ],
@@ -116,8 +120,11 @@ Keeping track of your budget can be a difficult task. Budget Buddy is a web-app 
             "type": "object",
             "additionalProperties": false,
             "properties": {
-                "billAmount": {
+                "billID": {
                     "type": "integer"
+                },
+                "billAmount": {
+                    "type": "double"
                 },
                 "billDueDate": {
                     "type": "string"
@@ -129,24 +136,54 @@ Keeping track of your budget can be a difficult task. Budget Buddy is a web-app 
             "required": [
                 "billAmount",
                 "billDescription",
-                "billDueDate"
+                "billDueDate",
+                "billID"
             ],
             "title": "Bill"
+        },
+        "Category": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "category_id": {
+                    "type": "integer"
+                },
+                "category_names": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "category_id",
+                "category_names"
+            ],
+            "title": "Category"
         },
         "Earning": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
-                "earnIsSalary": {
+                "earnID": {
+                    "type": "long"
+                },
+                "earnIsYearly": {
                     "type": "boolean"
                 },
                 "earnAmount": {
-                    "type": "integer"
+                    "type": "Double"
+                },
+                "weeklyHours": {
+                    "type": "double"
+                },
+                "earnDate": {
+                    "type": "string"
                 }
             },
             "required": [
                 "earnAmount",
-                "earnIsSalary"
+                "earnDate",
+                "earnID",
+                "earnIsYearly",
+                "weeklyHours"
             ],
             "title": "Earning"
         },
@@ -154,8 +191,14 @@ Keeping track of your budget can be a difficult task. Budget Buddy is a web-app 
             "type": "object",
             "additionalProperties": false,
             "properties": {
-                "expAmount": {
+                "expID": {
                     "type": "integer"
+                },
+                "expAmount": {
+                    "type": "double"
+                },
+                "expDate": {
+                    "type": "string"
                 },
                 "expCategory": {
                     "type": "string"
@@ -167,13 +210,14 @@ Keeping track of your budget can be a difficult task. Budget Buddy is a web-app 
             "required": [
                 "expAmount",
                 "expCategory",
-                "expDescription"
+                "expDate",
+                "expDescription",
+                "expID"
             ],
             "title": "Expense"
         }
     }
 }
-
 
 ```
 ---
