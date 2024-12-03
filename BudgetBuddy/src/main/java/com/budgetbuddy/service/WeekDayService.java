@@ -10,7 +10,6 @@ import java.time.format.DateTimeParseException;
 import java.time.temporal.IsoFields;
 import java.time.temporal.WeekFields;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Service class for handling operations related to weekdays and weeks.

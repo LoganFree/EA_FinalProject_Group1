@@ -1,7 +1,6 @@
 package com.budgetbuddy.dao.EarningDAO;
 
 import com.budgetbuddy.dto.Earning;
-import com.budgetbuddy.dto.Expense;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

@@ -1,7 +1,6 @@
 package com.budgetbuddy.dao.EarningDAO;
 
 import com.budgetbuddy.dto.Earning;
-import com.budgetbuddy.dto.Expense;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

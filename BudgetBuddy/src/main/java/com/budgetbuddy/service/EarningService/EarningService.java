@@ -3,7 +3,6 @@ package com.budgetbuddy.service.EarningService;
 import com.budgetbuddy.dao.EarningDAO.EarningRepository;
 import com.budgetbuddy.dao.EarningDAO.IEarningDAO;
 import com.budgetbuddy.dto.Earning;
-import com.budgetbuddy.dto.Expense;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

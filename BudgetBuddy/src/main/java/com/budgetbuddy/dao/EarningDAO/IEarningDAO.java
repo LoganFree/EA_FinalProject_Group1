@@ -1,7 +1,6 @@
 package com.budgetbuddy.dao.EarningDAO;
-import com.budgetbuddy.dto.Earning;
-import com.budgetbuddy.dto.Expense;
 
+import com.budgetbuddy.dto.Earning;
 import java.util.List;
 
 public interface IEarningDAO {
