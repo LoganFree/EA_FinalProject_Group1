@@ -13,6 +13,7 @@
 <div th:replace="fragments/topnav :: navbar">
 </div>
 
+
 <div class="divider d-flex justify-content-center">
     <br>
     <div class="box-content" style="margin: 20px">
@@ -22,13 +23,29 @@
     <br>
 </div>
 
-<div class="d-flex justify-content-center align-items-center" style="height: 50vh;">
-    <div>
-        <a href="/entry-form" class="btn btn-content mx-2">Entry Form</a>
-        <a href="/dashboard" class="btn btn-content mx-2">Dashboard</a>
+<div class="body-content">
+
+    <div class="container">
+        <!-- Earning Management -->
+        <div class="row my-5">
+            <div class="col">
+                <a href="/entry-form" class="btn btn-primary box-content w-100 fs-5">
+                    <b>Entry Form</b>
+                </a>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <!-- Expenses Management -->
+        <div class="row my-5">
+            <div class="col">
+                <a href="/dashboard" class="btn btn-primary box-content w-100 fs-5">
+                    <b>Dashboard</b>
+                </a>
+            </div>
+        </div>
+        <div class="divider"></div>
     </div>
 </div>
-
 
 </body>
 </html>
