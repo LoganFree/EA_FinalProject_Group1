@@ -12,6 +12,8 @@ username: admin
 
 password: admin
 
+spring.jpa.hibernate.ddl-auto = create
+
 ---
 Database Structure-
 
