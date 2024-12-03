@@ -10,11 +10,19 @@
 </head>
 <body>
 
+<!-- Top Nav -->
 <div th:replace="fragments/topnav :: navbar"></div>
 
-<div class="body-content">
+<!-- Page Title -->
+<div class="divider d-flex justify-content-center align-items-center">
+    <a class="navbar-brand"><b>Dashboard</b></a>
+</div>
 
+<!-- Content -->
+<div class="body-content">
     <div class="flex-container">
+
+        <!-- Week Selection Box -->
         <div class="question-content divider">
             <p><b>Week:</b></p>
             <div class="flex-container">
@@ -27,6 +35,7 @@
             </div>
         </div>
 
+        <!-- Weekly Budget Box -->
         <div class="question-content divider">
             <p><b> Weekly Budget:</b></p>
             <div class="flex-container">
@@ -36,6 +45,8 @@
                     </span>
                 </div>
             </div>
+
+            <!-- Display Most Recent Earning -->
             <div th:each="earning : ${recentearning}">
 
                 Most recent earning: $<span th:text="${earning.earnAmount}"></span> <span th:text="${earning.earnIsYearly ? 'yearly' : 'hourly'}"></span> on <span th:text="${earning.earnDate}"></span>
@@ -46,6 +57,7 @@
 
     <div class="flex-container">
 
+        <!-- Weekly Expenses Box -->
         <div class="question-content divider">
             <p><b>Weekly Expenses:</b></p>
             <div class="flex-container">
@@ -58,6 +70,7 @@
             <div> Total Expenses: $<span th:text="${totalExpenses}"></span> </div>
         </div>
 
+        <!-- Monthly Bills Box -->
         <div class="question-content divider">
             <p><b>Monthly Bills:</b></p>
             <div class="flex-container">
@@ -71,7 +84,6 @@
         </div>
 
     </div>
-
 
 </div>
 
