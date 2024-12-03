@@ -16,8 +16,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class CalculationService {
 
-    public double calculateTotalBudgetForWeek(double totalBill, double totalExpense, Earning recentEarning)
-    {
+    public double calculateTotalBudgetForWeek(double totalBill, double totalExpense, Earning recentEarning) {
+        // Validate inputs
+        if (totalBill < 0 || totalExpense < 0) {
+            throw new IllegalArgumentException("Total bill and expense must be non-negative.");
+        }
+
+        if (recentEarning == null) {
+            throw new NullPointerException("Recent earning cannot be null.");
+        }
+
+        if (recentEarning.getEarnAmount() < 0) {
+            throw new IllegalArgumentException("Earning amount must be non-negative.");
+        }
+
+        if (!recentEarning.isEarnIsYearly() && recentEarning.getWeeklyHours() <= 0) {
+            throw new IllegalArgumentException("Weekly hours must be positive for hourly earnings.");
+        }
+
         // get most recent Earning amount
         double recentEarningAmount = recentEarning.getEarnAmount();
 
@@ -25,8 +41,7 @@ public class CalculationService {
         boolean recentEarningType = recentEarning.isEarnIsYearly();
 
         // is Yearly
-        if(recentEarningType)
-        {
+        if (recentEarningType) {
             // divide most recent Earning amount by 52 to get weekly Earning amount
             double weeklyEarningAmount = recentEarningAmount / 52;
 
@@ -37,12 +52,11 @@ public class CalculationService {
             return Math.round(weeklyBudget * 100.0) / 100.0;
         }
         // is Hourly
-        else if (!recentEarningType)
-        {
+        else if (!recentEarningType) {
             // get weekly Hours for most recent Earning
             double weeklyHours = recentEarning.getWeeklyHours();
 
-            // multiply most recent Earning amount by most the Earning's weekly hours to get weekly Earning amount
+            // multiply most recent Earning amount by the Earning's weekly hours to get weekly Earning amount
             double weeklyEarningAmount = recentEarningAmount * weeklyHours;
 
             // subtract bills and expenses from weekly Earning amount
@@ -55,6 +69,5 @@ public class CalculationService {
 
         return 0;
     }
-
 
 }
