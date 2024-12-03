@@ -3,23 +3,25 @@
 
 Database Implementation-
 
-WAMP Server's phpMyAdmin
+- WAMP Server's phpMyAdmin
 
 ---
 User Account (see "application.properties" file)-
 
-username: admin
+- username: admin
 
-password: admin
-
-spring.jpa.hibernate.ddl-auto = create
+- password: admin
 
 ---
 Database Structure-
 
-name: budgetbuddy
+- database name: budgetbuddy
 
-tables: see "SQL_Imports" folder on project to download tables.
+- tables: see "SQL_Imports" folder on project to download tables.
+   - bill.sql
+   - expense.sql
+   - earning.sql
+   - category.sql
 
 ---
 ## 1. Title
