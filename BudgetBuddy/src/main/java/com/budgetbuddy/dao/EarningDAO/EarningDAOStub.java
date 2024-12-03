@@ -20,7 +20,7 @@ import java.util.Map;
  * Earnings are stored in a {@link HashMap} with their IDs as keys and {@link Earning} objects as values.
  * </p>
  *
- * @author Logan Freeman, Loc Nguyen, Anthony, Alex Brooksbank, Mckelvin Ofosu-Frimpong
+ * @author Logan Freeman, Loc Nguyen, Anthony Johnson, Alex Brooksbank, Mckelvin Ofosu-Frimpong
  */
 
 @Repository

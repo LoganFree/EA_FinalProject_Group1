@@ -21,7 +21,7 @@ import java.util.List;
  * indicating that it is a service component in the Spring context.
  * </p>
  *
- * @author Logan Freeman, Loc Nguyen, Anthony, Alex Brooksbank, Mckelvin Ofosu-Frimpong
+ * @author Logan Freeman, Loc Nguyen, Anthony Johnson, Alex Brooksbank, Mckelvin Ofosu-Frimpong
  */
 
 @Service

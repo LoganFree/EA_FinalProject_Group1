@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * yearly salary or weekly earnings, as well as handling the impact of weekly expenses and monthly bills.
  * </p>
  *
- * @author Logan Freeman, Loc Nguyen, Anthony, Alex Brooksbank, Mckelvin Ofosu-Frimpong
+ * @author Logan Freeman, Loc Nguyen, Anthony Johnson, Alex Brooksbank, Mckelvin Ofosu-Frimpong
  */
 
 @Service

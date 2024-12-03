@@ -18,7 +18,7 @@ import java.util.List;
  * This implementation uses the {@link BillRepository} interface to delegate database interactions.
  * </p>
  *
- * @author Logan Freeman, Loc Nguyen, Anthony, Alex Brooksbank, Mckelvin Ofosu-Frimpong
+ * @author Logan Freeman, Loc Nguyen, Anthony Johnson, Alex Brooksbank, Mckelvin Ofosu-Frimpong
  */
 
 @Repository("billDAO")

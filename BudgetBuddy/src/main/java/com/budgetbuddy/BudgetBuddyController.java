@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
  * It also provides functionality for viewing the dashboard, selecting weeks, and fetching data from the database.
  * </p>
  *
- * @author Logan Freeman, Loc Nguyen, Anthony, Alex Brooksbank, Mckelvin Ofosu-Frimpong
+ * @author Logan Freeman, Loc Nguyen, Anthony Johnson, Alex Brooksbank, Mckelvin Ofosu-Frimpong
  */
 
 @Controller

@@ -19,7 +19,7 @@ import java.util.Map;
  * The class is annotated with {@link Repository} to indicate its role in the persistence layer, although it does not interact with an actual database.
  * </p>
  *
- * @author Logan Freeman, Loc Nguyen, Anthony, Alex Brooksbank, Mckelvin Ofosu-Frimpong
+ * @author Logan Freeman, Loc Nguyen, Anthony Johnson, Alex Brooksbank, Mckelvin Ofosu-Frimpong
  */
 
 @Repository

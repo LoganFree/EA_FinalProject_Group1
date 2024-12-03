@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.time.temporal.TemporalAdjusters;
+import java.time.temporal.IsoFields;
 import java.time.temporal.WeekFields;
 import java.util.List;
 import java.util.Locale;
@@ -19,7 +19,7 @@ import java.util.Locale;
  * It can return the start and end date of the week in a formatted string.
  * </p>
  *
- * @author Logan Freeman, Loc Nguyen, Anthony, Alex Brooksbank, Mckelvin Ofosu-Frimpong
+ * @autor Logan Freeman, Loc Nguyen, Anthony Johnson, Alex Brooksbank, Mckelvin Ofosu-Frimpong
  */
 
 @Service
@@ -34,16 +34,17 @@ public class WeekDayService {
                 int year = Integer.parseInt(parts[0]);
                 int weekNumber = Integer.parseInt(parts[1]);
 
-                LocalDate firstDayOfYear = LocalDate.of(year, 1, 1);
-                LocalDate monday = firstDayOfYear
-                        .with(TemporalAdjusters.previousOrSame(WeekFields.of(Locale.getDefault()).getFirstDayOfWeek()))
-                        .plusWeeks(weekNumber - 1);
+                LocalDate date = LocalDate.now()
+                        .withYear(year)
+                        .with(IsoFields.WEEK_OF_WEEK_BASED_YEAR, weekNumber)
+                        .with(WeekFields.ISO.getFirstDayOfWeek());
 
-                LocalDate endDate = monday.plusDays(6);
+                LocalDate startOfWeek = date.with(WeekFields.ISO.getFirstDayOfWeek());
+                LocalDate endOfWeek = startOfWeek.plusDays(6);
 
                 return String.format("%d/%d-%d/%d",
-                        monday.getMonthValue(), monday.getDayOfMonth(),
-                        endDate.getMonthValue(), endDate.getDayOfMonth());
+                        startOfWeek.getMonthValue(), startOfWeek.getDayOfMonth(),
+                        endOfWeek.getMonthValue(), endOfWeek.getDayOfMonth());
             } else {
                 return "No week selected";
             }
@@ -102,14 +103,15 @@ public class WeekDayService {
                 int year = Integer.parseInt(parts[0]);
                 int weekNumber = Integer.parseInt(parts[1]);
 
-                LocalDate firstDayOfYear = LocalDate.of(year, 1, 1);
-                LocalDate monday = firstDayOfYear
-                        .with(TemporalAdjusters.previousOrSame(WeekFields.of(Locale.getDefault()).getFirstDayOfWeek()))
-                        .plusWeeks(weekNumber - 1);
+                LocalDate date = LocalDate.now()
+                        .withYear(year)
+                        .with(IsoFields.WEEK_OF_WEEK_BASED_YEAR, weekNumber)
+                        .with(WeekFields.ISO.getFirstDayOfWeek());
 
-                LocalDate endDate = monday.plusDays(6);
+                LocalDate startOfWeek = date.with(WeekFields.ISO.getFirstDayOfWeek());
+                LocalDate endOfWeek = startOfWeek.plusDays(6);
 
-                return new LocalDate[]{monday, endDate};
+                return new LocalDate[]{startOfWeek, endOfWeek};
             } else {
                 throw new IllegalArgumentException("Week cannot be null or empty");
             }
