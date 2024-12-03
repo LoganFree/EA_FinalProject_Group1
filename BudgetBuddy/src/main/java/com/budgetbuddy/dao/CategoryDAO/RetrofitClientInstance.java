@@ -18,15 +18,22 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RetrofitClientInstance {
+    // Retrofit instance
     private static Retrofit retrofit;
+
+    // Base URL for the API
     private static String BASE_URL = "https://api.categoryapi.com/";
+
+    // Method to get or create a Retrofit instance
     public static Retrofit getRetrofitInstance() {
+        // Check if Retrofit instance is already initialized
         if (retrofit == null) {
+            // Build the Retrofit instance
             retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .baseUrl(BASE_URL) // Set the base URL
+                    .addConverterFactory(GsonConverterFactory.create()) // Add Gson converter for JSON parsing
                     .build();
         }
-        return retrofit;
+        return retrofit; // Return the initialized Retrofit instance
     }
 }

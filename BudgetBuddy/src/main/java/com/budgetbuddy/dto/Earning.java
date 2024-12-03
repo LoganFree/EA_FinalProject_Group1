@@ -19,12 +19,4 @@ public @Data class Earning {
     private double weeklyHours;
     private String earnDate;
 
-    public LocalDate getDate() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        return LocalDate.parse(earnDate, formatter);
-    }
-
-    public double getWeeklyHours() {
-        return weeklyHours;
-    }
 }

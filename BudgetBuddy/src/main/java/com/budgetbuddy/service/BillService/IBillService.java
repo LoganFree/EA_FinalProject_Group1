@@ -10,8 +10,6 @@ public interface IBillService {
     //Bill management
     Bill save(Bill bill);
 
-    Bill getBillById(int id);
-
     void deleteBill(int id);
 
     List<Bill> getAllBills();
