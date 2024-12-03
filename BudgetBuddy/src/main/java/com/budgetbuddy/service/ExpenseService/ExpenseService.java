@@ -36,11 +36,6 @@ public class ExpenseService implements IExpenseService {
     @Autowired
     private ICategoryDAO categoryDAO;
 
-    @Override
-    public List<Expense> getExpensesByCategory(String category) {
-        return expenseDAO.getExpenseByCategory(category);
-    }
-
     @Cacheable("category")
     @Override
     public List<Category> getCategories() throws Exception{

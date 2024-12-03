@@ -8,7 +8,6 @@ public interface IExpenseDAO {
 
         //Expense management
         Expense save(Expense expense);
-        List<Expense> getExpenseByCategory(String category);
         void deleteExpense(int id);
         List<Expense> getAllExpenses();
 

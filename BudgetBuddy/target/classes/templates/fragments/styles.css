@@ -62,6 +62,7 @@ input[type="radio"] {
 }
 .btn.box-content:hover {
     background: radial-gradient(circle, #f5ccc9, #ededed);
+    border: 3px solid #f5ccc9;
     text-decoration: underline;
 }
 .slim-btn-content {
@@ -84,7 +85,7 @@ input[type="radio"] {
         background: radial-gradient(circle, #f5ccc9, #ededed, #ededed);
     }
     50% {
-        border: 3px solid #f5ccc9;
+        border: 3px solid #450202;
         background: radial-gradient(circle, #f5ccc9, #ededed);
     }
     100% {
@@ -132,16 +133,16 @@ input[type="radio"] {
 }
 
 table { /*Formatted like the forms above it*/
-    background-color: #ededed;
-    border: 2px solid white !important;
+    background-color: #ededed !important;
+    border: 2px solid white;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
     width: 100%;
 }
 
 th, td { /*Formatted like the forms above it*/
+    background-color: #ededed !important;
     text-align: center;
     padding: 10px;
-    background-color: #ededed !important;
     border: 1px solid white;
 }
 .table td, .table th {

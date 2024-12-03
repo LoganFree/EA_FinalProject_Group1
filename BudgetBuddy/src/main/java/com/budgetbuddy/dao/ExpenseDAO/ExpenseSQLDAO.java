@@ -36,11 +36,6 @@ public class ExpenseSQLDAO implements IExpenseDAO {
     }
 
     @Override
-    public List<Expense> getExpenseByCategory(String category) {
-        return List.of();
-    }
-
-    @Override
     public void deleteExpense(int id) {
         expenseRepo.deleteById(id);
     }

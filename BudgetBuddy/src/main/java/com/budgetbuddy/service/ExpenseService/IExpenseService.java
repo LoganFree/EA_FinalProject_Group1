@@ -9,7 +9,6 @@ public interface IExpenseService {
 
     //Expense management
     Expense save(Expense expense);
-    List<Expense> getExpensesByCategory(String category);
     void deleteExpense(int id);
     List<Expense> getAllExpenses();
     List<Category> getCategories() throws Exception;
