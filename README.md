@@ -41,11 +41,16 @@ Keeping track of your budget can be a difficult task. Budget Buddy is a web-app 
 - Objective 5: Establish a Database for storing user and budget data.
 - Objective 6: Design a Dashboard Service for visualizing budget information.
 ---
-## 3. Story Board
+## 3. Screenshots
 
-![Storyboard1](https://github.com/user-attachments/assets/8a45a157-f91e-49d8-b060-4d1f5393890a)
+![Screenshot 2024-12-02 185705](https://github.com/user-attachments/assets/828b5acf-8a03-44a4-ac4b-50475e3067b2)
 
-![Storyboard2](https://github.com/user-attachments/assets/1dc1e34b-cf24-4c7d-86f5-1d841b323b4d)
+![Screenshot 2024-12-02 185728](https://github.com/user-attachments/assets/bde9e8bc-68ca-4898-ae93-dc1827bd75f4)
+
+![Screenshot 2024-12-02 185756](https://github.com/user-attachments/assets/f6840a80-6129-4291-a864-0d21736ef43a)
+
+![Screenshot 2024-12-02 185820](https://github.com/user-attachments/assets/be2dd393-6dd0-4f02-bd92-805a340977cf)
+
 
 ---
 
