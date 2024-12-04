@@ -41,7 +41,7 @@
             <div class="flex-container">
                 <div class="box-content">
                     <span style="font-size: 30px; font-weight: bold;">
-                        $<span th:text="${weeklyBudget}"></span>
+                        $<span id="weeklyBudget" th:text="${weeklyBudget}"></span>
                     </span>
                 </div>
             </div>
@@ -55,6 +55,7 @@
         </div>
     </div>
 
+    <!-- Expenses and Bills Section -->
     <div class="flex-container">
 
         <!-- Weekly Expenses Box -->
@@ -63,11 +64,11 @@
             <div class="flex-container">
                 <ul>
                     <li class="box-content" style="display: block" th:each="expense : ${weeklyExpenses}">
-                        <span th:text="${expense.expCategory}"></span> | <span th:text="${expense.expDescription}"></span> | $<span th:text="${expense.expAmount}"></span>
+                        <span th:text="${expense.expCategory}"></span> | <span th:text="${expense.expDescription}"></span> | <b>$<span th:text="${expense.expAmount}"></span></b>
                     </li>
                 </ul>
             </div>
-            <div> Total Expenses: $<span th:text="${totalExpenses}"></span> </div>
+            <div> Total Expenses: <b>$<span th:text="${totalExpenses}"></span></b> </div>
         </div>
 
         <!-- Monthly Bills Box -->
@@ -76,16 +77,36 @@
             <div class="flex-container">
                 <ul>
                     <li class="box-content" style="display: block" th:each="bill : ${weeklyBills}">
-                        <span th:text="${bill.billDescription}"></span> | $<span th:text="${bill.billAmount}"></span> | due on <span th:text="${#strings.substring(bill.billDueDate, 8, 10)}"></span>
+                        <span th:text="${bill.billDescription}"></span> | due on <span th:text="${#strings.substring(bill.billDueDate, 8, 10)}"></span> | <b>$<span th:text="${bill.billAmount}"></span></b>
                     </li>
                 </ul>
             </div>
-            <div> Total Bills: $<span th:text="${totalBills}"></span> </div>
+            <div> Total Bills: <b>$<span th:text="${totalBills}"></span></b> </div>
         </div>
 
     </div>
 
 </div>
+
+<!-- Script to control weeklyBudget color -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var weeklyBudgetElement = document.getElementById("weeklyBudget");
+        var weeklyBudget = parseFloat(weeklyBudgetElement.textContent);
+
+        if (weeklyBudget > 0) {
+            // Budget is green when above 0
+            weeklyBudgetElement.style.color = "#2c7a2a";
+        } else if (weeklyBudget < 0) {
+            // Budget is red when below 0
+            weeklyBudgetElement.style.color = "#c23232";
+        } else {
+            // Budget is black by default
+            weeklyBudgetElement.style.color = "black";
+        }
+    });
+</script>
+
 
 </body>
 </html>
