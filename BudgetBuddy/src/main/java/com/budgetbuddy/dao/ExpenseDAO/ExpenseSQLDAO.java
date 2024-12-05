@@ -27,8 +27,6 @@ import java.util.List;
 public class ExpenseSQLDAO implements IExpenseDAO {
     @Autowired
     ExpenseRepository expenseRepo;
-    @Autowired
-    private BillRepository billRepository;
 
     @Override
     public Expense save(Expense expense) {
